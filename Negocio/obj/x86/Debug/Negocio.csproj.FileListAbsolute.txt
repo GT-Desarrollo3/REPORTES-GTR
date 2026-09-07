@@ -1,0 +1,100 @@
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+P:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+P:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+P:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+P:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+D:\jtoribio\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+D:\jtoribio\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+D:\jtoribio\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+D:\jtoribio\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+P:\NUEVO\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+P:\NUEVO\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+P:\NUEVO\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+P:\NUEVO\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.dll
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+D:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.pdb
+D:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+D:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+D:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.dll
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+Y:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.pdb
+Y:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+Y:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+Y:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.dll
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+Z:\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.pdb
+Z:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+Z:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+Z:\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.dll
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+D:\Proyectos\ReportesTranspesa\Negocio\bin\x86\Debug\Comun.pdb
+D:\Proyectos\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+D:\Proyectos\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+D:\Proyectos\ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Negocio.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Comun.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\itextsharp.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\AccesoDatos.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\bin\x86\Debug\Comun.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\obj\x86\Debug\Negocio.pdb

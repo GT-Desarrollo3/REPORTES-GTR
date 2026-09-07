@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tci.net.pe/WS_GuiaRemisionTransportista/" elementFormDefault="qualified" targetNamespace="http://tci.net.pe/WS_GuiaRemisionTransportista/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RegistrarGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_GuiaRemisionTransportista" type="tns:ene_GuiaRemisionTransportista" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_GuiaRemisionTransportista">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="at_ControlOtorgamiento" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_TransportistaGRT" type="tns:en_TransportistaGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_RemitenteGRT" type="tns:en_RemitenteGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_DestinatarioGRT" type="tns:en_DestinatarioGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_ContratistaGRT" type="tns:en_ContratistaGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_EmpresaSubcontratadaGRT" type="tns:en_EmpresaSubcontratadaGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_DatosGeneralesGRT" type="tns:en_DatosGeneralesGRT" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_InformacionAdicionalGRT" type="tns:en_InformacionAdicionalGRT" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en_AutenticacionGeneral">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_Autenticacion" type="tns:en_Autenticacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_Autenticacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Ruc" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Clave" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_TransportistaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_RazonSocial" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreComercial" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroMTC" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroAutorizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoAutorizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Telefono" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CorreoContacto" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_SitioWeb" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_DireccionFiscalTransportistaGRT" type="tns:en_DireccionFiscalTransportistaGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_CorreoGRT" type="tns:en_CorreoGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_DireccionFiscalTransportistaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Ubigeo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_DireccionDetallada" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Urbanizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Provincia" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Departamento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Distrito" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoPais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_CorreoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CorreoPrincipal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="aa_CorreoSecundario" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_RemitenteGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_RazonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_DestinatarioGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_RazonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ContratistaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_RazonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_EmpresaSubcontratadaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_RazonSocial" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_DatosGeneralesGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaEmision" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_HoraEmision" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="aa_Observacion" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_DocumentoRelacionadoGRT" type="tns:ArrayOfEn_DocumentoRelacionadoGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_InformacionTrasladoGRT" type="tns:en_InformacionTrasladoGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_DocumentoRelacionadoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_DocumentoRelacionadoGRT" nillable="true" type="tns:en_DocumentoRelacionadoGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_DocumentoRelacionadoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroComprobante" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoComprobante" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreComprobante" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_InformacionTrasladoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="aa_IndicadorServicio" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaInicio" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_InformacionPesoBrutoGRT" type="tns:en_InformacionPesoBrutoGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_PuntoPartidaGRT" type="tns:en_PuntoPartidaGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_PuntoLlegadaGRT" type="tns:en_PuntoLlegadaGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_VehiculoGRT" type="tns:ArrayOfEn_VehiculoGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_ConductorGRT" type="tns:ArrayOfEn_ConductorGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_BienesGRT" type="tns:ArrayOfEn_BienesGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_InformacionPesoBrutoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Peso" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_UnidadMedida" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="aa_DescripcionAdicional" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_PuntoPartidaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Ubigeo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_DireccionCompleta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Urbanizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Provincia" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Departamento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Distrito" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_LatitudGeografica" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_LongitudGeografica" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_PuntoLlegadaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Ubigeo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_DireccionCompleta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Urbanizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Provincia" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Departamento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Distrito" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_LatitudGeografica" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_LongitudGeografica" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_VehiculoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_VehiculoGRT" nillable="true" type="tns:en_VehiculoGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_VehiculoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroPlaca" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TarjetaCirculacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroAutorizacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoAutorizacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ConductorGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ConductorGRT" nillable="true" type="tns:en_ConductorGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ConductorGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Licencia" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Nombres" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Apellidos" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_BienesGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_BienesGRT" nillable="true" type="tns:en_BienesGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_BienesGRT">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Cantidad" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_UnidadMedida" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="aa_Descripcion" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Codigo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoProductoSUNAT" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoGTIN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_EstructuraGTIN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_SubpartidaNacional" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_IndicadorNormalizado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_InformacionAdicionalGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_LogoRepresentacionImpresa" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_Grupo" type="tns:ArrayOfEn_GrupoGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_IntegracionGRT" type="tns:en_IntegracionGRT" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_CamposDinamicosSuperiorGRT" type="tns:ArrayOfEn_CamposDinamicosSuperiorGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_GrupoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_GrupoGRT" nillable="true" type="tns:en_GrupoGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_GrupoGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Titulo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_Etiqueta" type="tns:ArrayOfEn_EtiquetaGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_EtiquetaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_EtiquetaGRT" nillable="true" type="tns:en_EtiquetaGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_EtiquetaGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Etiqueta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_IntegracionGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_TipoIntegracion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreArchivo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_SistemaEmision" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_CamposDinamicosSuperiorGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_CamposDinamicosSuperiorGRT" nillable="true" type="tns:en_CamposDinamicosSuperiorGRT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_CamposDinamicosSuperiorGRT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Valor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Concepto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistrarGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RegistrarGRTResult" type="tns:ens_Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_Respuesta">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreXML" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_CodigoError" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarRespuestaGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConsultarRespuesta" type="tns:ene_ConsultarRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConsultarRespuesta">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="at_CantidadConsultar" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConsultarRespuestaGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConsultarRespuestaGRTResult" type="tns:ens_ConsultarRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConsultarRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_ResultadoRespuestaComprobante" type="tns:ArrayOfEn_ResultadoRespuestaComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ResultadoRespuestaComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ResultadoRespuestaComprobante" nillable="true" type="tns:en_ResultadoRespuestaComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ResultadoRespuestaComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_RespuestaComprobante" type="tns:en_RespuestaComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_RespuestaComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_TipoRespuesta" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Descripcion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaRespuesta" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_CodigoRespuesta" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Mensaje" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmarRespuestaGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConfirmarRespuesta" type="tns:ene_ConfirmarRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConfirmarRespuesta">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="l_Comprobante" type="tns:ArrayOfEn_ComprobanteConfirmarRespuesta" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ComprobanteConfirmarRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ComprobanteConfirmarRespuesta" nillable="true" type="tns:en_ComprobanteConfirmarRespuesta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ComprobanteConfirmarRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_CodigoRespuesta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmarRespuestaGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConfirmarRespuestaGRTResult" type="tns:ens_ConfirmarRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConfirmarRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarEstadoGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConsultarEstado" type="tns:ene_ConsultarEstado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConsultarEstado">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="at_CantidadConsultar" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConsultarEstadoGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConsultarEstadoGRTResult" type="tns:ens_ConsultarEstadoGR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConsultarEstadoGR">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_ResultadoEstadoComprobante" type="tns:ArrayOfEn_ResultadoEstadoComprobanteGR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ResultadoEstadoComprobanteGR">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ResultadoEstadoComprobanteGR" nillable="true" type="tns:en_ResultadoEstadoComprobanteGR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ResultadoEstadoComprobanteGR">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_EstadoOtorgado" type="tns:en_EstadoOtorgado" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_EstadoLeido" type="tns:en_EstadoLeido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_EstadoOtorgado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaOtorgado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_EstadoLeido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaLeido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmarEstadoGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConfirmarEstado" type="tns:ene_ConfirmarEstado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConfirmarEstado">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="l_Comprobante" type="tns:ArrayOfEn_ComprobanteConfirmarEstado" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ComprobanteConfirmarEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ComprobanteConfirmarEstado" nillable="true" type="tns:en_ComprobanteConfirmarEstado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ComprobanteConfirmarEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmarEstadoGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConfirmarEstadoGRTResult" type="tns:ens_ConfirmarEstado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConfirmarEstado">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaIndividualGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConsultarComprobanteIndividual" type="tns:ene_ConsultarComprobanteIndividual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConsultarComprobanteIndividual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConsultaIndividualGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConsultaIndividualGRTResult" type="tns:ens_ConsultarComprobanteIndividual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConsultarComprobanteIndividual">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_InformacionComprobante" type="tns:en_InformacionComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_InformacionComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaGeneracion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaTransmision" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaOtorgamiento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaReversion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaLeido" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="l_respuestas" type="tns:ArrayOfEn_Respuestas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_Respuestas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_Respuestas" nillable="true" type="tns:en_Respuestas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_Respuestas">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NroRespuesta" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_CodigoRespuesta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Descripcion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaSunat" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarXMLGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConsultarXML" type="tns:ene_ConsultarXML" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConsultarXML">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_ComprobanteConsultarXML" type="tns:en_ComprobanteConsultarXML" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en_ComprobanteConsultarXML">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NumeroRespuesta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarXMLGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConsultarXMLGRTResult" type="tns:ens_ConsultarXML" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ConsultarXML">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_ResultadoXML" type="tns:en_ResultadoConsultarXML" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ResultadoConsultarXML">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_XML" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreXML" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaXML" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarRI_GRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_ConsultarRI" type="tns:ene_ConsultarRI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_ConsultarRI">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ent_Comprobante" type="tns:en_ComprobanteConsultarRI" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en_ComprobanteConsultarRI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarRI_GRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ConsultarRI_GRTResult" type="tns:ens_ResultadoRI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_ResultadoRI">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ent_Resultado" type="tns:en_ResultadoConsultarRI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ResultadoConsultarRI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_ArchivoRI" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_NombreRI" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_FechaGenerado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OtorgarGRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ent_OtorgarComprobante" type="tns:ene_OtorgarComprobante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ene_OtorgarComprobante">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:en_AutenticacionGeneral">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="at_NumeroDocumentoIdentidad" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="l_ComprobanteOtorgar" type="tns:ArrayOfEn_ComprobanteOtorgarComprobante" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEn_ComprobanteOtorgarComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="en_ComprobanteOtorgarComprobante" nillable="true" type="tns:en_ComprobanteOtorgarComprobante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="en_ComprobanteOtorgarComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="at_Serie" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="at_Numero" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OtorgarGRTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OtorgarGRTResult" type="tns:ens_OtorgarComprobante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ens_OtorgarComprobante">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="at_NivelResultado" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="at_MensajeResultado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

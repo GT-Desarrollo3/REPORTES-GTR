@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tci.net.pe/WS_GuiaRemisionTransportista/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioGuiaRemisionTransportista" targetNamespace="http://tci.net.pe/WS_GuiaRemisionTransportista/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="soap12_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tci.net.pe/WS_GuiaRemisionTransportista/Imports">
+      <xsd:import schemaLocation="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc?xsd=xsd0" namespace="http://tci.net.pe/WS_GuiaRemisionTransportista/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_RegistrarGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_RegistrarGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarRespuestaGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarRespuestaGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarRespuestaGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarRespuestaGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConfirmarRespuestaGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarRespuestaGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConfirmarRespuestaGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarRespuestaGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarEstadoGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarEstadoGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarEstadoGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarEstadoGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConfirmarEstadoGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarEstadoGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConfirmarEstadoGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarEstadoGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultaIndividualGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaIndividualGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultaIndividualGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaIndividualGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarXMLGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarXMLGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarXMLGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarXMLGRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarRI_GRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarRI_GRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_ConsultarRI_GRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarRI_GRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_OtorgarGRT_InputMessage">
+    <wsdl:part name="parameters" element="tns:OtorgarGRT" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGuiaRemisionTransportista_OtorgarGRT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OtorgarGRTResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioGuiaRemisionTransportista">
+    <wsdl:operation name="RegistrarGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/RegistrarGRT" message="tns:IServicioGuiaRemisionTransportista_RegistrarGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/RegistrarGRTResponse" message="tns:IServicioGuiaRemisionTransportista_RegistrarGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRespuestaGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRespuestaGRT" message="tns:IServicioGuiaRemisionTransportista_ConsultarRespuestaGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRespuestaGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConsultarRespuestaGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarRespuestaGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarRespuestaGRT" message="tns:IServicioGuiaRemisionTransportista_ConfirmarRespuestaGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarRespuestaGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConfirmarRespuestaGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstadoGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarEstadoGRT" message="tns:IServicioGuiaRemisionTransportista_ConsultarEstadoGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarEstadoGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConsultarEstadoGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarEstadoGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarEstadoGRT" message="tns:IServicioGuiaRemisionTransportista_ConfirmarEstadoGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarEstadoGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConfirmarEstadoGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaIndividualGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultaIndividualGRT" message="tns:IServicioGuiaRemisionTransportista_ConsultaIndividualGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultaIndividualGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConsultaIndividualGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarXMLGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarXMLGRT" message="tns:IServicioGuiaRemisionTransportista_ConsultarXMLGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarXMLGRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConsultarXMLGRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRI_GRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRI_GRT" message="tns:IServicioGuiaRemisionTransportista_ConsultarRI_GRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRI_GRTResponse" message="tns:IServicioGuiaRemisionTransportista_ConsultarRI_GRT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarGRT">
+      <wsdl:input wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/OtorgarGRT" message="tns:IServicioGuiaRemisionTransportista_OtorgarGRT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/OtorgarGRTResponse" message="tns:IServicioGuiaRemisionTransportista_OtorgarGRT_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="soap11" type="tns:IServicioGuiaRemisionTransportista">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/RegistrarGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRespuestaGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRespuestaGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarRespuestaGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarRespuestaGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstadoGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarEstadoGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarEstadoGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarEstadoGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaIndividualGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultaIndividualGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarXMLGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarXMLGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRI_GRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRI_GRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarGRT">
+      <soap:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/OtorgarGRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="soap12" type="tns:IServicioGuiaRemisionTransportista">
+    <wsp:PolicyReference URI="#soap12_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/RegistrarGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRespuestaGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRespuestaGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarRespuestaGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarRespuestaGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEstadoGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarEstadoGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarEstadoGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConfirmarEstadoGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaIndividualGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultaIndividualGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarXMLGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarXMLGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarRI_GRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/ConsultarRI_GRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarGRT">
+      <soap12:operation soapAction="http://tci.net.pe/WS_GuiaRemisionTransportista/IServicioGuiaRemisionTransportista/OtorgarGRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioGuiaRemisionTransportista">
+    <wsdl:port name="soap11" binding="tns:soap11">
+      <soap:address location="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc/soap11" />
+    </wsdl:port>
+    <wsdl:port name="soap12" binding="tns:soap12">
+      <soap12:address location="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc/soap12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc/soap12</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

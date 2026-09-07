@@ -1,0 +1,27 @@
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para FMBUtilitario.ControlExtensions: el tipo está sellado.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.Application: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word._Application: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.Document: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word._Document: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.WdExportFormat: el tipo es un tipo de valor.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.WdExportOptimizeFor: el tipo es un tipo de valor.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.WdExportRange: el tipo es un tipo de valor.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.WdExportItem: el tipo es un tipo de valor.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.WdExportCreateBookmarks: el tipo es un tipo de valor.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.ApplicationEvents4_Event: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.DocumentEvents2_Event: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.ApplicationEvents4: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar stub para Microsoft.Office.Interop.Word.DocumentEvents2: el tipo es generado por el compilador.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.Application: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word._Application: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.Document: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word._Document: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.WdExportFormat: el tipo es una enumeración.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.WdExportOptimizeFor: el tipo es una enumeración.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.WdExportRange: el tipo es una enumeración.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.WdExportItem: el tipo es una enumeración.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.WdExportCreateBookmarks: el tipo es una enumeración.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.ApplicationEvents4_Event: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.DocumentEvents2_Event: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.ApplicationEvents4: el tipo es una interfaz.
+D:\ReportesTranspesa\ReportesTranspesa\Fakes\FMBUtilitario.fakes : warning : No se puede generar shim para Microsoft.Office.Interop.Word.DocumentEvents2: el tipo es una interfaz.

@@ -1,0 +1,82 @@
+P:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+P:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+P:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+P:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+P:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+P:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+P:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+P:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+D:\jtoribio\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+D:\jtoribio\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+D:\jtoribio\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+D:\jtoribio\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+D:\jtoribio\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+D:\jtoribio\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+D:\jtoribio\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+D:\jtoribio\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+P:\NUEVO\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+P:\NUEVO\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+P:\NUEVO\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+P:\NUEVO\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+P:\NUEVO\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+P:\NUEVO\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+P:\NUEVO\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+P:\NUEVO\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+D:\ffffffffffffffffffffffff\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.dll
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.pdb
+D:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+D:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+D:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+D:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.dll
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.pdb
+Y:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+Y:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+Y:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+Y:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.dll
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.pdb
+Z:\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+Z:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+Z:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+Z:\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.dll
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.pdb
+D:\Proyectos\ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+D:\Proyectos\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+D:\Proyectos\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+D:\Proyectos\ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\AccesoDatos.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\itextsharp.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\Comun.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\bin\x86\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\x86\Debug\AccesoDatos.pdb

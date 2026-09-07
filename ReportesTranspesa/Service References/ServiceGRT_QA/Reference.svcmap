@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5125af60-6228-4090-afcd-23cf64d99ab9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioGuiaRemisionTransportista.disco" MetadataType="Disco" ID="75fd3159-cc80-4092-8572-26c4f33ef232" SourceId="1" SourceUrl="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc?disco" />
+    <MetadataFile FileName="ServicioGuiaRemisionTransportista.xsd" MetadataType="Schema" ID="ffa31a4a-7cdb-480e-8277-7b94428222b1" SourceId="1" SourceUrl="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioGuiaRemisionTransportista.wsdl" MetadataType="Wsdl" ID="525f2873-2b4a-4bb9-ad78-3a9767770ef6" SourceId="1" SourceUrl="http://172.16.0.11/WS_GuiaRemisionTransportista/ServicioGuiaRemisionTransportista.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

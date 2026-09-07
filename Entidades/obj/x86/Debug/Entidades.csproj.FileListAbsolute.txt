@@ -1,0 +1,36 @@
+P:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+P:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+P:\ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+P:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+P:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+P:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+D:\jtoribio\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+D:\jtoribio\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+D:\jtoribio\ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+D:\jtoribio\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\jtoribio\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+D:\jtoribio\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+D:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+D:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+D:\ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+D:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+D:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+Z:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+Z:\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+Z:\ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+Z:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+Z:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+Z:\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+D:\Proyectos\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+D:\Proyectos\ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+D:\Proyectos\ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+D:\Proyectos\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\Proyectos\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+D:\Proyectos\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb

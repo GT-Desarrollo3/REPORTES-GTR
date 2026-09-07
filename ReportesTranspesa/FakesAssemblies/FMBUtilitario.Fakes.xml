@@ -1,0 +1,557 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMBUtilitario.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:FMBUtilitario.Fakes.ShimControlExtensions">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.ControlExtensions</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimControlExtensions.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimControlExtensions.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimControlExtensions.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimControlExtensions.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimControlExtensions.DrawToImageControl">
+            <summary>Establecer el shim de ControlExtensions.DrawToImage(Control control)</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimDTM">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.DTM</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimDTM.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimDTM.#ctor(FMBUtilitario.DTM)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimDTM.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimDTM.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimDTM.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimDTM.Constructor">
+            <summary>Establecer el shim de DTM.DTM()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimDTM.GetDateTimeFromTimeSpanTimeSpan">
+            <summary>Establecer el shim de DTM.GetDateTimeFromTimeSpan(TimeSpan ts)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimDTM.GetTimeSpanFromDateTimeDateTime">
+            <summary>Establecer el shim de DTM.GetTimeSpanFromDateTime(DateTime dt)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimDTM.GetTimeSpanFromStringString">
+            <summary>Establecer el shim de DTM.GetTimeSpanFromString(String s)</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimDTM.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimErrorHandler">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.ErrorHandler</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimErrorHandler.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimErrorHandler.#ctor(FMBUtilitario.ErrorHandler)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimErrorHandler.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimErrorHandler.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.Constructor">
+            <summary>Establecer el shim de ErrorHandler.ErrorHandler()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.Error_Send">
+            <summary>Establecer el shim de ErrorHandler.Error_Send()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ExceptionAddString">
+            <summary>Establecer el shim de ErrorHandler.ExceptionAdd(String p)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ExceptionGetObject">
+            <summary>Establecer el shim de ErrorHandler.ExceptionGet(Object item)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ExceptionReset">
+            <summary>Establecer el shim de ErrorHandler.ExceptionReset()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.Exists">
+            <summary>Establecer el shim de ErrorHandler.Exists()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.FrmGet">
+            <summary>Establecer el shim de ErrorHandler.get_Frm()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.FrmSetString">
+            <summary>Establecer el shim de ErrorHandler.set_Frm(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.MsgGet">
+            <summary>Establecer el shim de ErrorHandler.get_Msg()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.MsgSetString">
+            <summary>Establecer el shim de ErrorHandler.set_Msg(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ProductGet">
+            <summary>Establecer el shim de ErrorHandler.get_Product()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ProductSetString">
+            <summary>Establecer el shim de ErrorHandler.set_Product(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.UserGet">
+            <summary>Establecer el shim de ErrorHandler.get_User()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.UserSetString">
+            <summary>Establecer el shim de ErrorHandler.set_User(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.ValidateObject">
+            <summary>Establecer el shim de ErrorHandler.Validate(Object obj)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.lstOXGet">
+            <summary>Establecer el shim de ErrorHandler.get_lstOX()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimErrorHandler.lstOXSetListOfObject">
+            <summary>Establecer el shim de ErrorHandler.set_lstOX(List`1&lt;Object&gt; value)</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimErrorHandler.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimExport">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.Export</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimExport.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimExport.#ctor(FMBUtilitario.Export)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimExport.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimExport.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimExport.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimExport.Constructor">
+            <summary>Establecer el shim de Export.Export()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimExport.ToPDFApplicationStringBooleanBoolean">
+            <summary>Establecer el shim de Export.ToPDF(Application objWord, String File, Boolean Open, Boolean FinalizeDoc)</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimExport.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimInteropConstants">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.InteropConstants</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimInteropConstants.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimInteropConstants.#ctor(FMBUtilitario.InteropConstants)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimInteropConstants.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimInteropConstants.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimInteropConstants.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimInteropConstants.Constructor">
+            <summary>Establecer el shim de InteropConstants.InteropConstants()</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimInteropConstants.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimMessageManager">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.MessageManager</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimMessageManager.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimMessageManager.#ctor(FMBUtilitario.MessageManager)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimMessageManager.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimMessageManager.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimMessageManager.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimMessageManager.Constructor">
+            <summary>Establecer el shim de MessageManager.MessageManager()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimMessageManager.Show">
+            <summary>Establecer el shim de MessageManager.Show()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimMessageManager.ShowStringString">
+            <summary>Establecer el shim de MessageManager.Show(String Msg, String Titulo)</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimMessageManager.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimSysLog">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.SysLog</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimSysLog.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimSysLog.#ctor(FMBUtilitario.SysLog)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimSysLog.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimSysLog.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.Constructor">
+            <summary>Establecer el shim de SysLog.SysLog()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.FechaHoraGet">
+            <summary>Establecer el shim de SysLog.get_FechaHora()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.FechaHoraSetDateTime">
+            <summary>Establecer el shim de SysLog.set_FechaHora(DateTime value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.GetJoinError">
+            <summary>Establecer el shim de SysLog.GetJoinError()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.MsgGet">
+            <summary>Establecer el shim de SysLog.get_Msg()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.MsgSetString">
+            <summary>Establecer el shim de SysLog.set_Msg(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCGet">
+            <summary>Establecer el shim de SysLog.get_PC()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCIPGet">
+            <summary>Establecer el shim de SysLog.get_PCIP()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCIPSetString">
+            <summary>Establecer el shim de SysLog.set_PCIP(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCSetString">
+            <summary>Establecer el shim de SysLog.set_PC(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCUserGet">
+            <summary>Establecer el shim de SysLog.get_PCUser()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.PCUserSetString">
+            <summary>Establecer el shim de SysLog.set_PCUser(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysFormGet">
+            <summary>Establecer el shim de SysLog.get_SysForm()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysFormSetString">
+            <summary>Establecer el shim de SysLog.set_SysForm(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysGet">
+            <summary>Establecer el shim de SysLog.get_Sys()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysSetString">
+            <summary>Establecer el shim de SysLog.set_Sys(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysUserGet">
+            <summary>Establecer el shim de SysLog.get_SysUser()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.SysUserSetString">
+            <summary>Establecer el shim de SysLog.set_SysUser(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.Write">
+            <summary>Establecer el shim de SysLog.Write()</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimSysLog.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.FechaHoraGet">
+            <summary>Establecer el shim de SysLog.get_FechaHora()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.FechaHoraSetDateTime">
+            <summary>Establecer el shim de SysLog.set_FechaHora(DateTime value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.GetJoinError">
+            <summary>Establecer el shim de SysLog.GetJoinError()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.MsgGet">
+            <summary>Establecer el shim de SysLog.get_Msg()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.MsgSetString">
+            <summary>Establecer el shim de SysLog.set_Msg(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCGet">
+            <summary>Establecer el shim de SysLog.get_PC()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCIPGet">
+            <summary>Establecer el shim de SysLog.get_PCIP()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCIPSetString">
+            <summary>Establecer el shim de SysLog.set_PCIP(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCSetString">
+            <summary>Establecer el shim de SysLog.set_PC(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCUserGet">
+            <summary>Establecer el shim de SysLog.get_PCUser()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.PCUserSetString">
+            <summary>Establecer el shim de SysLog.set_PCUser(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysFormGet">
+            <summary>Establecer el shim de SysLog.get_SysForm()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysFormSetString">
+            <summary>Establecer el shim de SysLog.set_SysForm(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysGet">
+            <summary>Establecer el shim de SysLog.get_Sys()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysSetString">
+            <summary>Establecer el shim de SysLog.set_Sys(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysUserGet">
+            <summary>Establecer el shim de SysLog.get_SysUser()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.SysUserSetString">
+            <summary>Establecer el shim de SysLog.set_SysUser(String value)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimSysLog.AllInstances.Write">
+            <summary>Establecer el shim de SysLog.Write()</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.Utilities</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.#ctor(FMBUtilitario.Utilities)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.CaptureScreen">
+            <summary>Establecer el shim de Utilities.CaptureScreen()</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.CaptureWindowIntPtr">
+            <summary>Establecer el shim de Utilities.CaptureWindow(IntPtr handle)</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.Constructor">
+            <summary>Establecer el shim de Utilities.Utilities()</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.Utilities+Gdi32</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.#ctor(FMBUtilitario.Utilities.Gdi32)">
+            <summary>Inicializa nuevas correcciones de compatibilidad (shim) para la instancia especificada</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.Constructor">
+            <summary>Establecer el shim de Gdi32.Gdi32()</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.ShimGdi32.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.ShimRECT">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.Utilities+RECT</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimRECT.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimRECT.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimRECT.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.ShimRECT.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.ShimRECT.AllInstances">
+            <summary>Definir correcciones de compatibilidad (shim) para todos los miembros de instancia</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.ShimUtilities.ShimUser32">
+            <summary>Tipo de correcciones de compatibilidad (shim) de FMBUtilitario.Utilities+User32</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimUser32.#ctor">
+            <summary>Inicializa una nueva instancia de correcciones de compatibilidad (shim)</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimUser32.BehaveAsCurrent">
+            <summary>Asigna el comportamiento &apos;Current&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.ShimUtilities.ShimUser32.BehaveAsNotImplemented">
+            <summary>Asigna el comportamiento &apos;NotImplemented&apos; a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.ShimUtilities.ShimUser32.Behavior">
+            <summary>Asigna el comportamiento a todos los métodos del tipo corregido para compatibilidad</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubDTM">
+            <summary>Tipo stub de FMBUtilitario.DTM</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubDTM.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubDTM.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubDTM</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubDTM.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubDTM.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubDTM.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubErrorHandler">
+            <summary>Tipo stub de FMBUtilitario.ErrorHandler</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubErrorHandler.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubErrorHandler.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubErrorHandler</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubErrorHandler.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubErrorHandler.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubErrorHandler.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubExport">
+            <summary>Tipo stub de FMBUtilitario.Export</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubExport.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubExport.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubExport</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubExport.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubExport.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubExport.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubInteropConstants">
+            <summary>Tipo stub de FMBUtilitario.InteropConstants</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubInteropConstants.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubInteropConstants.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubInteropConstants</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubInteropConstants.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubInteropConstants.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubInteropConstants.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubMessageManager">
+            <summary>Tipo stub de FMBUtilitario.MessageManager</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubMessageManager.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubMessageManager.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubMessageManager</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubMessageManager.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubMessageManager.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubMessageManager.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubSysLog">
+            <summary>Tipo stub de FMBUtilitario.SysLog</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubSysLog.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubSysLog.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubSysLog</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubSysLog.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubSysLog.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubSysLog.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+        <member name="T:FMBUtilitario.Fakes.StubUtilities">
+            <summary>Tipo stub de FMBUtilitario.Utilities</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubUtilities.#ctor">
+            <summary>Inicializa una nueva instancia</summary>
+        </member>
+        <member name="M:FMBUtilitario.Fakes.StubUtilities.InitializeStub">
+            <summary>Inicializa una nueva instancia de type StubUtilities</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubUtilities.CallBase">
+            <summary>Obtiene o establece un valor que indica si debe llamarse al método base en lugar del comportamiento de reserva</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubUtilities.InstanceBehavior">
+            <summary>Obtiene o establece el comportamiento de instancia.</summary>
+        </member>
+        <member name="P:FMBUtilitario.Fakes.StubUtilities.InstanceObserver">
+            <summary>Obtiene o establece el observador de la instancia.</summary>
+        </member>
+    </members>
+</doc>

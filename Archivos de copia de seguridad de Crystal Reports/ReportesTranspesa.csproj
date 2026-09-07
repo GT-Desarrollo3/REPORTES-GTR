@@ -1,0 +1,1339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B19EDB27-49FE-4EA7-9279-29619EDF5B42}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportesTranspesa</RootNamespace>
+    <AssemblyName>ReportesTranspesa</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\ReportesTranspesa\SetupReportesTranspesa\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gt.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5801463B81AE65193DE5FA79CD07FE1F020B43A9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ReportesTranspesa_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v16.1.Win, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.1.UI, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Map.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1.UI, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013DarkGray.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.UI, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v16.1.Win, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.1.Extensions, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FMBUtilitario">
+      <HintPath>D:\jbobadilla\PROYECTOS\Reportes\proyectoPrueba.Presentacion\proyectoPrueba.Presentacion\bin\Debug\FMBUtilitario.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroModernUI.1.3.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroModernUI.1.3.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroModernUI.1.3.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios\Administrador\Administrador_MantenedorReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\Administrador_MantenedorReporte.Designer.cs">
+      <DependentUpon>Administrador_MantenedorReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administrador\NuevosReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administrador\NuevosReportes.Designer.cs">
+      <DependentUpon>NuevosReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Despachos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Despachos.Designer.cs">
+      <DependentUpon>Despachos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Operaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Operaciones.Designer.cs">
+      <DependentUpon>Operaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Ingresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Ingresos.Designer.cs">
+      <DependentUpon>Ingresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Ordenes_retiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Ordenes_retiro.Designer.cs">
+      <DependentUpon>Ordenes_retiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\crvReporteOPDespachosSacos.cs">
+      <DependentUpon>crvReporteOPDespachosSacos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\crvReporteOPDespachos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvReporteOPDespachos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\crvReporteOPIngresos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvReporteOPIngresos.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\crvReporteOPOrdenRetiro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvReporteOPOrdenRetiro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\crvReporteOPSaldos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvReporteOPSaldos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\ReportexOperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Reportes\ReportexOperacion.Designer.cs">
+      <DependentUpon>ReportexOperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Saldos_Almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Almacen\Saldos_Almacen.Designer.cs">
+      <DependentUpon>Saldos_Almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\CargaCombustible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\CargaCombustible.Designer.cs">
+      <DependentUpon>CargaCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\RendimientoCombustible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\RendimientoCombustible.Designer.cs">
+      <DependentUpon>RendimientoCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\RendimientoUnidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\RendimientoUnidades.Designer.cs">
+      <DependentUpon>RendimientoUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\ReporteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Combustible\ReporteDiario.Designer.cs">
+      <DependentUpon>ReporteDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ConfirmacionAprobacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ConfirmacionAprobacion.Designer.cs">
+      <DependentUpon>ConfirmacionAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Adelantos_Aplicados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Adelantos_Aplicados.Designer.cs">
+      <DependentUpon>Adelantos_Aplicados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Adelanto_Contabilidad_vs_CuentasporPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Adelanto_Contabilidad_vs_CuentasporPagar.Designer.cs">
+      <DependentUpon>Adelanto_Contabilidad_vs_CuentasporPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\AnalisisFondoGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\AnalisisFondoGV.Designer.cs">
+      <DependentUpon>AnalisisFondoGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\AprobacionPlanillasMultiple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\AprobacionPlanillasMultiple.Designer.cs">
+      <DependentUpon>AprobacionPlanillasMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Buscar_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Buscar_Facturas.Designer.cs">
+      <DependentUpon>Buscar_Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\CajaChica_ReporteGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\CajaChica_ReporteGastos.Designer.cs">
+      <DependentUpon>CajaChica_ReporteGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ComercialvsContabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ComercialvsContabilidad.Designer.cs">
+      <DependentUpon>ComercialvsContabilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ControldeFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\ControldeFacturas.Designer.cs">
+      <DependentUpon>ControldeFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\FacturaViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\FacturaViaje.Designer.cs">
+      <DependentUpon>FacturaViaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\MayorDetallado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\MayorDetallado.Designer.cs">
+      <DependentUpon>MayorDetallado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Generacion_Libros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Generacion_Libros.Designer.cs">
+      <DependentUpon>Generacion_Libros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Reporte19.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Reporte19.Designer.cs">
+      <DependentUpon>Reporte19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Resumen_Tipo_Transporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Resumen_Tipo_Transporte.Designer.cs">
+      <DependentUpon>Resumen_Tipo_Transporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Resumen_Viajes_por_Facturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Resumen_Viajes_por_Facturar.Designer.cs">
+      <DependentUpon>Resumen_Viajes_por_Facturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Sumarizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Sumarizado.Designer.cs">
+      <DependentUpon>Sumarizado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Validacion_Cuentas_por_Cobrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Validacion_Cuentas_por_Cobrar.Designer.cs">
+      <DependentUpon>Validacion_Cuentas_por_Cobrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Contado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Contado.Designer.cs">
+      <DependentUpon>Facturacion_Contado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\DetalleCobranzas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\DetalleCobranzas.Designer.cs">
+      <DependentUpon>DetalleCobranzas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Detalle_Pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Detalle_Pagos.Designer.cs">
+      <DependentUpon>Detalle_Pagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Estado_Cuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Estado_Cuenta.Designer.cs">
+      <DependentUpon>Estado_Cuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Viajes_PorFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Contabilidad\Viajes_PorFacturar.Designer.cs">
+      <DependentUpon>Viajes_PorFacturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Almacen.Designer.cs">
+      <DependentUpon>Facturacion_Almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Diaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturacion_Diaria.Designer.cs">
+      <DependentUpon>Facturacion_Diaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaBancos.Designer.cs">
+      <DependentUpon>ListaBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaClientes.Designer.cs">
+      <DependentUpon>ListaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\ListaProveedores.Designer.cs">
+      <DependentUpon>ListaProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Movimientos_Diarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Movimientos_Diarios.Designer.cs">
+      <DependentUpon>Movimientos_Diarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Pagos_Masivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Pagos_Masivos.Designer.cs">
+      <DependentUpon>Pagos_Masivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Prefacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Prefacturas.Designer.cs">
+      <DependentUpon>Prefacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Proyeccion_Cobranzas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Proyeccion_Cobranzas.Designer.cs">
+      <DependentUpon>Proyeccion_Cobranzas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Saldos_Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Finanzas\Saldos_Proveedores.Designer.cs">
+      <DependentUpon>Saldos_Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\ProductosxRotacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\ProductosxRotacion.Designer.cs">
+      <DependentUpon>ProductosxRotacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\Servicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Logistica\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Consumo_Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Consumo_Mantenimiento.Designer.cs">
+      <DependentUpon>Consumo_Mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Costo_por_Unidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Costo_por_Unidades.Designer.cs">
+      <DependentUpon>Costo_por_Unidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\MaestroParametrosTractos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\MaestroParametrosTractos.Designer.cs">
+      <DependentUpon>MaestroParametrosTractos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Mantenimiento_Tractos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\Mantenimiento_Tractos.Designer.cs">
+      <DependentUpon>Mantenimiento_Tractos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Neumaticos\ConsumoNeumaticos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Neumaticos\ConsumoNeumaticos.Designer.cs">
+      <DependentUpon>ConsumoNeumaticos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Adelantos_Planillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Adelantos_Planillas.Designer.cs">
+      <DependentUpon>Adelantos_Planillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\CantidadViajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\CantidadViajes.Designer.cs">
+      <DependentUpon>CantidadViajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Detalle_Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Detalle_Mantenimiento.Designer.cs">
+      <DependentUpon>Detalle_Mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Detalle_UnidadesTransito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Detalle_UnidadesTransito.Designer.cs">
+      <DependentUpon>Detalle_UnidadesTransito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Entrega_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Entrega_Facturas.Designer.cs">
+      <DependentUpon>Entrega_Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturas_Lindley.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Facturacion\Facturas_Lindley.Designer.cs">
+      <DependentUpon>Facturas_Lindley.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Ficha_Conductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Ficha_Conductores.Designer.cs">
+      <DependentUpon>Ficha_Conductores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Consolidado_Viajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Consolidado_Viajes.Designer.cs">
+      <DependentUpon>Consolidado_Viajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\frmGuias_ImpresionDesembarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\frmGuias_ImpresionDesembarque.Designer.cs">
+      <DependentUpon>frmGuias_ImpresionDesembarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\ListaViajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\ListaViajes.Designer.cs">
+      <DependentUpon>ListaViajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Productividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Productividad.Designer.cs">
+      <DependentUpon>Productividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\ProductividadxUnidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\ProductividadxUnidades.Designer.cs">
+      <DependentUpon>ProductividadxUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\GuiasxEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\GuiasxEstado.Designer.cs">
+      <DependentUpon>GuiasxEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Guias_por_entregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Guias_por_entregar.Designer.cs">
+      <DependentUpon>Guias_por_entregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Lista_de_Condutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Lista_de_Condutores.Designer.cs">
+      <DependentUpon>Lista_de_Condutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Produccion_Diaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Produccion_Diaria.Designer.cs">
+      <DependentUpon>Produccion_Diaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Reportes\crvImpresionGuiaDesembarqueMasivo1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvImpresionGuiaDesembarqueMasivo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Seguimiento_Guias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Seguimiento_Guias.Designer.cs">
+      <DependentUpon>Seguimiento_Guias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Viajes_Terceros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Operaciones\Viajes_Terceros.Designer.cs">
+      <DependentUpon>Viajes_Terceros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Aportaciones_Retenciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Aportaciones_Retenciones.Designer.cs">
+      <DependentUpon>Aportaciones_Retenciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Asistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Asistencia.Designer.cs">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Bonos_Conductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Bonos_Conductores.Designer.cs">
+      <DependentUpon>Bonos_Conductores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\DetallePlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\DetallePlanilla.Designer.cs">
+      <DependentUpon>DetallePlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\PlanillasTrabajadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\PlanillasTrabajadores.Designer.cs">
+      <DependentUpon>PlanillasTrabajadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\TrabajadoresCesados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\TrabajadoresCesados.Designer.cs">
+      <DependentUpon>TrabajadoresCesados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\FaltasConductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\FaltasConductores.Designer.cs">
+      <DependentUpon>FaltasConductores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Faltas_Suspensiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Faltas_Suspensiones.Designer.cs">
+      <DependentUpon>Faltas_Suspensiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Ficha_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Ficha_Empleados.Designer.cs">
+      <DependentUpon>Ficha_Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Memos_Compromisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Memos_Compromisos.Designer.cs">
+      <DependentUpon>Memos_Compromisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Nueva_utilizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Nueva_utilizacion.Designer.cs">
+      <DependentUpon>Nueva_utilizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\PersonalNoGrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\PersonalNoGrato.Designer.cs">
+      <DependentUpon>PersonalNoGrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Utilizacion_Vacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Utilizacion_Vacaciones.Designer.cs">
+      <DependentUpon>Utilizacion_Vacaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Vencimiento_Contratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\RecursosHumanos\Vencimiento_Contratos.Designer.cs">
+      <DependentUpon>Vencimiento_Contratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\ListaFaltaConducta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\ListaFaltaConducta.Designer.cs">
+      <DependentUpon>ListaFaltaConducta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\Reporte_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Seguridad\Reporte_Empleados.Designer.cs">
+      <DependentUpon>Reporte_Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmAccesosSpring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmAccesosSpring.Designer.cs">
+      <DependentUpon>frmAccesosSpring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmAsignacionesTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmAsignacionesTelefono.Designer.cs">
+      <DependentUpon>frmAsignacionesTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmLineasRPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmLineasRPC.Designer.cs">
+      <DependentUpon>frmLineasRPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmTelefonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\frmTelefonos.Designer.cs">
+      <DependentUpon>frmTelefonos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\ListaCelulares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Sistemas\ListaCelulares.Designer.cs">
+      <DependentUpon>ListaCelulares.cs</DependentUpon>
+    </Compile>
+    <Content Include="Formularios\Areas\Sistemas\Reportes\crvReporteAccesosSpring.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvReporteAccesosSpring.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\CambiarBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\CambiarBD.Designer.cs">
+      <DependentUpon>CambiarBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\clsVisuales.cs" />
+    <Compile Include="Sistema\ControlPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\ControlPeriodos.Designer.cs">
+      <DependentUpon>ControlPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\InformacionDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\InformacionDB.Designer.cs">
+      <DependentUpon>InformacionDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\ListarReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\ListarReportes.Designer.cs">
+      <DependentUpon>ListarReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\Permisos.Designer.cs">
+      <DependentUpon>Permisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Mensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\Mensaje.Designer.cs">
+      <DependentUpon>Mensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBoxConstans.cs" />
+    <Compile Include="Grouper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistema\RegistroReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\RegistroReportes.Designer.cs">
+      <DependentUpon>RegistroReportes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\Administrador\Administrador_MantenedorReporte.resx">
+      <DependentUpon>Administrador_MantenedorReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administrador\NuevosReportes.resx">
+      <DependentUpon>NuevosReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Despachos.resx">
+      <DependentUpon>Despachos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Operaciones.resx">
+      <DependentUpon>Operaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Ingresos.resx">
+      <DependentUpon>Ingresos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Ordenes_retiro.resx">
+      <DependentUpon>Ordenes_retiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Formularios\Areas\Almacen\Reportes\crvReporteOPIngresos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteOPIngresos.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formularios\Areas\Almacen\Reportes\crvReporteOPOrdenRetiro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteOPOrdenRetiro.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formularios\Areas\Almacen\Reportes\crvReporteOPDespachos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteOPDespachos.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formularios\Areas\Almacen\Reportes\crvReporteOPDespachosSacos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteOPDespachosSacos.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formularios\Areas\Almacen\Reportes\crvReporteOPSaldos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteOPSaldos.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Reportes\ReportexOperacion.resx">
+      <DependentUpon>ReportexOperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Almacen\Saldos_Almacen.resx">
+      <DependentUpon>Saldos_Almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Combustible\CargaCombustible.resx">
+      <DependentUpon>CargaCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Combustible\RendimientoCombustible.resx">
+      <DependentUpon>RendimientoCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Combustible\RendimientoUnidades.resx">
+      <DependentUpon>RendimientoUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Combustible\ReporteDiario.resx">
+      <DependentUpon>ReporteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\ConfirmacionAprobacion.resx">
+      <DependentUpon>ConfirmacionAprobacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Adelantos_Aplicados.resx">
+      <DependentUpon>Adelantos_Aplicados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Adelanto_Contabilidad_vs_CuentasporPagar.resx">
+      <DependentUpon>Adelanto_Contabilidad_vs_CuentasporPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\AnalisisFondoGV.resx">
+      <DependentUpon>AnalisisFondoGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\AprobacionPlanillasMultiple.resx">
+      <DependentUpon>AprobacionPlanillasMultiple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Buscar_Facturas.resx">
+      <DependentUpon>Buscar_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\CajaChica_ReporteGastos.resx">
+      <DependentUpon>CajaChica_ReporteGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\ComercialvsContabilidad.resx">
+      <DependentUpon>ComercialvsContabilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\ControldeFacturas.resx">
+      <DependentUpon>ControldeFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\FacturaViaje.resx">
+      <DependentUpon>FacturaViaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\MayorDetallado.resx">
+      <DependentUpon>MayorDetallado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Generacion_Libros.resx">
+      <DependentUpon>Generacion_Libros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Reporte19.resx">
+      <DependentUpon>Reporte19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Resumen_Tipo_Transporte.resx">
+      <DependentUpon>Resumen_Tipo_Transporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Resumen_Viajes_por_Facturar.resx">
+      <DependentUpon>Resumen_Viajes_por_Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Sumarizado.resx">
+      <DependentUpon>Sumarizado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Validacion_Cuentas_por_Cobrar.resx">
+      <DependentUpon>Validacion_Cuentas_por_Cobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Facturacion\Facturacion_Contado.resx">
+      <DependentUpon>Facturacion_Contado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\DetalleCobranzas.resx">
+      <DependentUpon>DetalleCobranzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Detalle_Pagos.resx">
+      <DependentUpon>Detalle_Pagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Estado_Cuenta.resx">
+      <DependentUpon>Estado_Cuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Contabilidad\Viajes_PorFacturar.resx">
+      <DependentUpon>Viajes_PorFacturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Facturacion\Facturacion_Almacen.resx">
+      <DependentUpon>Facturacion_Almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Facturacion\Facturacion_Diaria.resx">
+      <DependentUpon>Facturacion_Diaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\ListaBancos.resx">
+      <DependentUpon>ListaBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\ListaClientes.resx">
+      <DependentUpon>ListaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\ListaProveedores.resx">
+      <DependentUpon>ListaProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Movimientos_Diarios.resx">
+      <DependentUpon>Movimientos_Diarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Pagos_Masivos.resx">
+      <DependentUpon>Pagos_Masivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Prefacturas.resx">
+      <DependentUpon>Prefacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Proyeccion_Cobranzas.resx">
+      <DependentUpon>Proyeccion_Cobranzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Finanzas\Saldos_Proveedores.resx">
+      <DependentUpon>Saldos_Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Logistica\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Logistica\ProductosxRotacion.resx">
+      <DependentUpon>ProductosxRotacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Logistica\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\Consumo_Mantenimiento.resx">
+      <DependentUpon>Consumo_Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\Costo_por_Unidades.resx">
+      <DependentUpon>Costo_por_Unidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\MaestroParametrosTractos.resx">
+      <DependentUpon>MaestroParametrosTractos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\Mantenimiento_Tractos.resx">
+      <DependentUpon>Mantenimiento_Tractos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Neumaticos\ConsumoNeumaticos.resx">
+      <DependentUpon>ConsumoNeumaticos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Adelantos_Planillas.resx">
+      <DependentUpon>Adelantos_Planillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\CantidadViajes.resx">
+      <DependentUpon>CantidadViajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Detalle_Mantenimiento.resx">
+      <DependentUpon>Detalle_Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Detalle_UnidadesTransito.resx">
+      <DependentUpon>Detalle_UnidadesTransito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Entrega_Facturas.resx">
+      <DependentUpon>Entrega_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Facturacion\Facturas_Lindley.resx">
+      <DependentUpon>Facturas_Lindley.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Ficha_Conductores.resx">
+      <DependentUpon>Ficha_Conductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Consolidado_Viajes.resx">
+      <DependentUpon>Consolidado_Viajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\frmGuias_ImpresionDesembarque.resx">
+      <DependentUpon>frmGuias_ImpresionDesembarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\ListaViajes.resx">
+      <DependentUpon>ListaViajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Productividad.resx">
+      <DependentUpon>Productividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\ProductividadxUnidades.resx">
+      <DependentUpon>ProductividadxUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\GuiasxEstado.resx">
+      <DependentUpon>GuiasxEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Guias_por_entregar.resx">
+      <DependentUpon>Guias_por_entregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Lista_de_Condutores.resx">
+      <DependentUpon>Lista_de_Condutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Produccion_Diaria.resx">
+      <DependentUpon>Produccion_Diaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Formularios\Areas\Operaciones\Reportes\crvImpresionGuiaDesembarqueMasivo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvImpresionGuiaDesembarqueMasivo1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Seguimiento_Guias.resx">
+      <DependentUpon>Seguimiento_Guias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Operaciones\Viajes_Terceros.resx">
+      <DependentUpon>Viajes_Terceros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Aportaciones_Retenciones.resx">
+      <DependentUpon>Aportaciones_Retenciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Asistencia.resx">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Bonos_Conductores.resx">
+      <DependentUpon>Bonos_Conductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\DetallePlanilla.resx">
+      <DependentUpon>DetallePlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\PlanillasTrabajadores.resx">
+      <DependentUpon>PlanillasTrabajadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\TrabajadoresCesados.resx">
+      <DependentUpon>TrabajadoresCesados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Seguridad\FaltasConductores.resx">
+      <DependentUpon>FaltasConductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Faltas_Suspensiones.resx">
+      <DependentUpon>Faltas_Suspensiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Ficha_Empleados.resx">
+      <DependentUpon>Ficha_Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Memos_Compromisos.resx">
+      <DependentUpon>Memos_Compromisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Nueva_utilizacion.resx">
+      <DependentUpon>Nueva_utilizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\PersonalNoGrato.resx">
+      <DependentUpon>PersonalNoGrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Utilizacion_Vacaciones.resx">
+      <DependentUpon>Utilizacion_Vacaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\RecursosHumanos\Vencimiento_Contratos.resx">
+      <DependentUpon>Vencimiento_Contratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Seguridad\ListaFaltaConducta.resx">
+      <DependentUpon>ListaFaltaConducta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Seguridad\Reporte_Empleados.resx">
+      <DependentUpon>Reporte_Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Sistemas\frmAccesosSpring.resx">
+      <DependentUpon>frmAccesosSpring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Sistemas\frmAsignacionesTelefono.resx">
+      <DependentUpon>frmAsignacionesTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Sistemas\frmLineasRPC.resx">
+      <DependentUpon>frmLineasRPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Sistemas\frmTelefonos.resx">
+      <DependentUpon>frmTelefonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Sistemas\ListaCelulares.resx">
+      <DependentUpon>ListaCelulares.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Formularios\Areas\Sistemas\Reportes\crvReporteAccesosSpring.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvReporteAccesosSpring.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Sistema\CambiarBD.resx">
+      <DependentUpon>CambiarBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\ControlPeriodos.resx">
+      <DependentUpon>ControlPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\InformacionDB.resx">
+      <DependentUpon>InformacionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\ListarReportes.resx">
+      <DependentUpon>ListarReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\Permisos.resx">
+      <DependentUpon>Permisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\Mensaje.resx">
+      <DependentUpon>Mensaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\RegistroReportes.resx">
+      <DependentUpon>RegistroReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <Fakes Include="Fakes\FMBUtilitario.fakes" />
+    <Fakes Include="Fakes\Microsoft.Office.Interop.Word.fakes" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{92c43a9c-9858-45ac-904b-15ea474be169}</Project>
+      <Name>Entidades</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{f13e3333-22ad-4603-8496-4208b5fb29d3}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gt.ico" />
+    <Content Include="reportes.ico" />
+    <Content Include="Resources\logo gt.ico" />
+    <None Include="ReportesTranspesa_ClaveTemporal.pfx" />
+    <None Include="Resources\menu_principal.jpg" />
+    <None Include="Resources\logo_menu.jpg" />
+    <None Include="Resources\menu.jpg" />
+    <None Include="Resources\gt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

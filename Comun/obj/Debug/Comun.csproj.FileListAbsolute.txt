@@ -1,0 +1,32 @@
+D:\ReportesTranspesa\Comun\bin\Debug\Comun.dll
+D:\ReportesTranspesa\Comun\bin\Debug\Comun.pdb
+D:\ReportesTranspesa\Comun\bin\Debug\Entidades.dll
+D:\ReportesTranspesa\Comun\bin\Debug\itextsharp.dll
+D:\ReportesTranspesa\Comun\bin\Debug\Entidades.pdb
+D:\ReportesTranspesa\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
+D:\ReportesTranspesa\Comun\obj\Debug\Comun.dll
+D:\ReportesTranspesa\Comun\obj\Debug\Comun.pdb
+Z:\ReportesTranspesa\Comun\bin\Debug\Comun.dll
+Z:\ReportesTranspesa\Comun\bin\Debug\Comun.pdb
+Z:\ReportesTranspesa\Comun\bin\Debug\Entidades.dll
+Z:\ReportesTranspesa\Comun\bin\Debug\itextsharp.dll
+Z:\ReportesTranspesa\Comun\bin\Debug\Entidades.pdb
+Z:\ReportesTranspesa\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
+Z:\ReportesTranspesa\Comun\obj\Debug\Comun.dll
+Z:\ReportesTranspesa\Comun\obj\Debug\Comun.pdb
+D:\Proyectos\ReportesTranspesa\Comun\bin\Debug\Comun.dll
+D:\Proyectos\ReportesTranspesa\Comun\bin\Debug\Comun.pdb
+D:\Proyectos\ReportesTranspesa\Comun\bin\Debug\Entidades.dll
+D:\Proyectos\ReportesTranspesa\Comun\bin\Debug\itextsharp.dll
+D:\Proyectos\ReportesTranspesa\Comun\bin\Debug\Entidades.pdb
+D:\Proyectos\ReportesTranspesa\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
+D:\Proyectos\ReportesTranspesa\Comun\obj\Debug\Comun.dll
+D:\Proyectos\ReportesTranspesa\Comun\obj\Debug\Comun.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\Comun.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\Comun.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\itextsharp.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.pdb
