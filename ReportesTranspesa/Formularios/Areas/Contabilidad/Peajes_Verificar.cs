@@ -587,12 +587,14 @@ namespace ReportesTranspesa.Formularios.Areas.Contabilidad
 
         private void button6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Necesitará tener permisos para esta acción", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Necesitará tener permisos para esta acción", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             if (txtIdPeaje.Text.Length == 0)
             {
                 MessageBox.Show("Primero, debe seleccionar uno de los Peajes. No puede seguir", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             DataTable dtRespuesta = new DataTable();
             string Respuesta;
             dtRespuesta = clsContabilidadBL.Instancia.GetPeajes_Desvincular(Convert.ToInt32(txtIdPeaje.Text), Utilitario.Instancia.SesionUsuario.usuario);
