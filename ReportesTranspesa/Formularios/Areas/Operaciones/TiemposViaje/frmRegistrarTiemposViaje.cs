@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -92,8 +92,10 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         dtpHoraInicioDescarga.Text = dtFiltroTiempos.Rows[i]["INICIO_DESCARGA"].ToString();
                         dtpFinDescarga.Text = dtFiltroTiempos.Rows[i]["FIN_DESCARGA"].ToString();
                         dtpHoraFinDescarga.Text = dtFiltroTiempos.Rows[i]["FIN_DESCARGA"].ToString();
-                        dtpInicioRuta.Text = dtFiltroTiempos.Rows[i]["INICIO_RUTA"].ToString();
-                        dtpHoraInicioRuta.Text = dtFiltroTiempos.Rows[i]["INICIO_RUTA"].ToString();
+                        dtpIngPlanta2.Text = dtFiltroTiempos.Columns.Contains("INGRESO_PLANTA_2") ? dtFiltroTiempos.Rows[i]["INGRESO_PLANTA_2"].ToString() : (dtFiltroTiempos.Columns.Contains("INICIO_RUTA") ? dtFiltroTiempos.Rows[i]["INICIO_RUTA"].ToString() : "");
+                        dtpHoraIngPlanta2.Text = dtFiltroTiempos.Columns.Contains("INGRESO_PLANTA_2") ? dtFiltroTiempos.Rows[i]["INGRESO_PLANTA_2"].ToString() : (dtFiltroTiempos.Columns.Contains("INICIO_RUTA") ? dtFiltroTiempos.Rows[i]["INICIO_RUTA"].ToString() : "");
+                        dtpSalPlanta2.Text = dtFiltroTiempos.Columns.Contains("SALIDA_PLANTA_2") ? dtFiltroTiempos.Rows[i]["SALIDA_PLANTA_2"].ToString() : "";
+                        dtpHoraSalPlanta2.Text = dtFiltroTiempos.Columns.Contains("SALIDA_PLANTA_2") ? dtFiltroTiempos.Rows[i]["SALIDA_PLANTA_2"].ToString() : "";
                         dtpLlegadaCDA2.Text = dtFiltroTiempos.Rows[i]["LLEGADA_CDA_2"].ToString();
                         dtpHoraLlegadaCDA2.Text = dtFiltroTiempos.Rows[i]["LLEGADA_CDA_2"].ToString();
                         dtpInicioDesc2.Text = dtFiltroTiempos.Rows[i]["INICIO_DESCARGA_2"].ToString();
@@ -193,7 +195,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 DateTime LlegadaCDA = Convert.ToDateTime(dtpLlegadaCDA.Text + " " + dtpHoraLlegadaCDA.Text);
                 DateTime InicioDescarga = Convert.ToDateTime(dtpInicioDescarga.Text + " " + dtpHoraInicioDescarga.Text);
                 DateTime FinDescarga = Convert.ToDateTime(dtpFinDescarga.Text + " " + dtpHoraFinDescarga.Text);
-                DateTime InicioRuta = Convert.ToDateTime(dtpInicioRuta.Text + " " + dtpHoraInicioRuta.Text);
+                DateTime IngresoPlanta2 = Convert.ToDateTime(dtpIngPlanta2.Text + " " + dtpHoraIngPlanta2.Text);
+                DateTime SalidaPlanta2 = Convert.ToDateTime(dtpSalPlanta2.Text + " " + dtpHoraSalPlanta2.Text);
                 DateTime LlegadaCDA2;
                 DateTime InicioDescarga2;
                 DateTime FinDescarga2;
@@ -214,7 +217,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 DateTime LlegadaBase = Convert.ToDateTime(dtpLlegadaBase.Text + " " + dtpHoraLlegadaBase.Text);
 
                 dtRegistrar = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(Opcion, Convert.ToInt32(txtPreviaje.Text), EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion,
-                                               FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                                               FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, IngresoPlanta2, SalidaPlanta2, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
                 respta = Convert.ToString(dtRegistrar.Rows[0]["exito"]);
                 string NroRspta = respta.Substring(0, 1);
                 if (NroRspta == "0")
@@ -472,15 +475,25 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
 
         private void dtpHoraFinDescarga_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpInicioRuta.Focus(); }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpIngPlanta2.Focus(); }
         }
 
         private void dtpSalidaBase_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpHoraInicioRuta.Focus(); }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpHoraIngPlanta2.Focus(); }
         }
 
         private void dtpHoraSalidaBase_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpSalPlanta2.Focus(); }
+        }
+
+        private void dtpSalPlanta2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpHoraSalPlanta2.Focus(); }
+        }
+
+        private void dtpHoraSalPlanta2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) { dtpLlegadaBase.Focus(); }
         }

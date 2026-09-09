@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -62,6 +62,15 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         tsEliminarTiempo.Enabled = false;
                         tsQuitarPernocte.Enabled = false;
                     }
+
+                    if (Convert.ToBoolean(dtPermisos.Rows[0]["Nuevo"]) == true || Convert.ToBoolean(dtPermisos.Rows[0]["Modificar"]) == true)
+                    {
+                        tsCopiarTiempo.Enabled = true;
+                    }
+                    else
+                    {
+                        tsCopiarTiempo.Enabled = false;
+                    }
                 }
             }
 
@@ -122,8 +131,16 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                             dgvTiempoViajesVista.Columns["INICIO_DESCARGA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["FIN_DESCARGA"].DisplayFormat.FormatType = FormatType.DateTime;
                             dgvTiempoViajesVista.Columns["FIN_DESCARGA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-                            dgvTiempoViajesVista.Columns["INICIO_RUTA"].DisplayFormat.FormatType = FormatType.DateTime;
-                            dgvTiempoViajesVista.Columns["INICIO_RUTA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+                            if (dgvTiempoViajesVista.Columns["INGRESO_PLANTA_2"] != null)
+                            {
+                                dgvTiempoViajesVista.Columns["INGRESO_PLANTA_2"].DisplayFormat.FormatType = FormatType.DateTime;
+                                dgvTiempoViajesVista.Columns["INGRESO_PLANTA_2"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+                            }
+                            if (dgvTiempoViajesVista.Columns["SALIDA_PLANTA_2"] != null)
+                            {
+                                dgvTiempoViajesVista.Columns["SALIDA_PLANTA_2"].DisplayFormat.FormatType = FormatType.DateTime;
+                                dgvTiempoViajesVista.Columns["SALIDA_PLANTA_2"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+                            }
                             dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].DisplayFormat.FormatType = FormatType.DateTime;
                             dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["INICIO_DESCARGA_2"].DisplayFormat.FormatType = FormatType.DateTime;
@@ -234,7 +251,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 dgvTiempoViajesVista.Columns["LLEGADA_CDA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INICIO_DESCARGA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["FIN_DESCARGA"].ColumnEdit = repoDateTime;
-                dgvTiempoViajesVista.Columns["INICIO_RUTA"].ColumnEdit = repoDateTime;
+                if (dgvTiempoViajesVista.Columns["INGRESO_PLANTA_2"] != null) dgvTiempoViajesVista.Columns["INGRESO_PLANTA_2"].ColumnEdit = repoDateTime;
+                if (dgvTiempoViajesVista.Columns["SALIDA_PLANTA_2"] != null) dgvTiempoViajesVista.Columns["SALIDA_PLANTA_2"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INICIO_DESCARGA_2"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["FIN_DESCARGA_2"].ColumnEdit = repoDateTime;
@@ -398,11 +416,28 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
 
                 if (Previaje != "")
                 {
-                    if (Convert.ToBoolean(dtPermisos.Rows[0]["Anular"]) == true) { tsEliminarTiempo.Enabled = true; }  
+                    if (dtPermisos != null && dtPermisos.Rows.Count > 0)
+                    {
+                        tsEliminarTiempo.Enabled = Convert.ToBoolean(dtPermisos.Rows[0]["Anular"]);
+                        tsCopiarTiempo.Enabled = Convert.ToBoolean(dtPermisos.Rows[0]["Nuevo"]) || Convert.ToBoolean(dtPermisos.Rows[0]["Modificar"]);
+                    }
+                    else
+                    {
+                        tsEliminarTiempo.Enabled = true;
+                        tsCopiarTiempo.Enabled = true;
+                    }
                 }
-                else { tsEliminarTiempo.Enabled = false; }
+                else
+                {
+                    tsEliminarTiempo.Enabled = false;
+                    tsCopiarTiempo.Enabled = false;
+                }
             }
-            catch { tsEliminarTiempo.Enabled = false; }
+            catch
+            {
+                tsEliminarTiempo.Enabled = false;
+                tsCopiarTiempo.Enabled = false;
+            }
         }
 
         private void tsEliminarTiempo_Click(object sender, EventArgs e)
@@ -414,7 +449,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 DataTable dtRespuesta = new DataTable();
                 string Respuesta, Usuario = Utilitario.Instancia.SesionUsuario.usuario;
                 dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(2, NroTicket, "", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now,
-                                                         DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now,
+                                                         DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now,
                                                          DateTime.Now, DateTime.Now, "");
                 Respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
                 string NroRPTA = Respuesta.Substring(0, 1);
@@ -425,6 +460,151 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 }
                 else { MessageBox.Show(Respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
+        }
+
+        private void tsCopiarTiempo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvTiempoViajesVista.FocusedRowHandle < 0) return;
+
+                string previaje = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "PREVIAJE"));
+                if (string.IsNullOrEmpty(previaje)) return;
+
+                string conductor = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "CONDUCTOR"));
+                string tracto = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "TRACTO"));
+                string ruta = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "RUTA"));
+                string prog = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "PROGRAMACION"));
+
+                txtPreviajeOrigen.Text = previaje;
+                lblInfoOrigen.Text = string.Format("Prog: {0} | Ruta: {1}\nTracto: {2} | Conductor: {3}", prog, ruta, tracto, conductor);
+                txtPreviajeDestino.Clear();
+
+                pCopiarTiempos.Left = Math.Max(10, (this.ClientSize.Width - pCopiarTiempos.Width) / 2);
+                pCopiarTiempos.Top = Math.Max(10, (this.ClientSize.Height - pCopiarTiempos.Height) / 2);
+                pCopiarTiempos.Location = new System.Drawing.Point(430, 240);
+                pCopiarTiempos.Visible = true;
+                pCopiarTiempos.BringToFront();
+                txtPreviajeDestino.Focus();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }
+
+        private void pCopiarTiempos_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) { xClick = e.X; yClick = e.Y; }
+            else
+            {
+                pCopiarTiempos.Left = pCopiarTiempos.Left + (e.X - xClick);
+                pCopiarTiempos.Top = pCopiarTiempos.Top + (e.Y - yClick);
+            }
+        }
+
+        private void btnCerrarCopiar_Click(object sender, EventArgs e)
+        {
+            pCopiarTiempos.Visible = false;
+            pCopiarTiempos.SendToBack();
+            txtPreviajeDestino.Clear();
+        }
+
+        private void txtPreviajeDestino_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) { e.Handled = true; }
+            
+            if (e.KeyChar == (char)Keys.Enter) { btnCopiarTiempos_Click(sender, e); }
+        }
+
+        private void btnCopiarTiempos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtPreviajeDestino.Text))
+                {
+                    MessageBox.Show("Por favor ingrese el código de previaje destino.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPreviajeDestino.Focus();
+                    return;
+                }
+
+                int previajeOrigen = Convert.ToInt32(txtPreviajeOrigen.Text.Trim());
+                int previajeDestino = Convert.ToInt32(txtPreviajeDestino.Text.Trim());
+
+                if (previajeOrigen == previajeDestino)
+                {
+                    MessageBox.Show("El previaje destino debe ser diferente al previaje origen.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPreviajeDestino.Focus();
+                    return;
+                }
+
+                if (MessageBox.Show(string.Format("¿Está seguro de copiar los tiempos del previaje {0} al previaje {1}?", previajeOrigen, previajeDestino),
+                                    "COPIAR TIEMPOS DE VIAJE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                { return; }
+
+                string usuario = Utilitario.Instancia.SesionUsuario.usuario;
+                string programacion = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "PROGRAMACION"));
+                if (string.IsNullOrEmpty(programacion)) { programacion = cbxProgramacion.Text; }
+
+                string estadoV = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ESTADO"));
+                string rutaViaje = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "RUTA_VIAJE"));
+                string estadoViaje = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ESTADO_VIAJE"));
+                string ubicacion = Convert.ToString(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "UBICACION"));
+                decimal porcTransito = Convert.ToDecimal(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "PORC_TRANSITO") == DBNull.Value ? 0 : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "PORC_TRANSITO"));
+
+                DataTable dtRespuesta = new DataTable();
+                string respuesta = "";
+
+                if (programacion == "LINDLEY" || cbxProgramacion.Text == "LINDLEY")
+                {
+                    DateTime llegadaPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA"));
+                    DateTime ingresoPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA"));
+                    DateTime inicioAtencion = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION"));
+                    DateTime finAtencion = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_ATENCION") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_ATENCION"));
+                    DateTime entregaGuia = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ENTREGA_GUIA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ENTREGA_GUIA"));
+                    DateTime salidaPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA"));
+                    DateTime salidaRuta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_RUTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_RUTA"));
+                    DateTime llegadaCDA = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA"));
+                    DateTime inicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
+                    DateTime finDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA"));
+                    DateTime ingresoPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2"));
+                    DateTime salidaPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2"));
+                    DateTime llegadaCDA2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2"));
+                    DateTime inicioDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2"));
+                    DateTime finDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2"));
+                    DateTime llegadaBase = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_BASE") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_BASE"));
+
+                    dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, previajeDestino, estadoV, llegadaPlanta, ingresoPlanta, inicioAtencion, finAtencion, entregaGuia,
+                                                             salidaPlanta, salidaRuta, llegadaCDA, inicioDescarga, finDescarga, ingresoPlanta2, salidaPlanta2, llegadaCDA2, inicioDescarga2, finDescarga2, llegadaBase, usuario);
+                }
+                else
+                {
+                    DateTime salidaBase = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE"));
+                    DateTime llegadaCarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CARGA"));
+                    DateTime inicioCarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_CARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_CARGA"));
+                    DateTime salidaPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA"));
+                    DateTime llegadaDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_DESCARGA"));
+                    DateTime inicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
+                    DateTime salidaDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_DESCARGA"));
+                    DateTime llegadaBase = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_BASE") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_BASE"));
+
+                    dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajesLimagas(1, previajeDestino, estadoV, salidaBase, llegadaCarga, inicioCarga, salidaPlanta, llegadaDescarga, inicioDescarga, salidaDescarga, llegadaBase, usuario);
+                }
+
+                if (dtRespuesta != null && dtRespuesta.Rows.Count > 0)
+                {
+                    respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
+                    string nroRpta = respuesta.Substring(0, 1);
+                    if (nroRpta == "0")
+                    {
+                        clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_ModificarTiempoViajes(previajeDestino, estadoV, rutaViaje, estadoViaje, ubicacion, porcTransito, usuario);
+
+                        MessageBox.Show("Tiempos copiados correctamente al previaje " + previajeDestino + ".", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnCerrarCopiar_Click(sender, e);
+                        ListarTiemposViaje();
+                    }
+                    else { MessageBox.Show(respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                }
+                else { MessageBox.Show("No se pudo obtener respuesta al registrar los tiempos en el previaje destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            catch (Exception ex) { MessageBox.Show("Error al copiar tiempos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void dgvTiempoViajesVista_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -469,7 +649,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
                 int Previaje;
                 DateTime SalidaBase, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga,
-                FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, LlegadaCarga, InicioCarga, LlegadaDescarga, SalidaDescarga;
+                FinDescarga, IngresoPlanta2, SalidaPlanta2, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, LlegadaCarga, InicioCarga, LlegadaDescarga, SalidaDescarga;
                 string EstadoV;
                 string Usuario = Utilitario.Instancia.SesionUsuario.usuario;
 
@@ -491,7 +671,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         LlegadaCDA = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA"));
                         InicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
                         FinDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA"));
-                        InicioRuta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA"));
+                        IngresoPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2"));
+                        SalidaPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2"));
                         LlegadaCDA2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2"));
                         InicioDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2"));
                         FinDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2"));
@@ -501,7 +682,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         string Respuesta;
 
                         dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia,
-                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, IngresoPlanta2, SalidaPlanta2, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
                         Respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
                         string NroRPTA = Respuesta.Substring(0, 1);
 
@@ -589,7 +770,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         LlegadaCDA = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA"));
                         InicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
                         FinDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA"));
-                        InicioRuta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA"));
+                        IngresoPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA_2"));
+                        SalidaPlanta2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_PLANTA_2"));
                         LlegadaCDA2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2"));
                         InicioDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2"));
                         FinDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2"));
@@ -599,7 +781,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         string Respuesta;
 
                         dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia,
-                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, IngresoPlanta2, SalidaPlanta2, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
                         Respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
                         string NroRPTA = Respuesta.Substring(0, 1);
 
@@ -917,22 +1099,460 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
         {
             try
             {
-                dtgTiempoViajes.ForceInitialize();
-                dtgListaPernoctes.ForceInitialize();
-                compositeLink1.CreatePageForEachLink();
+                if (dtListaTiempos == null || dtListaTiempos.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay datos de tiempos de viaje para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
                 DateTimeFormatInfo dtfi = culture.DateTimeFormat;
                 dtfi.TimeSeparator = ".";
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-
-                XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
-                options.ExportMode = XlsxExportMode.SingleFilePageByPage;
                 string nombre = System.IO.Path.Combine(desktop, "Tiempos de Viaje y Pernocte - " + Utilitario.Instancia.SesionUsuario.usuario + " " + DateTime.Now.ToString("T", dtfi) + ".xlsx");
-                compositeLink1.ExportToXlsx(nombre, options);
+
+                ExportarExcelTiemposViaje(nombre);
                 Process.Start(nombre);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show("Error al exportar a Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void ExportarExcelTiemposViaje(string rutaArchivo)
+        {
+            IXlExporter exporter = XlExport.CreateExporter(XlDocumentFormat.Xlsx);
+
+            using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write))
+            {
+                using (IXlDocument document = exporter.CreateDocument(stream))
+                {
+                    // --- HOJA 1: TIEMPOS DE VIAJE ---
+                    using (IXlSheet sheet = document.CreateSheet())
+                    {
+                        sheet.Name = "Sheet1";
+
+                        // Ancho de columnas (19 columnas)
+                        int[] columnWidths = new int[]
+                        {
+                            85,  // 0. Fecha
+                            110, // 1. Ruta
+                            100, // 2. Tracto
+                            200, // 3. Conductor
+                            100, // 4. Carreta
+                            145, // 5. Salida de Planta
+                            145, // 6. Salida a Ruta
+                            155, // 7. Llegada a Zona de Espera
+                            145, // 8. Inicio Descarga
+                            145, // 9. Fin Descarga
+                            145, // 10. Ingreso Planta 2
+                            145, // 11. Salida Planta 2
+                            155, // 12. Llegada a Zona de Espera 2
+                            145, // 13. Inicio Descarga 2
+                            145, // 14. Fin Descarga 2
+                            145, // 15. Llegada a Base
+                            150, // 16. Ubicación
+                            95,  // 17. %Tránsito
+                            160  // 18. Status
+                        };
+                        for (int c = 0; c < columnWidths.Length; c++)
+                        {
+                            using (IXlColumn col = sheet.CreateColumn()) { col.WidthInPixels = columnWidths[c]; }
+                        }
+
+                        // Colores
+                        Color colorBorde = Color.FromArgb(217, 217, 217);
+                        Color colorNaranjaTexto = Color.FromArgb(237, 125, 49);
+                        Color colorAzulHeader = Color.FromArgb(46, 117, 182);
+                        Color colorVerdeHeader = Color.FromArgb(112, 173, 71);
+                        Color colorRojoHeader = Color.FromArgb(255, 0, 0);
+                        Color colorRosaPendiente = Color.FromArgb(254, 204, 208);
+                        Color colorCelesteTransito = Color.FromArgb(189, 215, 238);
+                        Color colorTextoTransito = Color.FromArgb(31, 78, 121);
+                        Color colorTextoUbicacion = Color.FromArgb(0, 32, 96);
+
+                        XlBorder bordeThin = XlBorder.OutlineBorders(colorBorde, XlBorderLineStyle.Thin);
+
+                        // Estilos de encabezado
+                        string[] headerTexts = new string[]
+                        {
+                            "Fecha", "Ruta", "Tracto", "Conductor", "Carreta",
+                            "Salida de Planta", "Salida a Ruta", "Llegada a Zona\nde Espera",
+                            "Inicio Descarga", "Fin Descarga",
+                            "Ingreso Planta 2", "Salida Planta 2", "Llegada a Zona\nde Espera 2",
+                            "Inicio Descarga 2", "Fin Descarga 2",
+                            "Llegada a Base", "Ubicación", "%Tránsito", "Status"
+                        };
+
+                        using (IXlRow headerRow = sheet.CreateRow())
+                        {
+                            headerRow.HeightInPixels = 38;
+
+                            for (int i = 0; i < headerTexts.Length; i++)
+                            {
+                                using (IXlCell cell = headerRow.CreateCell())
+                                {
+                                    cell.Value = headerTexts[i];
+
+                                    XlCellFormatting hFormat = new XlCellFormatting();
+                                    hFormat.Font = new XlFont();
+                                    hFormat.Font.Name = "Calibri";
+                                    hFormat.Font.Size = 10;
+                                    hFormat.Font.Bold = true;
+                                    hFormat.Alignment = new XlCellAlignment();
+                                    hFormat.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                                    hFormat.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                                    hFormat.Alignment.WrapText = true;
+                                    hFormat.Border = bordeThin;
+
+                                    if (i == 5 || i == 10 || i == 11) // Salida de Planta, Ingreso Planta 2, Salida Planta 2 (Azul)
+                                    {
+                                        hFormat.Fill = XlFill.SolidFill(colorAzulHeader);
+                                        hFormat.Font.Color = Color.White;
+                                    }
+                                    else if ((i >= 7 && i <= 9) || (i >= 12 && i <= 14)) // Llegada a Zona de Espera, Inicio Descarga, Fin Descarga y Segunda Descarga (Verde)
+                                    {
+                                        hFormat.Fill = XlFill.SolidFill(colorVerdeHeader);
+                                        hFormat.Font.Color = Color.White;
+                                    }
+                                    else if (i >= 16 && i <= 18) // Ubicación, %Tránsito, Status (Rojo)
+                                    {
+                                        hFormat.Fill = XlFill.SolidFill(colorRojoHeader);
+                                        hFormat.Font.Color = Color.White;
+                                    }
+                                    else // Fecha, Ruta, Tracto, Conductor, Carreta, Salida a Ruta, Llegada a Base (Naranja)
+                                    {
+                                        hFormat.Fill = XlFill.SolidFill(Color.White);
+                                        hFormat.Font.Color = colorNaranjaTexto;
+                                    }
+
+                                    cell.Formatting = hFormat;
+                                }
+                            }
+                        }
+
+                        // Filas de datos
+                        int rowCount = dtListaTiempos.Rows.Count;
+                        for (int r = 0; r < rowCount; r++)
+                        {
+                            DataRow dr = dtListaTiempos.Rows[r];
+
+                            // Obtener valores de la fila
+                            string fechaProg = FormatearFechaCorta(dr["FECHA_PROGRAMACION"]);
+                            string ruta = dr["RUTA"] != DBNull.Value ? dr["RUTA"].ToString().Trim() : "";
+                            string tracto = dr["TRACTO"] != DBNull.Value ? dr["TRACTO"].ToString().Trim() : "";
+                            string conductor = dr["CONDUCTOR"] != DBNull.Value ? dr["CONDUCTOR"].ToString().Trim() : "";
+                            string carreta = dr.Table.Columns.Contains("SEMIRREMOLQUE") && dr["SEMIRREMOLQUE"] != DBNull.Value ? dr["SEMIRREMOLQUE"].ToString().Trim() : "";
+
+                            string salidaPlanta = FormatearFechaHora(dr.Table.Columns.Contains("SALIDA_PLANTA") ? dr["SALIDA_PLANTA"] : null);
+                            string salidaRuta = FormatearFechaHora(dr.Table.Columns.Contains("SALIDA_RUTA") ? dr["SALIDA_RUTA"] : null);
+                            if (string.IsNullOrEmpty(salidaRuta) && dr.Table.Columns.Contains("SALIDA_DESCARGA"))
+                            { salidaRuta = FormatearFechaHora(dr["SALIDA_DESCARGA"]); }
+
+                            string llegadaZonaEspera = FormatearFechaHora(dr.Table.Columns.Contains("LLEGADA_CDA") ? dr["LLEGADA_CDA"] : null);
+                            if (string.IsNullOrEmpty(llegadaZonaEspera) && dr.Table.Columns.Contains("LLEGADA_DESCARGA"))
+                            { llegadaZonaEspera = FormatearFechaHora(dr["LLEGADA_DESCARGA"]); }
+
+                            string inicioDescarga = FormatearFechaHora(dr.Table.Columns.Contains("INICIO_DESCARGA") ? dr["INICIO_DESCARGA"] : null);
+                            string finDescarga = FormatearFechaHora(dr.Table.Columns.Contains("FIN_DESCARGA") ? dr["FIN_DESCARGA"] : null);
+
+                            // Columnas de Planta 2 y Descarga 2
+                            string ingresoPlanta2 = FormatearFechaHora(dr.Table.Columns.Contains("INGRESO_PLANTA_2") ? dr["INGRESO_PLANTA_2"] : (dr.Table.Columns.Contains("INGRESO_PLANTA2") ? dr["INGRESO_PLANTA2"] : null));
+                            string salidaPlanta2 = FormatearFechaHora(dr.Table.Columns.Contains("SALIDA_PLANTA_2") ? dr["SALIDA_PLANTA_2"] : (dr.Table.Columns.Contains("SALIDA_PLANTA2") ? dr["SALIDA_PLANTA2"] : null));
+                            string llegadaZonaEspera2 = FormatearFechaHora(dr.Table.Columns.Contains("LLEGADA_CDA_2") ? dr["LLEGADA_CDA_2"] : (dr.Table.Columns.Contains("LLEGADA_CDA2") ? dr["LLEGADA_CDA2"] : null));
+                            string inicioDescarga2 = FormatearFechaHora(dr.Table.Columns.Contains("INICIO_DESCARGA_2") ? dr["INICIO_DESCARGA_2"] : (dr.Table.Columns.Contains("INICIO_DESCARGA2") ? dr["INICIO_DESCARGA2"] : null));
+                            string finDescarga2 = FormatearFechaHora(dr.Table.Columns.Contains("FIN_DESCARGA_2") ? dr["FIN_DESCARGA_2"] : (dr.Table.Columns.Contains("FIN_DESCARGA2") ? dr["FIN_DESCARGA2"] : null));
+
+                            string llegadaBase = FormatearFechaHora(dr.Table.Columns.Contains("LLEGADA_BASE") ? dr["LLEGADA_BASE"] : null);
+
+                            string ubicacion = dr.Table.Columns.Contains("UBICACION") && dr["UBICACION"] != DBNull.Value ? dr["UBICACION"].ToString().Trim() : "";
+                            string porcTransito = FormatearPorcentaje(dr.Table.Columns.Contains("PORC_TRANSITO") ? dr["PORC_TRANSITO"] : null);
+                            string status = dr.Table.Columns.Contains("ESTADO") && dr["ESTADO"] != DBNull.Value ? dr["ESTADO"].ToString().Trim() : "";
+
+                            using (IXlRow dataRow = sheet.CreateRow())
+                            {
+                                dataRow.HeightInPixels = 24;
+
+                                // 0. Fecha
+                                CrearCeldaDatos(dataRow, fechaProg, XlHorizontalAlignment.Center, bordeThin);
+
+                                // 1. Ruta
+                                CrearCeldaDatos(dataRow, ruta, XlHorizontalAlignment.Center, bordeThin);
+
+                                // 2. Tracto
+                                CrearCeldaDatos(dataRow, tracto, XlHorizontalAlignment.Center, bordeThin);
+
+                                // 3. Conductor
+                                CrearCeldaDatos(dataRow, conductor, XlHorizontalAlignment.Left, bordeThin);
+
+                                // 4. Carreta
+                                CrearCeldaDatos(dataRow, carreta, XlHorizontalAlignment.Center, bordeThin);
+
+                                // 5. Salida de Planta
+                                CrearCeldaFecha(dataRow, salidaPlanta, false, bordeThin, colorRosaPendiente);
+
+                                // 6. Salida a Ruta
+                                CrearCeldaFecha(dataRow, salidaRuta, false, bordeThin, colorRosaPendiente);
+
+                                // 7. Llegada a Zona de Espera (rosa si está pendiente/vacío)
+                                CrearCeldaFecha(dataRow, llegadaZonaEspera, string.IsNullOrEmpty(llegadaZonaEspera), bordeThin, colorRosaPendiente);
+
+                                // 8. Inicio Descarga (rosa si está pendiente y ya llegó a zona de espera)
+                                bool inicioDescargaPendiente = string.IsNullOrEmpty(inicioDescarga) && !string.IsNullOrEmpty(llegadaZonaEspera);
+                                CrearCeldaFecha(dataRow, inicioDescarga, inicioDescargaPendiente, bordeThin, colorRosaPendiente);
+
+                                // 9. Fin Descarga
+                                CrearCeldaFecha(dataRow, finDescarga, false, bordeThin, colorRosaPendiente);
+
+                                // 10. Ingreso Planta 2
+                                CrearCeldaFecha(dataRow, ingresoPlanta2, false, bordeThin, colorRosaPendiente);
+
+                                // 11. Salida Planta 2
+                                CrearCeldaFecha(dataRow, salidaPlanta2, false, bordeThin, colorRosaPendiente);
+
+                                // 12. Llegada a Zona de Espera 2
+                                CrearCeldaFecha(dataRow, llegadaZonaEspera2, false, bordeThin, colorRosaPendiente);
+
+                                // 13. Inicio Descarga 2
+                                CrearCeldaFecha(dataRow, inicioDescarga2, false, bordeThin, colorRosaPendiente);
+
+                                // 14. Fin Descarga 2
+                                CrearCeldaFecha(dataRow, finDescarga2, false, bordeThin, colorRosaPendiente);
+
+                                // 15. Llegada a Base (rosa si está pendiente/vacío)
+                                CrearCeldaFecha(dataRow, llegadaBase, string.IsNullOrEmpty(llegadaBase), bordeThin, colorRosaPendiente);
+
+                                // 16. Ubicación (Azul negrita centrado)
+                                CrearCeldaUbicacion(dataRow, ubicacion, bordeThin, colorTextoUbicacion);
+
+                                // 17. %Tránsito (Fondo celeste, texto azul, centrado)
+                                CrearCeldaTransito(dataRow, porcTransito, bordeThin, colorCelesteTransito, colorTextoTransito);
+
+                                // 18. Status (Color condicional según estado)
+                                CrearCeldaStatus(dataRow, status, bordeThin);
+                            }
+                        }
+
+                        // Habilitar autofiltro en el encabezado
+                        sheet.AutoFilterRange = new XlCellRange(new XlCellPosition(0, 0), new XlCellPosition(18, rowCount));
+                    }
+
+                    // --- HOJA 2: PERNOCTES (si existen datos) ---
+                    if (dtListaPernoctes != null && dtListaPernoctes.Rows.Count > 0)
+                    {
+                        using (IXlSheet sheet2 = document.CreateSheet())
+                        {
+                            sheet2.Name = "Sheet2";
+
+                            int visibleColCount = 0;
+                            List<string> pernocteCols = new List<string>();
+                            for (int c = 0; c < dtListaPernoctes.Columns.Count; c++)
+                            {
+                                string colName = dtListaPernoctes.Columns[c].ColumnName;
+                                if (colName != "idRuta" && colName != "idPernocte")
+                                {
+                                    pernocteCols.Add(colName);
+                                    using (IXlColumn col = sheet2.CreateColumn()) { col.WidthInPixels = 120; }
+                                    visibleColCount++;
+                                }
+                            }
+
+                            Color colorBorde = Color.FromArgb(217, 217, 217);
+                            Color colorHeader = Color.FromArgb(237, 125, 49);
+                            XlBorder bordeThin = XlBorder.OutlineBorders(colorBorde, XlBorderLineStyle.Thin);
+
+                            using (IXlRow headerRow = sheet2.CreateRow())
+                            {
+                                headerRow.HeightInPixels = 28;
+                                for (int i = 0; i < pernocteCols.Count; i++)
+                                {
+                                    using (IXlCell cell = headerRow.CreateCell())
+                                    {
+                                        cell.Value = pernocteCols[i];
+                                        XlCellFormatting hFormat = new XlCellFormatting();
+                                        hFormat.Font = new XlFont();
+                                        hFormat.Font.Name = "Calibri";
+                                        hFormat.Font.Size = 10;
+                                        hFormat.Font.Bold = true;
+                                        hFormat.Font.Color = colorHeader;
+                                        hFormat.Alignment = new XlCellAlignment();
+                                        hFormat.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                                        hFormat.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                                        hFormat.Border = bordeThin;
+                                        cell.Formatting = hFormat;
+                                    }
+                                }
+                            }
+
+                            for (int r = 0; r < dtListaPernoctes.Rows.Count; r++)
+                            {
+                                DataRow dr = dtListaPernoctes.Rows[r];
+                                using (IXlRow dataRow = sheet2.CreateRow())
+                                {
+                                    dataRow.HeightInPixels = 22;
+                                    for (int i = 0; i < pernocteCols.Count; i++)
+                                    {
+                                        string colName = pernocteCols[i];
+                                        object val = dr[colName];
+                                        string text = val != null && val != DBNull.Value ? val.ToString() : "";
+                                        DateTime dt;
+                                        if (DateTime.TryParse(text, out dt) && dt.Year > 2000 && text.Length > 10) { text = dt.ToString("dd/MM/yyyy HH:mm:ss"); }
+
+                                        CrearCeldaDatos(dataRow, text, XlHorizontalAlignment.Center, bordeThin);
+                                    }
+                                }
+                            }
+
+                            if (visibleColCount > 0)
+                            { sheet2.AutoFilterRange = new XlCellRange(new XlCellPosition(0, 0), new XlCellPosition(visibleColCount - 1, dtListaPernoctes.Rows.Count)); }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CrearCeldaDatos(IXlRow row, string valor, XlHorizontalAlignment alineacion, XlBorder borde)
+        {
+            using (IXlCell cell = row.CreateCell())
+            {
+                cell.Value = valor;
+                XlCellFormatting fmt = new XlCellFormatting();
+                fmt.Font = new XlFont();
+                fmt.Font.Name = "Calibri";
+                fmt.Font.Size = 9.5;
+                fmt.Alignment = new XlCellAlignment();
+                fmt.Alignment.HorizontalAlignment = alineacion;
+                fmt.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                fmt.Border = borde;
+                cell.Formatting = fmt;
+            }
+        }
+
+        private void CrearCeldaFecha(IXlRow row, string valor, bool esPendienteRosa, XlBorder borde, Color colorRosa)
+        {
+            using (IXlCell cell = row.CreateCell())
+            {
+                cell.Value = valor;
+                XlCellFormatting fmt = new XlCellFormatting();
+                fmt.Font = new XlFont();
+                fmt.Font.Name = "Calibri";
+                fmt.Font.Size = 9.5;
+                fmt.Alignment = new XlCellAlignment();
+                fmt.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                fmt.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                fmt.Border = borde;
+
+                if (esPendienteRosa)
+                { fmt.Fill = XlFill.SolidFill(colorRosa); }
+
+                cell.Formatting = fmt;
+            }
+        }
+
+        private void CrearCeldaUbicacion(IXlRow row, string valor, XlBorder borde, Color colorTextoAzul)
+        {
+            using (IXlCell cell = row.CreateCell())
+            {
+                cell.Value = valor;
+                XlCellFormatting fmt = new XlCellFormatting();
+                fmt.Font = new XlFont();
+                fmt.Font.Name = "Calibri";
+                fmt.Font.Size = 9.5;
+                fmt.Font.Bold = true;
+                fmt.Font.Color = colorTextoAzul;
+                fmt.Alignment = new XlCellAlignment();
+                fmt.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                fmt.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                fmt.Border = borde;
+                cell.Formatting = fmt;
+            }
+        }
+
+        private void CrearCeldaTransito(IXlRow row, string valor, XlBorder borde, Color colorFondoCeleste, Color colorTextoAzul)
+        {
+            using (IXlCell cell = row.CreateCell())
+            {
+                cell.Value = valor;
+                XlCellFormatting fmt = new XlCellFormatting();
+                fmt.Font = new XlFont();
+                fmt.Font.Name = "Calibri";
+                fmt.Font.Size = 9.5;
+                fmt.Font.Bold = true;
+                fmt.Font.Color = colorTextoAzul;
+                fmt.Fill = XlFill.SolidFill(colorFondoCeleste);
+                fmt.Alignment = new XlCellAlignment();
+                fmt.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                fmt.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                fmt.Border = borde;
+                cell.Formatting = fmt;
+            }
+        }
+
+        private void CrearCeldaStatus(IXlRow row, string valor, XlBorder borde)
+        {
+            using (IXlCell cell = row.CreateCell())
+            {
+                cell.Value = valor;
+                XlCellFormatting fmt = new XlCellFormatting();
+                fmt.Font = new XlFont();
+                fmt.Font.Name = "Calibri";
+                fmt.Font.Size = 9.5;
+                fmt.Font.Bold = true;
+                fmt.Alignment = new XlCellAlignment();
+                fmt.Alignment.HorizontalAlignment = XlHorizontalAlignment.Center;
+                fmt.Alignment.VerticalAlignment = XlVerticalAlignment.Center;
+                fmt.Border = borde;
+
+                string valUpper = valor.ToUpper();
+                if (valUpper.Contains("RETORNO") || valUpper.Contains("TRÁNSITO") || valUpper.Contains("TRANSITO"))
+                { fmt.Font.Color = Color.FromArgb(0, 32, 96); } // Azul
+                else if (valUpper.Contains("ESPERA") || valUpper.Contains("DESCARGA") || valUpper.Contains("FINALIZADO"))
+                { fmt.Font.Color = Color.FromArgb(56, 87, 35); } // Verde
+                else if (valUpper.Contains("DETENIDO") || valUpper.Contains("ANULADO"))
+                { fmt.Font.Color = Color.FromArgb(192, 0, 0); } // Rojo
+                else { fmt.Font.Color = Color.FromArgb(0, 32, 96); }
+            }
+        }
+
+        private string FormatearFechaCorta(object valor)
+        {
+            if (valor == null || valor == DBNull.Value) return string.Empty;
+            DateTime dt;
+            if (DateTime.TryParse(valor.ToString(), out dt))
+            {
+                string[] meses = new string[] { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic" };
+                int mesIdx = dt.Month - 1;
+                string mes = (mesIdx >= 0 && mesIdx < 12) ? meses[mesIdx] : dt.Month.ToString();
+                return string.Format("{0}-{1}", dt.Day, mes);
+            }
+            return valor.ToString();
+        }
+
+        private string FormatearFechaHora(object valor)
+        {
+            if (valor == null || valor == DBNull.Value) return string.Empty;
+            string strVal = valor.ToString().Trim();
+            if (string.IsNullOrEmpty(strVal)) return string.Empty;
+
+            DateTime dt;
+            if (DateTime.TryParse(strVal, out dt))
+            {
+                if (dt == DateTime.MinValue || dt.Year < 2000) return string.Empty;
+                return dt.ToString("d/MM/yyyy HH:mm");
+            }
+            return strVal;
+        }
+
+        private string FormatearPorcentaje(object valor)
+        {
+            if (valor == null || valor == DBNull.Value || string.IsNullOrWhiteSpace(valor.ToString())) return "0%";
+            string s = valor.ToString().Replace("%", "").Trim();
+            decimal d;
+            if (decimal.TryParse(s, NumberStyles.Any, CultureInfo.InvariantCulture, out d) ||
+                decimal.TryParse(s, NumberStyles.Any, new CultureInfo("es-PE"), out d))
+            {
+                if (d > 0 && d <= 1) d = d * 100;
+                return string.Format("{0:0}%", d);
+            }
+            return valor.ToString();
         }
 
         // Evita que se edite UBICACION si faltan RUTA_VIAJE o ESTADO_VIAJE

@@ -38,3 +38,7 @@ P:\ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.pdb
 \\Ti01-gt\p\ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.dll
 \\Ti01-gt\p\ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.pdb
 \\Ti01-gt\p\ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\AccesoDatos\obj\Debug\AccesoDatos.pdb

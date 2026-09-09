@@ -1,4 +1,4 @@
-﻿namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
+namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
 {
     partial class frmRegistrarTiemposViaje
     {
@@ -46,9 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpLlegadaPlanta = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtpInicioRuta = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraInicioRuta = new System.Windows.Forms.DateTimePicker();
-            this.label31 = new System.Windows.Forms.Label();
             this.dtpHoraIngresoPlanta = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraInicioAtencion = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaPlanta = new System.Windows.Forms.DateTimePicker();
@@ -66,6 +63,9 @@
             this.dtpInicioAtencion = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalidaPlanta = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraEntregaGuia = new System.Windows.Forms.DateTimePicker();
+            this.dtpIngPlanta2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraIngPlanta2 = new System.Windows.Forms.DateTimePicker();
+            this.label31 = new System.Windows.Forms.Label();
             this.dtpHoraFinDescarga = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaCDA = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaBase = new System.Windows.Forms.DateTimePicker();
@@ -129,6 +129,9 @@
             this.dtpInicioDesc2 = new System.Windows.Forms.DateTimePicker();
             this.label35 = new System.Windows.Forms.Label();
             this.dtpHoraInicioDesc2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpSalPlanta2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraSalPlanta2 = new System.Windows.Forms.DateTimePicker();
+            this.label37 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -365,41 +368,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "INGRESO Y SALIDA DE PLANTA: ";
             // 
-            // dtpInicioRuta
-            // 
-            this.dtpInicioRuta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpInicioRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpInicioRuta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInicioRuta.Location = new System.Drawing.Point(121, 152);
-            this.dtpInicioRuta.Name = "dtpInicioRuta";
-            this.dtpInicioRuta.Size = new System.Drawing.Size(101, 21);
-            this.dtpInicioRuta.TabIndex = 3;
-            this.dtpInicioRuta.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
-            this.dtpInicioRuta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpSalidaBase_KeyPress);
-            // 
-            // dtpHoraInicioRuta
-            // 
-            this.dtpHoraInicioRuta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraInicioRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraInicioRuta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioRuta.Location = new System.Drawing.Point(228, 152);
-            this.dtpHoraInicioRuta.Name = "dtpHoraInicioRuta";
-            this.dtpHoraInicioRuta.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraInicioRuta.TabIndex = 4;
-            this.dtpHoraInicioRuta.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraInicioRuta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaBase_KeyPress);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(30, 155);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(85, 15);
-            this.label31.TabIndex = 239;
-            this.label31.Text = "Inicio de Ruta:";
-            // 
             // dtpHoraIngresoPlanta
             // 
             this.dtpHoraIngresoPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -598,6 +566,41 @@
             this.dtpHoraEntregaGuia.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
             this.dtpHoraEntregaGuia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraEntregaGuia_KeyPress);
             // 
+            // dtpIngPlanta2
+            // 
+            this.dtpIngPlanta2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpIngPlanta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpIngPlanta2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpIngPlanta2.Location = new System.Drawing.Point(121, 152);
+            this.dtpIngPlanta2.Name = "dtpIngPlanta2";
+            this.dtpIngPlanta2.Size = new System.Drawing.Size(101, 21);
+            this.dtpIngPlanta2.TabIndex = 3;
+            this.dtpIngPlanta2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
+            this.dtpIngPlanta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpSalidaBase_KeyPress);
+            // 
+            // dtpHoraIngPlanta2
+            // 
+            this.dtpHoraIngPlanta2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraIngPlanta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraIngPlanta2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraIngPlanta2.Location = new System.Drawing.Point(228, 152);
+            this.dtpHoraIngPlanta2.Name = "dtpHoraIngPlanta2";
+            this.dtpHoraIngPlanta2.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraIngPlanta2.TabIndex = 4;
+            this.dtpHoraIngPlanta2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraIngPlanta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaBase_KeyPress);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(37, 155);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(78, 15);
+            this.label31.TabIndex = 239;
+            this.label31.Text = "Ing. Planta 2:";
+            // 
             // dtpHoraFinDescarga
             // 
             this.dtpHoraFinDescarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -624,10 +627,11 @@
             // 
             // dtpHoraLlegadaBase
             // 
+            this.dtpHoraLlegadaBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpHoraLlegadaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpHoraLlegadaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHoraLlegadaBase.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraLlegadaBase.Location = new System.Drawing.Point(228, 186);
+            this.dtpHoraLlegadaBase.Location = new System.Drawing.Point(228, 220);
             this.dtpHoraLlegadaBase.Name = "dtpHoraLlegadaBase";
             this.dtpHoraLlegadaBase.Size = new System.Drawing.Size(75, 21);
             this.dtpHoraLlegadaBase.TabIndex = 33;
@@ -660,10 +664,11 @@
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(19, 189);
+            this.label16.Location = new System.Drawing.Point(19, 223);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 15);
             this.label16.TabIndex = 234;
@@ -671,10 +676,11 @@
             // 
             // dtpLlegadaBase
             // 
+            this.dtpLlegadaBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpLlegadaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpLlegadaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpLlegadaBase.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLlegadaBase.Location = new System.Drawing.Point(121, 186);
+            this.dtpLlegadaBase.Location = new System.Drawing.Point(121, 220);
             this.dtpLlegadaBase.Name = "dtpLlegadaBase";
             this.dtpLlegadaBase.Size = new System.Drawing.Size(101, 21);
             this.dtpLlegadaBase.TabIndex = 32;
@@ -781,7 +787,7 @@
             this.btnIngresarTiempos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnIngresarTiempos.Image = global::ReportesTranspesa.Properties.Resources.Icon_Save1;
             this.btnIngresarTiempos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresarTiempos.Location = new System.Drawing.Point(482, 461);
+            this.btnIngresarTiempos.Location = new System.Drawing.Point(309, 517);
             this.btnIngresarTiempos.Name = "btnIngresarTiempos";
             this.btnIngresarTiempos.Size = new System.Drawing.Size(102, 41);
             this.btnIngresarTiempos.TabIndex = 999;
@@ -1273,14 +1279,17 @@
             this.tabSalidaDescarga.Location = new System.Drawing.Point(366, 196);
             this.tabSalidaDescarga.Name = "tabSalidaDescarga";
             this.tabSalidaDescarga.SelectedIndex = 0;
-            this.tabSalidaDescarga.Size = new System.Drawing.Size(335, 251);
+            this.tabSalidaDescarga.Size = new System.Drawing.Size(335, 285);
             this.tabSalidaDescarga.TabIndex = 212;
             // 
             // tabSalidas
             // 
             this.tabSalidas.BackColor = System.Drawing.Color.LemonChiffon;
-            this.tabSalidas.Controls.Add(this.dtpInicioRuta);
-            this.tabSalidas.Controls.Add(this.dtpHoraInicioRuta);
+            this.tabSalidas.Controls.Add(this.dtpSalPlanta2);
+            this.tabSalidas.Controls.Add(this.dtpHoraSalPlanta2);
+            this.tabSalidas.Controls.Add(this.label37);
+            this.tabSalidas.Controls.Add(this.dtpIngPlanta2);
+            this.tabSalidas.Controls.Add(this.dtpHoraIngPlanta2);
             this.tabSalidas.Controls.Add(this.dtpHoraLlegadaCDA);
             this.tabSalidas.Controls.Add(this.label31);
             this.tabSalidas.Controls.Add(this.dtpSalidaRuta);
@@ -1300,7 +1309,7 @@
             this.tabSalidas.Location = new System.Drawing.Point(4, 24);
             this.tabSalidas.Name = "tabSalidas";
             this.tabSalidas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalidas.Size = new System.Drawing.Size(327, 223);
+            this.tabSalidas.Size = new System.Drawing.Size(327, 257);
             this.tabSalidas.TabIndex = 0;
             this.tabSalidas.Text = "SALIDA Y DESCARGA";
             // 
@@ -1319,7 +1328,7 @@
             this.tabDescargas.Location = new System.Drawing.Point(4, 24);
             this.tabDescargas.Name = "tabDescargas";
             this.tabDescargas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDescargas.Size = new System.Drawing.Size(327, 225);
+            this.tabDescargas.Size = new System.Drawing.Size(327, 261);
             this.tabDescargas.TabIndex = 1;
             this.tabDescargas.Text = "DESCARGA ADICIONAL";
             // 
@@ -1428,12 +1437,47 @@
             this.dtpHoraInicioDesc2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
             this.dtpHoraInicioDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraInicioDesc2_KeyPress);
             // 
+            // dtpSalPlanta2
+            // 
+            this.dtpSalPlanta2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpSalPlanta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpSalPlanta2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSalPlanta2.Location = new System.Drawing.Point(121, 186);
+            this.dtpSalPlanta2.Name = "dtpSalPlanta2";
+            this.dtpSalPlanta2.Size = new System.Drawing.Size(101, 21);
+            this.dtpSalPlanta2.TabIndex = 240;
+            this.dtpSalPlanta2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
+            this.dtpSalPlanta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpSalPlanta2_KeyPress);
+            // 
+            // dtpHoraSalPlanta2
+            // 
+            this.dtpHoraSalPlanta2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraSalPlanta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraSalPlanta2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraSalPlanta2.Location = new System.Drawing.Point(228, 186);
+            this.dtpHoraSalPlanta2.Name = "dtpHoraSalPlanta2";
+            this.dtpHoraSalPlanta2.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraSalPlanta2.TabIndex = 241;
+            this.dtpHoraSalPlanta2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraSalPlanta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalPlanta2_KeyPress);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(36, 189);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(79, 15);
+            this.label37.TabIndex = 242;
+            this.label37.Text = "Sal. Planta 2:";
+            // 
             // frmRegistrarTiemposViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(721, 519);
+            this.ClientSize = new System.Drawing.Size(721, 572);
             this.Controls.Add(this.btnIngresarTiempos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tabSalidaDescarga);
@@ -1554,9 +1598,9 @@
         public System.Windows.Forms.DateTimePicker dtpCarga;
         private System.Windows.Forms.Label label30;
         public System.Windows.Forms.DateTimePicker dtpLlegadaCarga;
-        public System.Windows.Forms.DateTimePicker dtpHoraInicioRuta;
+        public System.Windows.Forms.DateTimePicker dtpHoraIngPlanta2;
         private System.Windows.Forms.Label label31;
-        public System.Windows.Forms.DateTimePicker dtpInicioRuta;
+        public System.Windows.Forms.DateTimePicker dtpIngPlanta2;
         public System.Windows.Forms.DateTimePicker dtpHoraSalidaBase2;
         private System.Windows.Forms.Label label32;
         public System.Windows.Forms.DateTimePicker dtpSalidaBase2;
@@ -1575,5 +1619,8 @@
         public System.Windows.Forms.DateTimePicker dtpHoraLlegadaCDA2;
         public System.Windows.Forms.DateTimePicker dtpFinDesc2;
         private System.Windows.Forms.Label label36;
+        public System.Windows.Forms.DateTimePicker dtpSalPlanta2;
+        public System.Windows.Forms.DateTimePicker dtpHoraSalPlanta2;
+        private System.Windows.Forms.Label label37;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1987,10 +1987,10 @@ namespace Negocio
         { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_Previajes_ListarUbicaciones(Opcion, Operacion, Estado, RutaViaje); }
 
         public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(int Opcion, int NroTicket, string EstadoV, DateTime LlegadaPlanta, DateTime IngresoPlanta, DateTime InicioAtencion, DateTime FinAtencion, DateTime EntregaGuia, DateTime SalidaPlanta,
-                         DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime InicioRuta, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
+                         DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime IngresoPlanta2, DateTime SalidaPlanta2, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
         {
             return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(Opcion, NroTicket, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta,
-                                               LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                                               LlegadaCDA, InicioDescarga, FinDescarga, IngresoPlanta2, SalidaPlanta2, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
         }
 
         public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajesLimagas(int Opcion, int NroTicket, string EstadoV, DateTime SalidaBase, DateTime LlegadaCarga, DateTime Carga, DateTime SalidaPlanta, DateTime LlegadaDescarga,

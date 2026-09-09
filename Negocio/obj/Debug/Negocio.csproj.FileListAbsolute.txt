@@ -48,3 +48,5 @@ P:\ReportesTranspesa\Negocio\obj\Debug\Negocio.pdb
 \\Ti01-gt\p\ReportesTranspesa\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 \\Ti01-gt\p\ReportesTranspesa\Negocio\obj\Debug\Negocio.dll
 \\Ti01-gt\p\ReportesTranspesa\Negocio\obj\Debug\Negocio.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\obj\Debug\Negocio.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Negocio\obj\Debug\Negocio.pdb

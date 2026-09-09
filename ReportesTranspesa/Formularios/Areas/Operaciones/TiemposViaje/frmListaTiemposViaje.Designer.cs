@@ -1,4 +1,4 @@
-﻿namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
+namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
 {
     partial class frmListaTiemposViaje
     {
@@ -56,6 +56,7 @@
             this.dtgTiempoViajes = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarTiempo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsCopiarTiempo = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTiempoViajesVista = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabTiemposViaje = new System.Windows.Forms.TabControl();
             this.tabTiempoUbicacion = new System.Windows.Forms.TabPage();
@@ -78,6 +79,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTiempoViaje = new System.Windows.Forms.TextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.pCopiarTiempos = new System.Windows.Forms.Panel();
+            this.btnCerrarCopiar = new System.Windows.Forms.Button();
+            this.lblTituloCopiar = new System.Windows.Forms.Label();
+            this.lblPreviajeOrigen = new System.Windows.Forms.Label();
+            this.txtPreviajeOrigen = new System.Windows.Forms.TextBox();
+            this.lblInfoOrigen = new System.Windows.Forms.Label();
+            this.lblPreviajeDestino = new System.Windows.Forms.Label();
+            this.txtPreviajeDestino = new System.Windows.Forms.TextBox();
+            this.btnCopiarTiempos = new DevExpress.XtraEditors.SimpleButton();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiempoViajes)).BeginInit();
@@ -92,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.printingSystem1)).BeginInit();
             this.pImportarTiempos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiempos)).BeginInit();
+            this.pCopiarTiempos.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -269,7 +280,7 @@
             // dtpFechaFin
             // 
             this.dtpFechaFin.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpFechaFin.CustomFormat = "dd-MM-yyyy";
+            this.dtpFechaFin.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaFin.Location = new System.Drawing.Point(275, 28);
@@ -312,7 +323,7 @@
             // dtpFechaInicio
             // 
             this.dtpFechaInicio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpFechaInicio.CustomFormat = "dd-MM-yyyy";
+            this.dtpFechaInicio.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaInicio.Location = new System.Drawing.Point(151, 28);
@@ -432,17 +443,26 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsEliminarTiempo});
+            this.tsEliminarTiempo,
+            this.tsCopiarTiempo});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 48);
             // 
             // tsEliminarTiempo
             // 
             this.tsEliminarTiempo.Image = global::ReportesTranspesa.Properties.Resources.cancel;
             this.tsEliminarTiempo.Name = "tsEliminarTiempo";
-            this.tsEliminarTiempo.Size = new System.Drawing.Size(155, 22);
+            this.tsEliminarTiempo.Size = new System.Drawing.Size(157, 22);
             this.tsEliminarTiempo.Text = "Quitar Tiempos";
             this.tsEliminarTiempo.Click += new System.EventHandler(this.tsEliminarTiempo_Click);
+            // 
+            // tsCopiarTiempo
+            // 
+            this.tsCopiarTiempo.Image = global::ReportesTranspesa.Properties.Resources.cargardatos;
+            this.tsCopiarTiempo.Name = "tsCopiarTiempo";
+            this.tsCopiarTiempo.Size = new System.Drawing.Size(157, 22);
+            this.tsCopiarTiempo.Text = "Copiar Tiempos";
+            this.tsCopiarTiempo.Click += new System.EventHandler(this.tsCopiarTiempo_Click);
             // 
             // dgvTiempoViajesVista
             // 
@@ -716,6 +736,122 @@
             this.metroLabel1.TabIndex = 104;
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // pCopiarTiempos
+            // 
+            this.pCopiarTiempos.BackColor = System.Drawing.Color.LemonChiffon;
+            this.pCopiarTiempos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pCopiarTiempos.Controls.Add(this.btnCerrarCopiar);
+            this.pCopiarTiempos.Controls.Add(this.lblTituloCopiar);
+            this.pCopiarTiempos.Controls.Add(this.lblPreviajeOrigen);
+            this.pCopiarTiempos.Controls.Add(this.txtPreviajeOrigen);
+            this.pCopiarTiempos.Controls.Add(this.lblInfoOrigen);
+            this.pCopiarTiempos.Controls.Add(this.lblPreviajeDestino);
+            this.pCopiarTiempos.Controls.Add(this.txtPreviajeDestino);
+            this.pCopiarTiempos.Controls.Add(this.btnCopiarTiempos);
+            this.pCopiarTiempos.Location = new System.Drawing.Point(458, 200);
+            this.pCopiarTiempos.Name = "pCopiarTiempos";
+            this.pCopiarTiempos.Size = new System.Drawing.Size(430, 240);
+            this.pCopiarTiempos.TabIndex = 223;
+            this.pCopiarTiempos.Visible = false;
+            this.pCopiarTiempos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pCopiarTiempos_MouseMove);
+            // 
+            // btnCerrarCopiar
+            // 
+            this.btnCerrarCopiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarCopiar.BackColor = System.Drawing.Color.Red;
+            this.btnCerrarCopiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarCopiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarCopiar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarCopiar.Location = new System.Drawing.Point(404, -1);
+            this.btnCerrarCopiar.Name = "btnCerrarCopiar";
+            this.btnCerrarCopiar.Size = new System.Drawing.Size(25, 27);
+            this.btnCerrarCopiar.TabIndex = 1;
+            this.btnCerrarCopiar.Text = "X";
+            this.btnCerrarCopiar.UseVisualStyleBackColor = false;
+            this.btnCerrarCopiar.Click += new System.EventHandler(this.btnCerrarCopiar_Click);
+            // 
+            // lblTituloCopiar
+            // 
+            this.lblTituloCopiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
+            this.lblTituloCopiar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTituloCopiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCopiar.ForeColor = System.Drawing.Color.White;
+            this.lblTituloCopiar.Location = new System.Drawing.Point(0, 0);
+            this.lblTituloCopiar.Name = "lblTituloCopiar";
+            this.lblTituloCopiar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblTituloCopiar.Size = new System.Drawing.Size(428, 26);
+            this.lblTituloCopiar.TabIndex = 0;
+            this.lblTituloCopiar.Text = "COPIAR TIEMPOS DE VIAJE";
+            this.lblTituloCopiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloCopiar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pCopiarTiempos_MouseMove);
+            // 
+            // lblPreviajeOrigen
+            // 
+            this.lblPreviajeOrigen.AutoSize = true;
+            this.lblPreviajeOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreviajeOrigen.Location = new System.Drawing.Point(20, 42);
+            this.lblPreviajeOrigen.Name = "lblPreviajeOrigen";
+            this.lblPreviajeOrigen.Size = new System.Drawing.Size(110, 15);
+            this.lblPreviajeOrigen.TabIndex = 2;
+            this.lblPreviajeOrigen.Text = "Previaje Origen:";
+            // 
+            // txtPreviajeOrigen
+            // 
+            this.txtPreviajeOrigen.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPreviajeOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreviajeOrigen.Location = new System.Drawing.Point(145, 39);
+            this.txtPreviajeOrigen.Name = "txtPreviajeOrigen";
+            this.txtPreviajeOrigen.ReadOnly = true;
+            this.txtPreviajeOrigen.Size = new System.Drawing.Size(140, 22);
+            this.txtPreviajeOrigen.TabIndex = 3;
+            // 
+            // lblInfoOrigen
+            // 
+            this.lblInfoOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoOrigen.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblInfoOrigen.Location = new System.Drawing.Point(20, 68);
+            this.lblInfoOrigen.Name = "lblInfoOrigen";
+            this.lblInfoOrigen.Size = new System.Drawing.Size(390, 40);
+            this.lblInfoOrigen.TabIndex = 4;
+            this.lblInfoOrigen.Text = "Info Origen";
+            // 
+            // lblPreviajeDestino
+            // 
+            this.lblPreviajeDestino.AutoSize = true;
+            this.lblPreviajeDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreviajeDestino.Location = new System.Drawing.Point(20, 120);
+            this.lblPreviajeDestino.Name = "lblPreviajeDestino";
+            this.lblPreviajeDestino.Size = new System.Drawing.Size(116, 15);
+            this.lblPreviajeDestino.TabIndex = 5;
+            this.lblPreviajeDestino.Text = "Previaje Destino:";
+            // 
+            // txtPreviajeDestino
+            // 
+            this.txtPreviajeDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreviajeDestino.Location = new System.Drawing.Point(145, 117);
+            this.txtPreviajeDestino.Name = "txtPreviajeDestino";
+            this.txtPreviajeDestino.Size = new System.Drawing.Size(140, 22);
+            this.txtPreviajeDestino.TabIndex = 6;
+            this.txtPreviajeDestino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreviajeDestino_KeyPress);
+            // 
+            // btnCopiarTiempos
+            // 
+            this.btnCopiarTiempos.Appearance.BackColor = System.Drawing.Color.White;
+            this.btnCopiarTiempos.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopiarTiempos.Appearance.Options.UseBackColor = true;
+            this.btnCopiarTiempos.Appearance.Options.UseFont = true;
+            this.btnCopiarTiempos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnCopiarTiempos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCopiarTiempos.Image = global::ReportesTranspesa.Properties.Resources.cargardatos;
+            this.btnCopiarTiempos.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnCopiarTiempos.Location = new System.Drawing.Point(157, 175);
+            this.btnCopiarTiempos.Name = "btnCopiarTiempos";
+            this.btnCopiarTiempos.Size = new System.Drawing.Size(115, 38);
+            this.btnCopiarTiempos.TabIndex = 7;
+            this.btnCopiarTiempos.Text = "Copiar\r\nTiempos";
+            this.btnCopiarTiempos.Click += new System.EventHandler(this.btnCopiarTiempos_Click);
+            // 
             // frmListaTiemposViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,6 +862,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pImportarTiempos);
+            this.Controls.Add(this.pCopiarTiempos);
             this.Name = "frmListaTiemposViaje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REGISTRO DE TIEMPOS DE VIAJE";
@@ -747,6 +884,8 @@
             this.pImportarTiempos.ResumeLayout(false);
             this.pImportarTiempos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiempos)).EndInit();
+            this.pCopiarTiempos.ResumeLayout(false);
+            this.pCopiarTiempos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -776,6 +915,7 @@
         public System.Windows.Forms.TextBox txtRuta;
         public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarTiempo;
+        public System.Windows.Forms.ToolStripMenuItem tsCopiarTiempo;
         private System.Windows.Forms.TabControl tabTiemposViaje;
         private System.Windows.Forms.TabPage tabTiempoUbicacion;
         private System.Windows.Forms.TabPage tabPernoctes;
@@ -801,5 +941,14 @@
         private DevExpress.XtraEditors.SimpleButton btnGenerar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.CheckBox cbLindley;
+        private System.Windows.Forms.Panel pCopiarTiempos;
+        private System.Windows.Forms.Label lblTituloCopiar;
+        private System.Windows.Forms.Button btnCerrarCopiar;
+        private System.Windows.Forms.Label lblPreviajeOrigen;
+        internal System.Windows.Forms.TextBox txtPreviajeOrigen;
+        private System.Windows.Forms.Label lblInfoOrigen;
+        private System.Windows.Forms.Label lblPreviajeDestino;
+        internal System.Windows.Forms.TextBox txtPreviajeDestino;
+        private DevExpress.XtraEditors.SimpleButton btnCopiarTiempos;
     }
 }

@@ -16,3 +16,11 @@ P:\ReportesTranspesa\Entidades\bin\Debug\itextsharp.dll
 P:\ReportesTranspesa\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 P:\ReportesTranspesa\Entidades\obj\Debug\Entidades.dll
 P:\ReportesTranspesa\Entidades\obj\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\Debug\Entidades.pdb
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\Debug\itextsharp.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\Debug\Entidades.csproj.Up2Date
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\Debug\Entidades.dll
+C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\Debug\Entidades.pdb

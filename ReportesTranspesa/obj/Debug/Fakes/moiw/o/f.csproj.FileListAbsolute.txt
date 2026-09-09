@@ -1,2 +1,1 @@
-D:\Proyectos\ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\o\f.csprojResolveAssemblyReference.cache
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\o\f.csprojResolveAssemblyReference.cache

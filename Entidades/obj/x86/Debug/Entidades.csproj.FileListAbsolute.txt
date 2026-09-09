@@ -31,6 +31,6 @@ D:\Proyectos\ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.dll
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\Entidades.pdb
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\bin\x86\Debug\itextsharp.dll
-C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.dll
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.pdb
+c:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Entidades\obj\x86\Debug\Entidades.csprojResolveAssemblyReference.cache
