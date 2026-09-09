@@ -11340,8 +11340,8 @@ namespace AccesoDatos
             return dt;
         }
 
-        public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(int Opcion, int NroTicket, string EstadoV, DateTime SalidaBase, DateTime LlegadaPlanta, DateTime IngresoPlanta, DateTime InicioAtencion, DateTime FinAtencion, DateTime EntregaGuia,
-                         DateTime SalidaPlanta, DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
+        public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(int Opcion, int NroTicket, string EstadoV, DateTime LlegadaPlanta, DateTime IngresoPlanta, DateTime InicioAtencion, DateTime FinAtencion, DateTime EntregaGuia, DateTime SalidaPlanta,
+                         DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime InicioRuta, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
         {
             SqlCommand cmd = null;
             DataTable dt = new DataTable();
@@ -11354,7 +11354,6 @@ namespace AccesoDatos
                 cmd.Parameters.Add(new SqlParameter("@Opcion", Opcion));
                 cmd.Parameters.Add(new SqlParameter("@NroTicket", NroTicket));
                 cmd.Parameters.Add(new SqlParameter("@EstadoV", EstadoV));
-                cmd.Parameters.Add(new SqlParameter("@SalidaBase", SalidaBase));
                 cmd.Parameters.Add(new SqlParameter("@LlegadaPlanta", LlegadaPlanta));
                 cmd.Parameters.Add(new SqlParameter("@IngresoPlanta", IngresoPlanta));
                 cmd.Parameters.Add(new SqlParameter("@InicioAtencion", InicioAtencion));
@@ -11365,6 +11364,7 @@ namespace AccesoDatos
                 cmd.Parameters.Add(new SqlParameter("@LlegadaCDA", LlegadaCDA));
                 cmd.Parameters.Add(new SqlParameter("@InicioDescarga", InicioDescarga));
                 cmd.Parameters.Add(new SqlParameter("@FinDescarga", FinDescarga));
+                cmd.Parameters.Add(new SqlParameter("@InicioRuta", InicioRuta));
                 cmd.Parameters.Add(new SqlParameter("@LlegadaCDA2", LlegadaCDA2));
                 cmd.Parameters.Add(new SqlParameter("@InicioDescarga2", InicioDescarga2));
                 cmd.Parameters.Add(new SqlParameter("@FinDescarga2", FinDescarga2));

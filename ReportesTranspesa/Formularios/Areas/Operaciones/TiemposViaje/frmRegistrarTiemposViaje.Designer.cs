@@ -46,13 +46,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpLlegadaPlanta = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtpSalidaBase = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraSalidaBase = new System.Windows.Forms.DateTimePicker();
+            this.dtpInicioRuta = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraInicioRuta = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
-            this.dtpHoraSalidaPlanta = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraFinAtencion = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraIngresoPlanta = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraEntregaGuia = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraInicioAtencion = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaPlanta = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -61,11 +58,14 @@
             this.dtpEntregaGuia = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.dtpFinAtencion = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpInicioAtencion = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpIngresoPlanta = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
+            this.dtpHoraFinAtencion = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtpInicioAtencion = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraSalidaPlanta = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraEntregaGuia = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraFinDescarga = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaCDA = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraLlegadaBase = new System.Windows.Forms.DateTimePicker();
@@ -94,17 +94,13 @@
             this.txtUbicacionL = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtpHoraLlegadaBase2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraSalidaDescarga = new System.Windows.Forms.DateTimePicker();
             this.label33 = new System.Windows.Forms.Label();
-            this.dtpHoraLlegadaDescarga = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraCarga = new System.Windows.Forms.DateTimePicker();
             this.dtpLlegadaBase2 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.dtpSalidaDescarga = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
             this.dtpLlegadaDescarga = new System.Windows.Forms.DateTimePicker();
             this.label29 = new System.Windows.Forms.Label();
-            this.dtpHoraInicioDescarga2 = new System.Windows.Forms.DateTimePicker();
             this.dtpCarga = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalidaBase2 = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalidaPlanta2 = new System.Windows.Forms.DateTimePicker();
@@ -117,18 +113,22 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.dtpInicioDescarga2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraCarga = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraLlegadaDescarga = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraSalidaDescarga = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraInicioDescarga2 = new System.Windows.Forms.DateTimePicker();
             this.tabSalidaDescarga = new System.Windows.Forms.TabControl();
             this.tabSalidas = new System.Windows.Forms.TabPage();
             this.tabDescargas = new System.Windows.Forms.TabPage();
             this.dtpLlegadaCDA2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraInicioDesc2 = new System.Windows.Forms.DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
-            this.dtpInicioDesc2 = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraFinDesc2 = new System.Windows.Forms.DateTimePicker();
-            this.label35 = new System.Windows.Forms.Label();
             this.dtpHoraLlegadaCDA2 = new System.Windows.Forms.DateTimePicker();
             this.dtpFinDesc2 = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
+            this.dtpInicioDesc2 = new System.Windows.Forms.DateTimePicker();
+            this.label35 = new System.Windows.Forms.Label();
+            this.dtpHoraInicioDesc2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -330,7 +330,7 @@
             this.dtpLlegadaPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpLlegadaPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpLlegadaPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLlegadaPlanta.Location = new System.Drawing.Point(117, 61);
+            this.dtpLlegadaPlanta.Location = new System.Drawing.Point(117, 27);
             this.dtpLlegadaPlanta.Name = "dtpLlegadaPlanta";
             this.dtpLlegadaPlanta.Size = new System.Drawing.Size(101, 21);
             this.dtpLlegadaPlanta.TabIndex = 5;
@@ -339,9 +339,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dtpSalidaBase);
-            this.groupBox2.Controls.Add(this.dtpHoraSalidaBase);
-            this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.dtpHoraIngresoPlanta);
             this.groupBox2.Controls.Add(this.dtpHoraInicioAtencion);
             this.groupBox2.Controls.Add(this.dtpHoraLlegadaPlanta);
@@ -363,100 +360,64 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(19, 199);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(324, 270);
+            this.groupBox2.Size = new System.Drawing.Size(324, 236);
             this.groupBox2.TabIndex = 222;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "INGRESO Y SALIDA DE PLANTA: ";
             // 
-            // dtpSalidaBase
+            // dtpInicioRuta
             // 
-            this.dtpSalidaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpSalidaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpSalidaBase.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSalidaBase.Location = new System.Drawing.Point(117, 27);
-            this.dtpSalidaBase.Name = "dtpSalidaBase";
-            this.dtpSalidaBase.Size = new System.Drawing.Size(101, 21);
-            this.dtpSalidaBase.TabIndex = 3;
-            this.dtpSalidaBase.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
-            this.dtpSalidaBase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpSalidaBase_KeyPress);
+            this.dtpInicioRuta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpInicioRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpInicioRuta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpInicioRuta.Location = new System.Drawing.Point(121, 152);
+            this.dtpInicioRuta.Name = "dtpInicioRuta";
+            this.dtpInicioRuta.Size = new System.Drawing.Size(101, 21);
+            this.dtpInicioRuta.TabIndex = 3;
+            this.dtpInicioRuta.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
+            this.dtpInicioRuta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpSalidaBase_KeyPress);
             // 
-            // dtpHoraSalidaBase
+            // dtpHoraInicioRuta
             // 
-            this.dtpHoraSalidaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraSalidaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraSalidaBase.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalidaBase.Location = new System.Drawing.Point(224, 27);
-            this.dtpHoraSalidaBase.Name = "dtpHoraSalidaBase";
-            this.dtpHoraSalidaBase.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraSalidaBase.TabIndex = 4;
-            this.dtpHoraSalidaBase.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraSalidaBase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaBase_KeyPress);
+            this.dtpHoraInicioRuta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraInicioRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraInicioRuta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicioRuta.Location = new System.Drawing.Point(228, 152);
+            this.dtpHoraInicioRuta.Name = "dtpHoraInicioRuta";
+            this.dtpHoraInicioRuta.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraInicioRuta.TabIndex = 4;
+            this.dtpHoraInicioRuta.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraInicioRuta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaBase_KeyPress);
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(18, 30);
+            this.label31.Location = new System.Drawing.Point(30, 155);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(93, 15);
+            this.label31.Size = new System.Drawing.Size(85, 15);
             this.label31.TabIndex = 239;
-            this.label31.Text = "Salida de Base:";
-            // 
-            // dtpHoraSalidaPlanta
-            // 
-            this.dtpHoraSalidaPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraSalidaPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraSalidaPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalidaPlanta.Location = new System.Drawing.Point(224, 231);
-            this.dtpHoraSalidaPlanta.Name = "dtpHoraSalidaPlanta";
-            this.dtpHoraSalidaPlanta.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraSalidaPlanta.TabIndex = 23;
-            this.dtpHoraSalidaPlanta.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraSalidaPlanta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaPlanta_KeyPress);
-            // 
-            // dtpHoraFinAtencion
-            // 
-            this.dtpHoraFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFinAtencion.Location = new System.Drawing.Point(224, 163);
-            this.dtpHoraFinAtencion.Name = "dtpHoraFinAtencion";
-            this.dtpHoraFinAtencion.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraFinAtencion.TabIndex = 19;
-            this.dtpHoraFinAtencion.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraFinAtencion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraFinAtencion_KeyPress);
+            this.label31.Text = "Inicio de Ruta:";
             // 
             // dtpHoraIngresoPlanta
             // 
             this.dtpHoraIngresoPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpHoraIngresoPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHoraIngresoPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraIngresoPlanta.Location = new System.Drawing.Point(224, 95);
+            this.dtpHoraIngresoPlanta.Location = new System.Drawing.Point(224, 61);
             this.dtpHoraIngresoPlanta.Name = "dtpHoraIngresoPlanta";
             this.dtpHoraIngresoPlanta.Size = new System.Drawing.Size(75, 21);
             this.dtpHoraIngresoPlanta.TabIndex = 8;
             this.dtpHoraIngresoPlanta.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
             this.dtpHoraIngresoPlanta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraIngresoPlanta_KeyPress);
             // 
-            // dtpHoraEntregaGuia
-            // 
-            this.dtpHoraEntregaGuia.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraEntregaGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraEntregaGuia.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntregaGuia.Location = new System.Drawing.Point(224, 197);
-            this.dtpHoraEntregaGuia.Name = "dtpHoraEntregaGuia";
-            this.dtpHoraEntregaGuia.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraEntregaGuia.TabIndex = 21;
-            this.dtpHoraEntregaGuia.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraEntregaGuia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraEntregaGuia_KeyPress);
-            // 
             // dtpHoraInicioAtencion
             // 
             this.dtpHoraInicioAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpHoraInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHoraInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioAtencion.Location = new System.Drawing.Point(224, 129);
+            this.dtpHoraInicioAtencion.Location = new System.Drawing.Point(224, 95);
             this.dtpHoraInicioAtencion.Name = "dtpHoraInicioAtencion";
             this.dtpHoraInicioAtencion.Size = new System.Drawing.Size(75, 21);
             this.dtpHoraInicioAtencion.TabIndex = 10;
@@ -468,7 +429,7 @@
             this.dtpHoraLlegadaPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpHoraLlegadaPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHoraLlegadaPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraLlegadaPlanta.Location = new System.Drawing.Point(224, 61);
+            this.dtpHoraLlegadaPlanta.Location = new System.Drawing.Point(224, 27);
             this.dtpHoraLlegadaPlanta.Name = "dtpHoraLlegadaPlanta";
             this.dtpHoraLlegadaPlanta.Size = new System.Drawing.Size(75, 21);
             this.dtpHoraLlegadaPlanta.TabIndex = 6;
@@ -480,7 +441,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(66, 234);
+            this.label12.Location = new System.Drawing.Point(66, 200);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(45, 15);
             this.label12.TabIndex = 236;
@@ -491,7 +452,7 @@
             this.dtpSalidaPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpSalidaPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpSalidaPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSalidaPlanta.Location = new System.Drawing.Point(117, 231);
+            this.dtpSalidaPlanta.Location = new System.Drawing.Point(117, 197);
             this.dtpSalidaPlanta.Name = "dtpSalidaPlanta";
             this.dtpSalidaPlanta.Size = new System.Drawing.Size(101, 21);
             this.dtpSalidaPlanta.TabIndex = 22;
@@ -503,7 +464,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(23, 200);
+            this.label13.Location = new System.Drawing.Point(23, 166);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(88, 15);
             this.label13.TabIndex = 234;
@@ -514,7 +475,7 @@
             this.dtpEntregaGuia.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpEntregaGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpEntregaGuia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEntregaGuia.Location = new System.Drawing.Point(117, 197);
+            this.dtpEntregaGuia.Location = new System.Drawing.Point(117, 163);
             this.dtpEntregaGuia.Name = "dtpEntregaGuia";
             this.dtpEntregaGuia.Size = new System.Drawing.Size(101, 21);
             this.dtpEntregaGuia.TabIndex = 20;
@@ -526,7 +487,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(34, 166);
+            this.label11.Location = new System.Drawing.Point(34, 132);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 15);
             this.label11.TabIndex = 232;
@@ -537,42 +498,19 @@
             this.dtpFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFinAtencion.Location = new System.Drawing.Point(117, 163);
+            this.dtpFinAtencion.Location = new System.Drawing.Point(117, 129);
             this.dtpFinAtencion.Name = "dtpFinAtencion";
             this.dtpFinAtencion.Size = new System.Drawing.Size(101, 21);
             this.dtpFinAtencion.TabIndex = 11;
             this.dtpFinAtencion.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
             this.dtpFinAtencion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpFinAtencion_KeyPress);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(22, 132);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 15);
-            this.label10.TabIndex = 230;
-            this.label10.Text = "Inicio Atención:";
-            // 
-            // dtpInicioAtencion
-            // 
-            this.dtpInicioAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInicioAtencion.Location = new System.Drawing.Point(117, 129);
-            this.dtpInicioAtencion.Name = "dtpInicioAtencion";
-            this.dtpInicioAtencion.Size = new System.Drawing.Size(101, 21);
-            this.dtpInicioAtencion.TabIndex = 9;
-            this.dtpInicioAtencion.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
-            this.dtpInicioAtencion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpInicioAtencion_KeyPress);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(60, 98);
+            this.label9.Location = new System.Drawing.Point(60, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 15);
             this.label9.TabIndex = 228;
@@ -583,7 +521,7 @@
             this.dtpIngresoPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpIngresoPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpIngresoPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpIngresoPlanta.Location = new System.Drawing.Point(117, 95);
+            this.dtpIngresoPlanta.Location = new System.Drawing.Point(117, 61);
             this.dtpIngresoPlanta.Name = "dtpIngresoPlanta";
             this.dtpIngresoPlanta.Size = new System.Drawing.Size(101, 21);
             this.dtpIngresoPlanta.TabIndex = 7;
@@ -595,11 +533,70 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(56, 64);
+            this.label15.Location = new System.Drawing.Point(56, 30);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 15);
             this.label15.TabIndex = 226;
             this.label15.Text = "Llegada:";
+            // 
+            // dtpHoraFinAtencion
+            // 
+            this.dtpHoraFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFinAtencion.Location = new System.Drawing.Point(224, 129);
+            this.dtpHoraFinAtencion.Name = "dtpHoraFinAtencion";
+            this.dtpHoraFinAtencion.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraFinAtencion.TabIndex = 19;
+            this.dtpHoraFinAtencion.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraFinAtencion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraFinAtencion_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(22, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 15);
+            this.label10.TabIndex = 230;
+            this.label10.Text = "Inicio Atención:";
+            // 
+            // dtpInicioAtencion
+            // 
+            this.dtpInicioAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpInicioAtencion.Location = new System.Drawing.Point(117, 95);
+            this.dtpInicioAtencion.Name = "dtpInicioAtencion";
+            this.dtpInicioAtencion.Size = new System.Drawing.Size(101, 21);
+            this.dtpInicioAtencion.TabIndex = 9;
+            this.dtpInicioAtencion.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
+            this.dtpInicioAtencion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpInicioAtencion_KeyPress);
+            // 
+            // dtpHoraSalidaPlanta
+            // 
+            this.dtpHoraSalidaPlanta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraSalidaPlanta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraSalidaPlanta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraSalidaPlanta.Location = new System.Drawing.Point(224, 197);
+            this.dtpHoraSalidaPlanta.Name = "dtpHoraSalidaPlanta";
+            this.dtpHoraSalidaPlanta.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraSalidaPlanta.TabIndex = 23;
+            this.dtpHoraSalidaPlanta.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraSalidaPlanta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaPlanta_KeyPress);
+            // 
+            // dtpHoraEntregaGuia
+            // 
+            this.dtpHoraEntregaGuia.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraEntregaGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraEntregaGuia.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraEntregaGuia.Location = new System.Drawing.Point(224, 163);
+            this.dtpHoraEntregaGuia.Name = "dtpHoraEntregaGuia";
+            this.dtpHoraEntregaGuia.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraEntregaGuia.TabIndex = 21;
+            this.dtpHoraEntregaGuia.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraEntregaGuia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraEntregaGuia_KeyPress);
             // 
             // dtpHoraFinDescarga
             // 
@@ -630,7 +627,7 @@
             this.dtpHoraLlegadaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpHoraLlegadaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHoraLlegadaBase.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraLlegadaBase.Location = new System.Drawing.Point(228, 152);
+            this.dtpHoraLlegadaBase.Location = new System.Drawing.Point(228, 186);
             this.dtpHoraLlegadaBase.Name = "dtpHoraLlegadaBase";
             this.dtpHoraLlegadaBase.Size = new System.Drawing.Size(75, 21);
             this.dtpHoraLlegadaBase.TabIndex = 33;
@@ -666,7 +663,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(19, 155);
+            this.label16.Location = new System.Drawing.Point(19, 189);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 15);
             this.label16.TabIndex = 234;
@@ -677,7 +674,7 @@
             this.dtpLlegadaBase.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dtpLlegadaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpLlegadaBase.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLlegadaBase.Location = new System.Drawing.Point(121, 152);
+            this.dtpLlegadaBase.Location = new System.Drawing.Point(121, 186);
             this.dtpLlegadaBase.Name = "dtpLlegadaBase";
             this.dtpLlegadaBase.Size = new System.Drawing.Size(101, 21);
             this.dtpLlegadaBase.TabIndex = 32;
@@ -784,9 +781,9 @@
             this.btnIngresarTiempos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnIngresarTiempos.Image = global::ReportesTranspesa.Properties.Resources.Icon_Save1;
             this.btnIngresarTiempos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresarTiempos.Location = new System.Drawing.Point(482, 446);
+            this.btnIngresarTiempos.Location = new System.Drawing.Point(482, 461);
             this.btnIngresarTiempos.Name = "btnIngresarTiempos";
-            this.btnIngresarTiempos.Size = new System.Drawing.Size(102, 39);
+            this.btnIngresarTiempos.Size = new System.Drawing.Size(102, 41);
             this.btnIngresarTiempos.TabIndex = 999;
             this.btnIngresarTiempos.TabStop = false;
             this.btnIngresarTiempos.Text = "Guardar";
@@ -998,18 +995,6 @@
             this.dtpHoraLlegadaBase2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
             this.dtpHoraLlegadaBase2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraLlegadaBase2_KeyPress);
             // 
-            // dtpHoraSalidaDescarga
-            // 
-            this.dtpHoraSalidaDescarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraSalidaDescarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraSalidaDescarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalidaDescarga.Location = new System.Drawing.Point(224, 231);
-            this.dtpHoraSalidaDescarga.Name = "dtpHoraSalidaDescarga";
-            this.dtpHoraSalidaDescarga.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraSalidaDescarga.TabIndex = 113;
-            this.dtpHoraSalidaDescarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraSalidaDescarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaDescarga_KeyPress);
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1020,30 +1005,6 @@
             this.label33.Size = new System.Drawing.Size(96, 15);
             this.label33.TabIndex = 245;
             this.label33.Text = "Llegada a Base:";
-            // 
-            // dtpHoraLlegadaDescarga
-            // 
-            this.dtpHoraLlegadaDescarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraLlegadaDescarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraLlegadaDescarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraLlegadaDescarga.Location = new System.Drawing.Point(224, 163);
-            this.dtpHoraLlegadaDescarga.Name = "dtpHoraLlegadaDescarga";
-            this.dtpHoraLlegadaDescarga.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraLlegadaDescarga.TabIndex = 109;
-            this.dtpHoraLlegadaDescarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraLlegadaDescarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraLlegadaDescarga_KeyPress);
-            // 
-            // dtpHoraCarga
-            // 
-            this.dtpHoraCarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraCarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraCarga.Location = new System.Drawing.Point(224, 95);
-            this.dtpHoraCarga.Name = "dtpHoraCarga";
-            this.dtpHoraCarga.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraCarga.TabIndex = 105;
-            this.dtpHoraCarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraCarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraCarga_KeyPress);
             // 
             // dtpLlegadaBase2
             // 
@@ -1115,18 +1076,6 @@
             this.label29.Size = new System.Drawing.Size(43, 15);
             this.label29.TabIndex = 228;
             this.label29.Text = "Carga:";
-            // 
-            // dtpHoraInicioDescarga2
-            // 
-            this.dtpHoraInicioDescarga2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraInicioDescarga2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraInicioDescarga2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioDescarga2.Location = new System.Drawing.Point(224, 197);
-            this.dtpHoraInicioDescarga2.Name = "dtpHoraInicioDescarga2";
-            this.dtpHoraInicioDescarga2.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraInicioDescarga2.TabIndex = 111;
-            this.dtpHoraInicioDescarga2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraInicioDescarga2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraInicioDescarga2_KeyPress);
             // 
             // dtpCarga
             // 
@@ -1268,6 +1217,54 @@
             this.dtpInicioDescarga2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
             this.dtpInicioDescarga2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpInicioDescarga2_KeyPress);
             // 
+            // dtpHoraCarga
+            // 
+            this.dtpHoraCarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraCarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraCarga.Location = new System.Drawing.Point(224, 95);
+            this.dtpHoraCarga.Name = "dtpHoraCarga";
+            this.dtpHoraCarga.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraCarga.TabIndex = 105;
+            this.dtpHoraCarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraCarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraCarga_KeyPress);
+            // 
+            // dtpHoraLlegadaDescarga
+            // 
+            this.dtpHoraLlegadaDescarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraLlegadaDescarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraLlegadaDescarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraLlegadaDescarga.Location = new System.Drawing.Point(224, 163);
+            this.dtpHoraLlegadaDescarga.Name = "dtpHoraLlegadaDescarga";
+            this.dtpHoraLlegadaDescarga.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraLlegadaDescarga.TabIndex = 109;
+            this.dtpHoraLlegadaDescarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraLlegadaDescarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraLlegadaDescarga_KeyPress);
+            // 
+            // dtpHoraSalidaDescarga
+            // 
+            this.dtpHoraSalidaDescarga.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraSalidaDescarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraSalidaDescarga.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraSalidaDescarga.Location = new System.Drawing.Point(224, 231);
+            this.dtpHoraSalidaDescarga.Name = "dtpHoraSalidaDescarga";
+            this.dtpHoraSalidaDescarga.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraSalidaDescarga.TabIndex = 113;
+            this.dtpHoraSalidaDescarga.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraSalidaDescarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraSalidaDescarga_KeyPress);
+            // 
+            // dtpHoraInicioDescarga2
+            // 
+            this.dtpHoraInicioDescarga2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraInicioDescarga2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraInicioDescarga2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicioDescarga2.Location = new System.Drawing.Point(224, 197);
+            this.dtpHoraInicioDescarga2.Name = "dtpHoraInicioDescarga2";
+            this.dtpHoraInicioDescarga2.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraInicioDescarga2.TabIndex = 111;
+            this.dtpHoraInicioDescarga2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraInicioDescarga2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraInicioDescarga2_KeyPress);
+            // 
             // tabSalidaDescarga
             // 
             this.tabSalidaDescarga.Controls.Add(this.tabSalidas);
@@ -1276,13 +1273,16 @@
             this.tabSalidaDescarga.Location = new System.Drawing.Point(366, 196);
             this.tabSalidaDescarga.Name = "tabSalidaDescarga";
             this.tabSalidaDescarga.SelectedIndex = 0;
-            this.tabSalidaDescarga.Size = new System.Drawing.Size(335, 217);
+            this.tabSalidaDescarga.Size = new System.Drawing.Size(335, 251);
             this.tabSalidaDescarga.TabIndex = 212;
             // 
             // tabSalidas
             // 
             this.tabSalidas.BackColor = System.Drawing.Color.LemonChiffon;
+            this.tabSalidas.Controls.Add(this.dtpInicioRuta);
+            this.tabSalidas.Controls.Add(this.dtpHoraInicioRuta);
             this.tabSalidas.Controls.Add(this.dtpHoraLlegadaCDA);
+            this.tabSalidas.Controls.Add(this.label31);
             this.tabSalidas.Controls.Add(this.dtpSalidaRuta);
             this.tabSalidas.Controls.Add(this.label20);
             this.tabSalidas.Controls.Add(this.dtpHoraLlegadaBase);
@@ -1300,7 +1300,7 @@
             this.tabSalidas.Location = new System.Drawing.Point(4, 24);
             this.tabSalidas.Name = "tabSalidas";
             this.tabSalidas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalidas.Size = new System.Drawing.Size(327, 189);
+            this.tabSalidas.Size = new System.Drawing.Size(327, 223);
             this.tabSalidas.TabIndex = 0;
             this.tabSalidas.Text = "SALIDA Y DESCARGA";
             // 
@@ -1319,7 +1319,7 @@
             this.tabDescargas.Location = new System.Drawing.Point(4, 24);
             this.tabDescargas.Name = "tabDescargas";
             this.tabDescargas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDescargas.Size = new System.Drawing.Size(327, 189);
+            this.tabDescargas.Size = new System.Drawing.Size(327, 225);
             this.tabDescargas.TabIndex = 1;
             this.tabDescargas.Text = "DESCARGA ADICIONAL";
             // 
@@ -1335,18 +1335,6 @@
             this.dtpLlegadaCDA2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
             this.dtpLlegadaCDA2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpLlegadaCDA2_KeyPress);
             // 
-            // dtpHoraInicioDesc2
-            // 
-            this.dtpHoraInicioDesc2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpHoraInicioDesc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpHoraInicioDesc2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioDesc2.Location = new System.Drawing.Point(228, 50);
-            this.dtpHoraInicioDesc2.Name = "dtpHoraInicioDesc2";
-            this.dtpHoraInicioDesc2.Size = new System.Drawing.Size(75, 21);
-            this.dtpHoraInicioDesc2.TabIndex = 37;
-            this.dtpHoraInicioDesc2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
-            this.dtpHoraInicioDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraInicioDesc2_KeyPress);
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1357,18 +1345,6 @@
             this.label34.Size = new System.Drawing.Size(92, 15);
             this.label34.TabIndex = 237;
             this.label34.Text = "Llegada CDA 2:";
-            // 
-            // dtpInicioDesc2
-            // 
-            this.dtpInicioDesc2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtpInicioDesc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dtpInicioDesc2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInicioDesc2.Location = new System.Drawing.Point(121, 50);
-            this.dtpInicioDesc2.Name = "dtpInicioDesc2";
-            this.dtpInicioDesc2.Size = new System.Drawing.Size(101, 21);
-            this.dtpInicioDesc2.TabIndex = 36;
-            this.dtpInicioDesc2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
-            this.dtpInicioDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpInicioDesc2_KeyPress);
             // 
             // dtpHoraFinDesc2
             // 
@@ -1381,17 +1357,6 @@
             this.dtpHoraFinDesc2.TabIndex = 39;
             this.dtpHoraFinDesc2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
             this.dtpHoraFinDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraFinDesc2_KeyPress);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(32, 53);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(83, 15);
-            this.label35.TabIndex = 238;
-            this.label35.Text = "Inicio Desc. 2:";
             // 
             // dtpHoraLlegadaCDA2
             // 
@@ -1428,6 +1393,41 @@
             this.label36.TabIndex = 239;
             this.label36.Text = "Fin Desc. 2:";
             // 
+            // dtpInicioDesc2
+            // 
+            this.dtpInicioDesc2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpInicioDesc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpInicioDesc2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpInicioDesc2.Location = new System.Drawing.Point(121, 50);
+            this.dtpInicioDesc2.Name = "dtpInicioDesc2";
+            this.dtpInicioDesc2.Size = new System.Drawing.Size(101, 21);
+            this.dtpInicioDesc2.TabIndex = 36;
+            this.dtpInicioDesc2.Value = new System.DateTime(2023, 5, 27, 11, 36, 20, 0);
+            this.dtpInicioDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpInicioDesc2_KeyPress);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label35.ForeColor = System.Drawing.Color.Black;
+            this.label35.Location = new System.Drawing.Point(32, 53);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(83, 15);
+            this.label35.TabIndex = 238;
+            this.label35.Text = "Inicio Desc. 2:";
+            // 
+            // dtpHoraInicioDesc2
+            // 
+            this.dtpHoraInicioDesc2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dtpHoraInicioDesc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.dtpHoraInicioDesc2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicioDesc2.Location = new System.Drawing.Point(228, 50);
+            this.dtpHoraInicioDesc2.Name = "dtpHoraInicioDesc2";
+            this.dtpHoraInicioDesc2.Size = new System.Drawing.Size(75, 21);
+            this.dtpHoraInicioDesc2.TabIndex = 37;
+            this.dtpHoraInicioDesc2.Value = new System.DateTime(2023, 5, 27, 0, 0, 0, 0);
+            this.dtpHoraInicioDesc2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpHoraInicioDesc2_KeyPress);
+            // 
             // frmRegistrarTiemposViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1437,7 +1437,6 @@
             this.Controls.Add(this.btnIngresarTiempos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tabSalidaDescarga);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label14);
@@ -1449,6 +1448,7 @@
             this.Controls.Add(this.cbxEstadoL);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.txtUbicacionL);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.MaximizeBox = false;
             this.Name = "frmRegistrarTiemposViaje";
@@ -1554,9 +1554,9 @@
         public System.Windows.Forms.DateTimePicker dtpCarga;
         private System.Windows.Forms.Label label30;
         public System.Windows.Forms.DateTimePicker dtpLlegadaCarga;
-        public System.Windows.Forms.DateTimePicker dtpHoraSalidaBase;
+        public System.Windows.Forms.DateTimePicker dtpHoraInicioRuta;
         private System.Windows.Forms.Label label31;
-        public System.Windows.Forms.DateTimePicker dtpSalidaBase;
+        public System.Windows.Forms.DateTimePicker dtpInicioRuta;
         public System.Windows.Forms.DateTimePicker dtpHoraSalidaBase2;
         private System.Windows.Forms.Label label32;
         public System.Windows.Forms.DateTimePicker dtpSalidaBase2;

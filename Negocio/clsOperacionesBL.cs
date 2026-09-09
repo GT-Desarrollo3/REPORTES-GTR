@@ -1986,11 +1986,11 @@ namespace Negocio
         public DataTable ReportesApp_Operaciones_Previajes_ListarUbicaciones(int Opcion, string Operacion, string Estado, string RutaViaje)
         { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_Previajes_ListarUbicaciones(Opcion, Operacion, Estado, RutaViaje); }
 
-        public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(int Opcion, int NroTicket, string EstadoV, DateTime SalidaBase, DateTime LlegadaPlanta, DateTime IngresoPlanta, DateTime InicioAtencion, DateTime FinAtencion, DateTime EntregaGuia,
-                         DateTime SalidaPlanta, DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
+        public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(int Opcion, int NroTicket, string EstadoV, DateTime LlegadaPlanta, DateTime IngresoPlanta, DateTime InicioAtencion, DateTime FinAtencion, DateTime EntregaGuia, DateTime SalidaPlanta,
+                         DateTime SalidaRuta, DateTime LlegadaCDA, DateTime InicioDescarga, DateTime FinDescarga, DateTime InicioRuta, DateTime LlegadaCDA2, DateTime InicioDescarga2, DateTime FinDescarga2, DateTime LlegadaBase, string Usuario)
         {
-            return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(Opcion, NroTicket, EstadoV, SalidaBase, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia, SalidaPlanta,
-                                               SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+            return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(Opcion, NroTicket, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta,
+                                               LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
         }
 
         public DataTable ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajesLimagas(int Opcion, int NroTicket, string EstadoV, DateTime SalidaBase, DateTime LlegadaCarga, DateTime Carga, DateTime SalidaPlanta, DateTime LlegadaDescarga,

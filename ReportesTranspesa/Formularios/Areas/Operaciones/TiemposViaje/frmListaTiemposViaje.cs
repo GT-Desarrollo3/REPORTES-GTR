@@ -102,8 +102,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
 
                         if (cbxProgramacion.Text == "LINDLEY")
                         {
-                            dgvTiempoViajesVista.Columns["SALIDA_BASE"].DisplayFormat.FormatType = FormatType.DateTime;
-                            dgvTiempoViajesVista.Columns["SALIDA_BASE"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["LLEGADA_PLANTA"].DisplayFormat.FormatType = FormatType.DateTime;
                             dgvTiempoViajesVista.Columns["LLEGADA_PLANTA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["INGRESO_PLANTA"].DisplayFormat.FormatType = FormatType.DateTime;
@@ -124,6 +122,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                             dgvTiempoViajesVista.Columns["INICIO_DESCARGA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["FIN_DESCARGA"].DisplayFormat.FormatType = FormatType.DateTime;
                             dgvTiempoViajesVista.Columns["FIN_DESCARGA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+                            dgvTiempoViajesVista.Columns["INICIO_RUTA"].DisplayFormat.FormatType = FormatType.DateTime;
+                            dgvTiempoViajesVista.Columns["INICIO_RUTA"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].DisplayFormat.FormatType = FormatType.DateTime;
                             dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
                             dgvTiempoViajesVista.Columns["INICIO_DESCARGA_2"].DisplayFormat.FormatType = FormatType.DateTime;
@@ -224,7 +224,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             // Asignar el editor a las columnas de fecha
             if (cbxProgramacion.Text == "LINDLEY")
             {
-                dgvTiempoViajesVista.Columns["SALIDA_BASE"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["LLEGADA_PLANTA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INGRESO_PLANTA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INICIO_ATENCION"].ColumnEdit = repoDateTime;
@@ -235,6 +234,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 dgvTiempoViajesVista.Columns["LLEGADA_CDA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INICIO_DESCARGA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["FIN_DESCARGA"].ColumnEdit = repoDateTime;
+                dgvTiempoViajesVista.Columns["INICIO_RUTA"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["LLEGADA_CDA_2"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["INICIO_DESCARGA_2"].ColumnEdit = repoDateTime;
                 dgvTiempoViajesVista.Columns["FIN_DESCARGA_2"].ColumnEdit = repoDateTime;
@@ -469,7 +469,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
                 int Previaje;
                 DateTime SalidaBase, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga,
-                FinDescarga, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, LlegadaCarga, InicioCarga, LlegadaDescarga, SalidaDescarga;
+                FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, LlegadaCarga, InicioCarga, LlegadaDescarga, SalidaDescarga;
                 string EstadoV;
                 string Usuario = Utilitario.Instancia.SesionUsuario.usuario;
 
@@ -481,7 +481,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                     if (cbxProgramacion.Text == "LINDLEY")
                     {
                         EstadoV = dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ESTADO").ToString();
-                        SalidaBase = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE"));
                         LlegadaPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA"));
                         IngresoPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA"));
                         InicioAtencion = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION"));
@@ -492,6 +491,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         LlegadaCDA = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA"));
                         InicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
                         FinDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA"));
+                        InicioRuta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA"));
                         LlegadaCDA2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2"));
                         InicioDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2"));
                         FinDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2"));
@@ -500,8 +500,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         DataTable dtRespuesta = new DataTable();
                         string Respuesta;
 
-                        dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, SalidaBase, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion,
-                                                                 EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                        dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia,
+                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
                         Respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
                         string NroRPTA = Respuesta.Substring(0, 1);
 
@@ -579,7 +579,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                     if (cbxProgramacion.Text == "LINDLEY")
                     {
                         EstadoV = dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "ESTADO").ToString();
-                        SalidaBase = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "SALIDA_BASE"));
                         LlegadaPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_PLANTA"));
                         IngresoPlanta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INGRESO_PLANTA"));
                         InicioAtencion = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_ATENCION"));
@@ -590,6 +589,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         LlegadaCDA = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA"));
                         InicioDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA"));
                         FinDescarga = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA"));
+                        InicioRuta = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_RUTA"));
                         LlegadaCDA2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "LLEGADA_CDA_2"));
                         InicioDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "INICIO_DESCARGA_2"));
                         FinDescarga2 = Convert.ToDateTime(dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2") == DBNull.Value ? DateTime.Today : dgvTiempoViajesVista.GetRowCellValue(dgvTiempoViajesVista.FocusedRowHandle, "FIN_DESCARGA_2"));
@@ -598,8 +598,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                         DataTable dtRespuesta = new DataTable();
                         string Respuesta;
 
-                        dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, SalidaBase, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion,
-                                                                 EntregaGuia, SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
+                        dtRespuesta = clsOperacionesBL.Instancia.ReportesApp_Operaciones_Previajes_RegistrarEliminarTiempoViajes(1, Previaje, EstadoV, LlegadaPlanta, IngresoPlanta, InicioAtencion, FinAtencion, EntregaGuia,
+                                                                 SalidaPlanta, SalidaRuta, LlegadaCDA, InicioDescarga, FinDescarga, InicioRuta, LlegadaCDA2, InicioDescarga2, FinDescarga2, LlegadaBase, Usuario);
                         Respuesta = Convert.ToString(dtRespuesta.Rows[0]["exito"]);
                         string NroRPTA = Respuesta.Substring(0, 1);
 
