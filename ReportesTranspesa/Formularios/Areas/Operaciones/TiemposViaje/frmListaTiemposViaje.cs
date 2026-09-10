@@ -1647,5 +1647,25 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
                 view.SetRowCellValue(e.RowHandle, "PORC_TRANSITO", avance);
             }
         }
+
+        private void btnExcelImportar_Click(object sender, EventArgs e)
+        {
+            if (dtgTiempoViajes.DataSource == null)
+            {
+                Mensaje m = new Mensaje();
+                m.mensaje = "No hay datos para exportar.";
+                m.ShowDialog();
+            }
+            else
+            {
+                CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+                DateTimeFormatInfo dtfi = culture.DateTimeFormat;
+                dtfi.TimeSeparator = ".";
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                string nombre = System.IO.Path.Combine(desktop, "REGISTRO DE TIEMPOS DE VIAJE - " + DateTime.Now.ToString("dd-MM-yyyy") + " - " + Utilitario.Instancia.SesionUsuario.usuario + ".xlsx");
+                dtgTiempoViajes.ExportToXlsx(nombre);
+                Process.Start(nombre);
+            }
+        }
     }
 }

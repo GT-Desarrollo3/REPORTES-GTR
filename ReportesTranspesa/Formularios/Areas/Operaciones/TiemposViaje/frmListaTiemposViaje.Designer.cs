@@ -88,6 +88,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.lblPreviajeDestino = new System.Windows.Forms.Label();
             this.txtPreviajeDestino = new System.Windows.Forms.TextBox();
             this.btnCopiarTiempos = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExcelImportar = new DevExpress.XtraEditors.SimpleButton();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiempoViajes)).BeginInit();
@@ -113,7 +114,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1347, 47);
+            this.label2.Size = new System.Drawing.Size(1621, 47);
             this.label2.TabIndex = 20;
             this.label2.Text = "REGISTRO DE TIEMPOS DE VIAJE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,11 +129,12 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.panel3.Location = new System.Drawing.Point(0, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1347, 136);
+            this.panel3.Size = new System.Drawing.Size(1621, 136);
             this.panel3.TabIndex = 183;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcelImportar);
             this.groupBox1.Controls.Add(this.rbPernoctes);
             this.groupBox1.Controls.Add(this.rbUbicacion);
             this.groupBox1.Controls.Add(this.txtConductor);
@@ -154,7 +156,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(161, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1160, 105);
+            this.groupBox1.Size = new System.Drawing.Size(1390, 105);
             this.groupBox1.TabIndex = 219;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FILTRO DE PREVIAJES: ";
@@ -258,7 +260,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             // 
             // btnExcel
             // 
-            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcel.Appearance.BackColor = System.Drawing.Color.White;
             this.btnExcel.Appearance.BackColor2 = System.Drawing.Color.White;
             this.btnExcel.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -268,13 +269,14 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.btnExcel.Appearance.Options.UseFont = true;
             this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
-            this.btnExcel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnExcel.Location = new System.Drawing.Point(1086, 34);
+            this.btnExcel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnExcel.Location = new System.Drawing.Point(1144, 34);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(51, 47);
+            this.btnExcel.Size = new System.Drawing.Size(119, 47);
             this.btnExcel.TabIndex = 197;
             this.btnExcel.Tag = "6";
-            this.btnExcel.ToolTip = "Exportar a Excel";
+            this.btnExcel.Text = "Exportar\r\nCliente";
+            this.btnExcel.ToolTip = "Exportar Cliente";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // dtpFechaFin
@@ -301,7 +303,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Appearance.BackColor = System.Drawing.Color.White;
             this.btnBuscar.Appearance.BackColor2 = System.Drawing.Color.White;
             this.btnBuscar.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -433,7 +434,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.dtgTiempoViajes.LookAndFeel.UseDefaultLookAndFeel = false;
             this.dtgTiempoViajes.MainView = this.dgvTiempoViajesVista;
             this.dtgTiempoViajes.Name = "dtgTiempoViajes";
-            this.dtgTiempoViajes.Size = new System.Drawing.Size(1333, 319);
+            this.dtgTiempoViajes.Size = new System.Drawing.Size(1607, 319);
             this.dtgTiempoViajes.TabIndex = 184;
             this.dtgTiempoViajes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvTiempoViajesVista});
@@ -490,7 +491,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.tabTiemposViaje.Location = new System.Drawing.Point(0, 183);
             this.tabTiemposViaje.Name = "tabTiemposViaje";
             this.tabTiemposViaje.SelectedIndex = 0;
-            this.tabTiemposViaje.Size = new System.Drawing.Size(1347, 358);
+            this.tabTiemposViaje.Size = new System.Drawing.Size(1621, 358);
             this.tabTiemposViaje.TabIndex = 185;
             // 
             // tabTiempoUbicacion
@@ -500,7 +501,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.tabTiempoUbicacion.Location = new System.Drawing.Point(4, 29);
             this.tabTiempoUbicacion.Name = "tabTiempoUbicacion";
             this.tabTiempoUbicacion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTiempoUbicacion.Size = new System.Drawing.Size(1339, 325);
+            this.tabTiempoUbicacion.Size = new System.Drawing.Size(1613, 325);
             this.tabTiempoUbicacion.TabIndex = 0;
             this.tabTiempoUbicacion.Text = "UBICACIÓN";
             // 
@@ -852,12 +853,32 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.btnCopiarTiempos.Text = "Copiar\r\nTiempos";
             this.btnCopiarTiempos.Click += new System.EventHandler(this.btnCopiarTiempos_Click);
             // 
+            // btnExcelImportar
+            // 
+            this.btnExcelImportar.Appearance.BackColor = System.Drawing.Color.White;
+            this.btnExcelImportar.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.btnExcelImportar.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btnExcelImportar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcelImportar.Appearance.Options.UseBackColor = true;
+            this.btnExcelImportar.Appearance.Options.UseBorderColor = true;
+            this.btnExcelImportar.Appearance.Options.UseFont = true;
+            this.btnExcelImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcelImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelImportar.Image")));
+            this.btnExcelImportar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnExcelImportar.Location = new System.Drawing.Point(1086, 34);
+            this.btnExcelImportar.Name = "btnExcelImportar";
+            this.btnExcelImportar.Size = new System.Drawing.Size(47, 47);
+            this.btnExcelImportar.TabIndex = 234;
+            this.btnExcelImportar.Tag = "6";
+            this.btnExcelImportar.ToolTip = "Importar a Excel";
+            this.btnExcelImportar.Click += new System.EventHandler(this.btnExcelImportar_Click);
+            // 
             // frmListaTiemposViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(1347, 541);
+            this.ClientSize = new System.Drawing.Size(1621, 541);
             this.Controls.Add(this.tabTiemposViaje);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label2);
@@ -950,5 +971,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
         private System.Windows.Forms.Label lblPreviajeDestino;
         internal System.Windows.Forms.TextBox txtPreviajeDestino;
         private DevExpress.XtraEditors.SimpleButton btnCopiarTiempos;
+        public DevExpress.XtraEditors.SimpleButton btnExcelImportar;
     }
 }

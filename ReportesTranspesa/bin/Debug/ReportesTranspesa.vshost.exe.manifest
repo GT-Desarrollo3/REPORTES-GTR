@@ -2769,14 +2769,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37222912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37225472">
       <assemblyIdentity name="ReportesTranspesa" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Q2KxgmZXTbNumswazqsxHTk8MLcZVTZaobPXpc1VFTw=</dsig:DigestValue>
+        <dsig:DigestValue>JrhtamAsLj5ksvUz//zuUNjlNT3WojnZhUKLr1hN4lk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
