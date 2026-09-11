@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
 using AccesoDatos;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace Negocio
@@ -25,6 +27,17 @@ namespace Negocio
         public DataTable GetDataSumarizado(string fechaini,string fechafin,string tipofecha) 
         {
             return clsContabilidadDAO.Instancia.GetDataSumarizado(fechaini, fechafin, tipofecha);
+        }
+
+        public async Task<int> GetDataSumarizadoStreamAsync(
+            string fechaini, 
+            string fechafin, 
+            string tipofecha, 
+            Action<DataTable> onSchemaReady, 
+            Action<List<object[]>> onRowsBatch, 
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await clsContabilidadDAO.Instancia.GetDataSumarizadoStreamAsync(fechaini, fechafin, tipofecha, onSchemaReady, onRowsBatch, cancellationToken);
         }
         //Clase Resumen De Sumarizado con Importe de Viajes Completados
         public DataTable GetDataSumarizadoImporte(string fechaini, string fechafin, string filtro)

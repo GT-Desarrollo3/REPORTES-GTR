@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,6 +14,8 @@ using System.Diagnostics;
 using DevExpress.XtraGrid.Views.Base;
 using System.Data;
 using Comun;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace ReportesTranspesa.Formularios.Areas.Contabilidad
 {
@@ -31,6 +33,7 @@ namespace ReportesTranspesa.Formularios.Areas.Contabilidad
         string Viaje;
         DateTime FechaGuia;
         string Area;
+        private CancellationTokenSource ctsBusqueda;
 
         private void Sumarizado_Load(object sender, EventArgs e)
         {
@@ -51,9 +54,10 @@ namespace ReportesTranspesa.Formularios.Areas.Contabilidad
             dtAreaUsuario = clsMantenimientoBL.Instancia.ReportesApp_Mantenimiento_MttoPreventivo_BuscarUsuarios(UsuarioAcceso);
             if (dtAreaUsuario.Rows.Count > 0) { Area = dtAreaUsuario.Rows[0]["AREA"].ToString(); }
         }
-        private void btnBuscar_Click(object sender, EventArgs e)
+
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            string tipofecha="";
+            string tipofecha = "";
             if (rbFechaProg.Checked)
             {
                 tipofecha = "PROGRAMADA";
@@ -71,165 +75,225 @@ namespace ReportesTranspesa.Formularios.Areas.Contabilidad
                 tipofecha = "TOLVAS";
             }
 
+            if (ctsBusqueda != null)
+            {
+                ctsBusqueda.Cancel();
+                ctsBusqueda.Dispose();
+                ctsBusqueda = null;
+            }
+            ctsBusqueda = new CancellationTokenSource();
+
+            btnBuscar.Enabled = false;
+            btnExcel.Enabled = false;
+            btnImprimir.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnBuscar.Text = "Buscando...";
+
             dtgvData.DataSource = null;
             dtgvDataView.Columns.Clear();
-            System.Data.DataTable dt = new System.Data.DataTable();
-            dt = clsContabilidadBL.Instancia.GetDataSumarizado(dtpFechaIni.Value.ToShortDateString()+" 00:00:00",
-                dtpFechaFin.Value.ToShortDateString() + " 23:59:59", tipofecha);
-            if (dt.Rows.Count > 0)
+
+            DataTable dt = null;
+            int totalFilas = 0;
+
+            try
             {
-                dtgvData.DataSource = dt;
-                if (tipofecha == "TOLVAS")
-                {
-                    goto Fin;
-                }
-                //************************FILTRO*******************************************************
-                string filtro = "";
-                int contafiltros = 0;
-                if (chkSucursal.Checked)
-                {
-                    filtro = "[SUCURSAL] = '" + cboSucursal.Text + "'";
-                    contafiltros = contafiltros + 1;
-                }
-                if (chkEstado.Checked)
-                {
-                    if (contafiltros > 0)
+                string fechaIniStr = dtpFechaIni.Value.ToShortDateString() + " 00:00:00";
+                string fechaFinStr = dtpFechaFin.Value.ToShortDateString() + " 23:59:59";
+
+                await clsContabilidadBL.Instancia.GetDataSumarizadoStreamAsync(
+                    fechaIniStr,
+                    fechaFinStr,
+                    tipofecha,
+                    (dtSchema) =>
                     {
-                        filtro = filtro + " AND ";
-                    }
-                    filtro = filtro + "[ESTADO] = '" + cboEstado.Text + "'";
-                    contafiltros = contafiltros + 1;
-                }
-                if (chkTipo.Checked)
-                {
-                    if (contafiltros > 0)
-                    {
-                        filtro = filtro + " AND ";
-                    }
-                    filtro = filtro + "[TIPO] = '" + cboTipo.Text + "'";
-                    contafiltros = contafiltros + 1;
-                }
-                if (chkFacturado.Checked)
-                {
-                    if (contafiltros > 0)
-                    {
-                        filtro = filtro + " AND ";
-                    }
-                    filtro = filtro + "[FACTURADO] = '" + cboFacturado.Text + "'";
-                    contafiltros = contafiltros + 1;
-                }
-                if (chkTransporte.Checked)
-                {
-                    if (contafiltros > 0)
-                    {
-                        filtro = filtro + " AND ";
-                    }
-                    filtro = filtro + "[TRANSPORTE] = '" + cboTransporte.Text + "' AND [PROVEEDOR] LIKE '%" + txtTransporte.Text + "%'";
-                    contafiltros = contafiltros + 1;
-                }
-                if (chkCompañia.Checked)
-                {
-                    if (cboCompañia.SelectedIndex == 0)
-                    {
-                        cboCompañia.Text = "";
-                        if (contafiltros > 0)
+                        if (this.IsDisposed) return;
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            filtro = filtro + " AND ";
-                        }
-                        filtro = filtro + "[COMPAÑIA] IN '" + cboCompañia.Text + "'";
-                        contafiltros = contafiltros + 1;
-                    }
-                    else
+                            dt = dtSchema;
+                            dtgvData.DataSource = dt;
+                            ConfigurarGridYFiltros(tipofecha);
+                        });
+                    },
+                    (batch) =>
                     {
-                        if (contafiltros > 0)
+                        if (this.IsDisposed) return;
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            filtro = filtro + " AND ";
-                        }
-                        filtro = filtro + "[COMPAÑIA] = '" + cboCompañia.Text + "'";
-                        contafiltros = contafiltros + 1;
-                    //    string transpesa = "";
-                    //    string bra = "";
-                    //    string altra = "";
-                    //    switch (cboCompañia.SelectedIndex)
-                    //    {
-                    //        case 1: transpesa = "10000000";
-                    //            //cboCompañia.Text = "10000000";
-                    //            //transpesa = cboCompañia.Text;
-                    //            break;
+                            if (dt != null)
+                            {
+                                dt.BeginLoadData();
+                                foreach (var rowVals in batch)
+                                {
+                                    dt.Rows.Add(rowVals);
+                                }
+                                dt.EndLoadData();
+                                totalFilas += batch.Count;
+                                btnBuscar.Text = string.Format("Cargando ({0})...", totalFilas);
+                            }
+                        });
+                    },
+                    ctsBusqueda.Token
+                );
 
-                    //        case 2: bra = "40000000";
-                    //            //cboCompañia.Text = "40000000";
-                    //            //bra = cboCompañia.Text;
-                    //            break;
-
-                    //        case 3: altra = "50000000";
-                    //            //cboCompañia.Text = "50000000";
-                    //            //altra = cboCompañia.Text;
-                    //            break;
-                    //    }
-                    //    if (contafiltros > 0)
-                    //    {
-                    //        filtro = filtro + " AND ";
-                    //    }
-                    //    filtro = filtro + "[COMPAÑIA] IN ('" + transpesa + "','" + bra + "','" + altra + "')";
-                    //    //filtro = filtro + "[COMPAÑIA] = '" + cboCompañia.Text + "'";
-                    //    contafiltros = contafiltros + 1;
-                    }
-                }
-                //**********************FIN DEL FILTRO*************************************************
-                if (filtro != "")
+                if (totalFilas > 0)
                 {
-                    dtgvDataView.Columns["SUCURSAL"].FilterInfo = new ColumnFilterInfo(filtro);
-                }
-
-                dtgvDataView.Columns["MONTO"].DisplayFormat.FormatType = FormatType.Numeric;
-                dtgvDataView.Columns["MONTO"].DisplayFormat.FormatString = "c2";
-
-                //******************CALCULO DE MONTOS TOTALES******************************************
-                /*
-                //Lo facturado
-                dtgvDataView.Columns["FACTURADO"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "MONTO", "Facturado={0:c2}");
-                dtgvDataView.Columns["FACTURADO"].SummaryItem.Tag = 1;
-                //Lo no facturado
-                dtgvDataView.Columns["DOCUMENTO"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "MONTO", "No Facturado={0:c2}");
-                dtgvDataView.Columns["DOCUMENTO"].SummaryItem.Tag = 2;
-                */
-
-                dtgvDataView.Columns["GUÍA TRANSP."].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "GUÍA TRANSP.", "Guías={0}");
-                dtgvDataView.Columns["GUÍA TRANSP."].SummaryItem.Tag = 3;
-                //Cantidad de viajes
-                dtgvDataView.Columns["CODIGO VIAJE"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "CODIGO VIAJE", "Viajes={0}");
-                dtgvDataView.Columns["CODIGO VIAJE"].SummaryItem.Tag = 4;
-                dtgvDataView.UpdateSummary();
-                //Total
-                
-                //**************************************************************************************
-
-                if (Area == "PRESUPUESTOS" || Area == "CONTABILIDAD")
-                {
-                    dtgvDataView.Columns["MONTO"].Visible = true;
-                    dtgvDataView.Columns["MontoLocal"].Visible = true;
-
-                    dtgvDataView.Columns["MONTO"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "MONTO", "Total={0:c2}");
+                    dtgvDataView.UpdateSummary();
+                    dtgvDataView.BestFitColumns();
+                    LimpiaFiltros();
                 }
                 else
                 {
-                    dtgvDataView.Columns["MONTO"].Visible = false;
-                    dtgvDataView.Columns["MontoLocal"].Visible = false;
+                    Mensaje m = new Mensaje();
+                    m.mensaje = "No hay data para mostrar";
+                    m.ShowDialog();
                 }
+            }
+            catch (OperationCanceledException)
+            {
+                // Búsqueda cancelada
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnBuscar.Enabled = true;
+                btnBuscar.Text = "Buscar";
+                btnExcel.Enabled = true;
+                btnImprimir.Enabled = true;
+                if (Utilitario.Instancia.SesionUsuario.usuario == "GREYES")
+                {
+                    btnGuardar.Enabled = true;
+                }
+            }
+        }
 
-                Fin: ;
+        private void ConfigurarGridYFiltros(string tipofecha)
+        {
+            if (tipofecha == "TOLVAS")
+            {
+                return;
+            }
 
-                dtgvDataView.BestFitColumns();
-                LimpiaFiltros();
+            //************************FILTRO*******************************************************
+            string filtro = "";
+            int contafiltros = 0;
+            if (chkSucursal.Checked)
+            {
+                filtro = "[SUCURSAL] = '" + cboSucursal.Text + "'";
+                contafiltros = contafiltros + 1;
+            }
+            if (chkEstado.Checked)
+            {
+                if (contafiltros > 0)
+                {
+                    filtro = filtro + " AND ";
+                }
+                filtro = filtro + "[ESTADO] = '" + cboEstado.Text + "'";
+                contafiltros = contafiltros + 1;
+            }
+            if (chkTipo.Checked)
+            {
+                if (contafiltros > 0)
+                {
+                    filtro = filtro + " AND ";
+                }
+                filtro = filtro + "[TIPO] = '" + cboTipo.Text + "'";
+                contafiltros = contafiltros + 1;
+            }
+            if (chkFacturado.Checked)
+            {
+                if (contafiltros > 0)
+                {
+                    filtro = filtro + " AND ";
+                }
+                filtro = filtro + "[FACTURADO] = '" + cboFacturado.Text + "'";
+                contafiltros = contafiltros + 1;
+            }
+            if (chkTransporte.Checked)
+            {
+                if (contafiltros > 0)
+                {
+                    filtro = filtro + " AND ";
+                }
+                filtro = filtro + "[TRANSPORTE] = '" + cboTransporte.Text + "' AND [PROVEEDOR] LIKE '%" + txtTransporte.Text + "%'";
+                contafiltros = contafiltros + 1;
+            }
+            if (chkCompañia.Checked)
+            {
+                if (cboCompañia.SelectedIndex == 0)
+                {
+                    cboCompañia.Text = "";
+                    if (contafiltros > 0)
+                    {
+                        filtro = filtro + " AND ";
+                    }
+                    filtro = filtro + "[COMPAÑIA] IN '" + cboCompañia.Text + "'";
+                    contafiltros = contafiltros + 1;
+                }
+                else
+                {
+                    if (contafiltros > 0)
+                    {
+                        filtro = filtro + " AND ";
+                    }
+                    filtro = filtro + "[COMPAÑIA] = '" + cboCompañia.Text + "'";
+                    contafiltros = contafiltros + 1;
+                }
+            }
+            //**********************FIN DEL FILTRO*************************************************
+            if (filtro != "" && dtgvDataView.Columns["SUCURSAL"] != null)
+            {
+                dtgvDataView.Columns["SUCURSAL"].FilterInfo = new ColumnFilterInfo(filtro);
+            }
+
+            if (dtgvDataView.Columns["MONTO"] != null)
+            {
+                dtgvDataView.Columns["MONTO"].DisplayFormat.FormatType = FormatType.Numeric;
+                dtgvDataView.Columns["MONTO"].DisplayFormat.FormatString = "c2";
+            }
+
+            if (dtgvDataView.Columns["GUÍA TRANSP."] != null)
+            {
+                dtgvDataView.Columns["GUÍA TRANSP."].Summary.Clear();
+                dtgvDataView.Columns["GUÍA TRANSP."].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "GUÍA TRANSP.", "Guías={0}");
+                dtgvDataView.Columns["GUÍA TRANSP."].SummaryItem.Tag = 3;
+            }
+
+            if (dtgvDataView.Columns["CODIGO VIAJE"] != null)
+            {
+                dtgvDataView.Columns["CODIGO VIAJE"].Summary.Clear();
+                dtgvDataView.Columns["CODIGO VIAJE"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "CODIGO VIAJE", "Viajes={0}");
+                dtgvDataView.Columns["CODIGO VIAJE"].SummaryItem.Tag = 4;
+            }
+
+            if (Area == "PRESUPUESTOS" || Area == "CONTABILIDAD")
+            {
+                if (dtgvDataView.Columns["MONTO"] != null)
+                {
+                    dtgvDataView.Columns["MONTO"].Visible = true;
+                    dtgvDataView.Columns["MONTO"].Summary.Clear();
+                    dtgvDataView.Columns["MONTO"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "MONTO", "Total={0:c2}");
+                }
+                if (dtgvDataView.Columns["MontoLocal"] != null)
+                {
+                    dtgvDataView.Columns["MontoLocal"].Visible = true;
+                }
             }
             else
             {
-                Mensaje m = new Mensaje();
-                m.mensaje = "No hay data para mostrar";
-                m.ShowDialog();
+                if (dtgvDataView.Columns["MONTO"] != null)
+                {
+                    dtgvDataView.Columns["MONTO"].Visible = false;
+                }
+                if (dtgvDataView.Columns["MontoLocal"] != null)
+                {
+                    dtgvDataView.Columns["MontoLocal"].Visible = false;
+                }
             }
         }
+
         private void dtgvDataView_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
         {
             // ID = TAG 
@@ -250,16 +314,24 @@ namespace ReportesTranspesa.Formularios.Areas.Contabilidad
                 switch (summaryID)
                 {
                     case 1:
-                        if (View.GetRowCellValue(e.RowHandle, "FACTURADO").ToString() == "SI") sumaFacturados += Convert.ToDecimal(e.FieldValue);
+                        object factVal = View.GetRowCellValue(e.RowHandle, "FACTURADO");
+                        if (factVal != null && factVal.ToString() == "SI" && e.FieldValue != null && e.FieldValue != DBNull.Value) 
+                            sumaFacturados += Convert.ToDecimal(e.FieldValue);
                         break;
                     case 2:
-                        if (View.GetRowCellValue(e.RowHandle, "FACTURADO").ToString() == "NO") { sumaNoFacturados += Convert.ToDecimal(e.FieldValue); }
+                        object noFactVal = View.GetRowCellValue(e.RowHandle, "FACTURADO");
+                        if (noFactVal != null && noFactVal.ToString() == "NO" && e.FieldValue != null && e.FieldValue != DBNull.Value) 
+                            sumaNoFacturados += Convert.ToDecimal(e.FieldValue);
                         break;
                     case 3:
-                        if (View.GetRowCellValue(e.RowHandle, "GUÍA TRANSP.").ToString() != "") { cuentaGuias = cuentaGuias + 1; }
+                        object guiaVal = View.GetRowCellValue(e.RowHandle, "GUÍA TRANSP.");
+                        if (guiaVal != null && guiaVal.ToString() != "") 
+                            cuentaGuias = cuentaGuias + 1;
                         break;
                     case 4:
-                        codigosviajes.Add(View.GetRowCellValue(e.RowHandle, "CODIGO VIAJE").ToString());
+                        object viajeVal = View.GetRowCellValue(e.RowHandle, "CODIGO VIAJE");
+                        if (viajeVal != null)
+                            codigosviajes.Add(viajeVal.ToString());
                         break;
                 }
             }

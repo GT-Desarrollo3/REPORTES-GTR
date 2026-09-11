@@ -5249,7 +5249,6 @@ C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.ah
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.fakes
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.new.cs
-C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\ReportesTranspesa.csprojResolveAssemblyReference.cache
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.ch
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.csproj
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\ReportesTranspesa\obj\Debug\Fakes\moiw\f.snk

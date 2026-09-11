@@ -105,9 +105,9 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
                     xmlTarifas = Comun.Utilitario.Instancia.DatatableToXml(dtListaTarifas);
 
                     dtgvDataDespues.DataSource = null;
-                    DataTable dtAntes = CargarDetalleOTs(dtListaTarifas, 1);
-                    dtgvDataAntes.DataSource = dtAntes;
-                    dtgvDataViewAntes.BestFitColumns();
+                    Application.DoEvents();
+
+                    CargarDetalleOTs(dtListaTarifas, 1, dtgvDataAntes, dtgvDataViewAntes);
                 }
                 else 
                 { 
@@ -120,11 +120,16 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
             catch (Exception ex) { MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private DataTable CargarDetalleOTs(DataTable dtExcel, int opcion)
+        private DataTable CargarDetalleOTs(DataTable dtExcel, int opcion, DevExpress.XtraGrid.GridControl gridDestino, DevExpress.XtraGrid.Views.Grid.GridView viewDestino)
         {
             DataTable dtResultado = new DataTable();
             try
             {
+                if (gridDestino != null)
+                {
+                    gridDestino.DataSource = null;
+                }
+
                 if (dtExcel == null || dtExcel.Rows.Count == 0 || !dtExcel.Columns.Contains("VIAJE"))
                     return dtResultado;
 
@@ -134,37 +139,186 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
                     .Distinct()
                     .ToList();
 
+                Cursor.Current = Cursors.WaitCursor;
+                bool columnasAsignadas = false;
+
                 foreach (var viaje in listaViajes)
                 {
                     DataTable dtViaje = clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_ListarOTDetalle(opcion, viaje);
                     if (dtViaje != null && dtViaje.Rows.Count > 0)
                     {
-                        dtResultado.Merge(dtViaje);
+                        if (dtResultado.Columns.Count == 0)
+                        {
+                            dtResultado = dtViaje.Clone();
+                            if (gridDestino != null)
+                            {
+                                gridDestino.DataSource = dtResultado;
+                                if (viewDestino != null)
+                                {
+                                    viewDestino.PopulateColumns();
+                                }
+                            }
+                        }
+
+                        foreach (DataRow row in dtViaje.Rows)
+                        {
+                            dtResultado.ImportRow(row);
+                        }
+
+                        if (gridDestino != null)
+                        {
+                            gridDestino.RefreshDataSource();
+                            if (!columnasAsignadas && viewDestino != null)
+                            {
+                                viewDestino.BestFitColumns();
+                                columnasAsignadas = true;
+                            }
+                        }
+                    }
+                    Application.DoEvents();
+                }
+
+                if (gridDestino != null)
+                {
+                    gridDestino.DataSource = dtResultado;
+                    gridDestino.RefreshDataSource();
+                    if (viewDestino != null)
+                    {
+                        viewDestino.BestFitColumns();
                     }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
             return dtResultado;
+        }
+
+        private void ProcesarAccionUnoAUno(
+            DataTable dtExcel, 
+            int opcion, 
+            Func<string, bool> ejecutarAccionSP, 
+            DevExpress.XtraGrid.GridControl gridDespues, 
+            DevExpress.XtraGrid.Views.Grid.GridView viewDespues)
+        {
+            try
+            {
+                if (dtExcel == null || dtExcel.Rows.Count == 0 || !dtExcel.Columns.Contains("VIAJE"))
+                {
+                    MessageBox.Show("No hay datos importados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (gridDespues != null)
+                {
+                    gridDespues.DataSource = null;
+                }
+
+                DataTable dtResultado = new DataTable();
+                Cursor.Current = Cursors.WaitCursor;
+                bool columnasAsignadas = false;
+                int exitos = 0;
+                int errores = 0;
+
+                var gruposViajes = dtExcel.AsEnumerable()
+                    .Where(r => r.RowState != DataRowState.Deleted && r["VIAJE"] != null && !string.IsNullOrWhiteSpace(r["VIAJE"].ToString()))
+                    .GroupBy(r => r["VIAJE"].ToString().Trim())
+                    .ToList();
+
+                foreach (var grupo in gruposViajes)
+                {
+                    string viaje = grupo.Key;
+
+                    // Generar XML de forma individual por viaje
+                    DataTable dtViajeXml = dtExcel.Clone();
+                    foreach (var fila in grupo)
+                    {
+                        dtViajeXml.ImportRow(fila);
+                    }
+
+                    string xmlViaje = Comun.Utilitario.Instancia.DatatableToXml(dtViajeXml);
+
+                    if (!string.IsNullOrEmpty(xmlViaje))
+                    {
+                        bool res = ejecutarAccionSP(xmlViaje);
+                        if (res) exitos++; else errores++;
+                    }
+
+                    // Consultar y actualizar la tabla DESPUÉS viaje por viaje en tiempo real
+                    DataTable dtDetalleViaje = clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_ListarOTDetalle(opcion, viaje);
+                    if (dtDetalleViaje != null && dtDetalleViaje.Rows.Count > 0)
+                    {
+                        if (dtResultado.Columns.Count == 0)
+                        {
+                            dtResultado = dtDetalleViaje.Clone();
+                            if (gridDespues != null)
+                            {
+                                gridDespues.DataSource = dtResultado;
+                                if (viewDespues != null)
+                                {
+                                    viewDespues.PopulateColumns();
+                                }
+                            }
+                        }
+
+                        foreach (DataRow row in dtDetalleViaje.Rows)
+                        {
+                            dtResultado.ImportRow(row);
+                        }
+
+                        if (gridDespues != null)
+                        {
+                            gridDespues.RefreshDataSource();
+                            if (!columnasAsignadas && viewDespues != null)
+                            {
+                                viewDespues.BestFitColumns();
+                                columnasAsignadas = true;
+                            }
+                        }
+                    }
+
+                    Application.DoEvents();
+                }
+
+                if (gridDespues != null)
+                {
+                    gridDespues.DataSource = dtResultado;
+                    gridDespues.RefreshDataSource();
+                    if (viewDespues != null)
+                    {
+                        viewDespues.BestFitColumns();
+                    }
+                }
+
+                if (errores == 0)
+                {
+                    MessageBox.Show(Utilitario.Instancia.Advertencia ?? "Proceso completado exitosamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Proceso finalizado. Exitosos: {0}, con errores: {1}. {2}", exitos, errores, Utilitario.Instancia.Advertencia), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (xmlTarifas.Length > 0)
-                {
-                    if (clsOperacionesBL.Instancia.ReportesApp_Operaciones_ListarDatosViajesPorFecha_Viaje(xmlTarifas))
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-                    else
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
-
-                    DataTable dtDespues = CargarDetalleOTs(dtListaTarifas, 1);
-                    dtgvDataDespues.DataSource = dtDespues;
-                    dtgvDataViewDespues.BestFitColumns();
-                }
-                else { MessageBox.Show("No hay datos importados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            ProcesarAccionUnoAUno(
+                dtListaTarifas,
+                1,
+                xml => clsOperacionesBL.Instancia.ReportesApp_Operaciones_ListarDatosViajesPorFecha_Viaje(xml),
+                dtgvDataDespues,
+                dtgvDataViewDespues);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -243,9 +397,9 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
                     xmlFacturas = Comun.Utilitario.Instancia.DatatableToXml(dtListaFacturas);
 
                     dtgvDataFacturasDespues.DataSource = null;
-                    DataTable dtAntesFact = CargarDetalleOTs(dtListaFacturas, 2);
-                    dtgvDataFacturasAntes.DataSource = dtAntesFact;
-                    dtgvDataViewFacturasAntes.BestFitColumns();
+                    Application.DoEvents();
+
+                    CargarDetalleOTs(dtListaFacturas, 2, dtgvDataFacturasAntes, dtgvDataViewFacturasAntes);
                 }
                 else 
                 { 
@@ -260,22 +414,12 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
 
         private void btnEnlazarFacturas_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (xmlFacturas.Length > 0)
-                {
-                    if (clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje(xmlFacturas))
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-                    else
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
-
-                    DataTable dtDespuesFact = CargarDetalleOTs(dtListaFacturas, 2);
-                    dtgvDataFacturasDespues.DataSource = dtDespuesFact;
-                    dtgvDataViewFacturasDespues.BestFitColumns();
-                }
-                else { MessageBox.Show("No hay datos importados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            ProcesarAccionUnoAUno(
+                dtListaFacturas,
+                2,
+                xml => clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje(xml),
+                dtgvDataFacturasDespues,
+                dtgvDataViewFacturasDespues);
         }
 
         private void btnDescargarFormatoFacturas_Click(object sender, EventArgs e)
@@ -348,9 +492,9 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
                     xmlConversion = Comun.Utilitario.Instancia.DatatableToXml(dtListaConversion);
 
                     dtgvDataConversionDespues.DataSource = null;
-                    DataTable dtAntesConv = CargarDetalleOTs(dtListaConversion, 3);
-                    dtgvDataConversionAntes.DataSource = dtAntesConv;
-                    dtgvDataViewConversionAntes.BestFitColumns();
+                    Application.DoEvents();
+
+                    CargarDetalleOTs(dtListaConversion, 3, dtgvDataConversionAntes, dtgvDataViewConversionAntes);
                 }
                 else 
                 { 
@@ -365,22 +509,12 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.ProgramacionViajes
 
         private void btnConvertir_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (xmlConversion.Length > 0)
-                {
-                    if (clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje(xmlConversion))
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-                    else
-                    { MessageBox.Show(Utilitario.Instancia.Advertencia, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
-
-                    DataTable dtDespuesConv = CargarDetalleOTs(dtListaConversion, 3);
-                    dtgvDataConversionDespues.DataSource = dtDespuesConv;
-                    dtgvDataViewConversionDespues.BestFitColumns();
-                }
-                else { MessageBox.Show("No hay datos importados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            ProcesarAccionUnoAUno(
+                dtListaConversion,
+                3,
+                xml => clsOperacionesBL.Instancia.ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje(xml),
+                dtgvDataConversionDespues,
+                dtgvDataViewConversionDespues);
         }
 
         private void btnDescargarFormatoConversion_Click(object sender, EventArgs e)

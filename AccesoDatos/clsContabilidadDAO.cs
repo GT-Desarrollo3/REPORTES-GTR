@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
 using Comun;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace AccesoDatos
 {
@@ -39,6 +41,67 @@ namespace AccesoDatos
             {
                 return new DataTable();
             }
+        }
+
+        public async Task<int> GetDataSumarizadoStreamAsync(
+            string fechaini, 
+            string fechafin, 
+            string tipofecha, 
+            Action<DataTable> onSchemaReady, 
+            Action<List<object[]>> onRowsBatch,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            int totalRows = 0;
+            using (SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal()))
+            {
+                await conexion.OpenAsync(cancellationToken);
+                using (SqlCommand comando = new SqlCommand("ReportesApp_Contabilidad_Reporte_Sumarizado", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.Add(new SqlParameter("@FECHA_INI", fechaini));
+                    comando.Parameters.Add(new SqlParameter("@FECHA_FIN", fechafin));
+                    comando.Parameters.Add(new SqlParameter("@TIPOFECHA", tipofecha));
+                    comando.CommandTimeout = 0;
+
+                    using (SqlDataReader reader = await comando.ExecuteReaderAsync(CommandBehavior.CloseConnection, cancellationToken))
+                    {
+                        if (reader.FieldCount > 0)
+                        {
+                            DataTable dtSchema = new DataTable();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                Type colType = reader.GetFieldType(i);
+                                dtSchema.Columns.Add(reader.GetName(i), Nullable.GetUnderlyingType(colType) ?? colType);
+                            }
+                            onSchemaReady?.Invoke(dtSchema);
+                        }
+
+                        List<object[]> batch = new List<object[]>(50);
+                        System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+
+                        while (await reader.ReadAsync(cancellationToken))
+                        {
+                            object[] values = new object[reader.FieldCount];
+                            reader.GetValues(values);
+                            batch.Add(values);
+                            totalRows++;
+
+                            if (batch.Count >= 20 || sw.ElapsedMilliseconds >= 40)
+                            {
+                                onRowsBatch?.Invoke(batch);
+                                batch = new List<object[]>(50);
+                                sw.Restart();
+                            }
+                        }
+
+                        if (batch.Count > 0)
+                        {
+                            onRowsBatch?.Invoke(batch);
+                        }
+                    }
+                }
+            }
+            return totalRows;
         }
 
        //Store Resumen de Sumarizado con Importe de los Viajes Completados
