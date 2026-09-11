@@ -393,26 +393,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="722944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="718336">
       <assemblyIdentity name="AccesoDatos" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>J2vj9U/dDgx/aZmKTColSbLLCvmN0FRhVPY8z0M6B1g=</dsig:DigestValue>
+        <dsig:DigestValue>Le/53EvM53AuoqT3aY3EhZ26YRGAYtWXnvFiVwsga7w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Comun.dll" size="20992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Comun.dll" size="19968">
       <assemblyIdentity name="Comun" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LojvRDXmyn7SDmXRhEx8aFIT1vIY/pISwG7XSmtapfY=</dsig:DigestValue>
+        <dsig:DigestValue>3Z0Ccs9QBPs1lo8exjOxFwSZqrR7fisbQaRsRAXE+yU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2584,7 +2584,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fiqiZbYsPUrsQDRRRhkDtL8ZmGwy2w3mPHukHaBXPZ8=</dsig:DigestValue>
+        <dsig:DigestValue>i/0d98A9FwqLa1BUvU0NPV4W4MwssxpNrb08kuE0a5A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2757,26 +2757,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="223744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="221184">
       <assemblyIdentity name="Negocio" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ACbZkSvntCL8Nkw4d1qTbN5FfscXEF3KS1FSWr80+Vo=</dsig:DigestValue>
+        <dsig:DigestValue>Fuxrhnon18zFn39FldSkCn63Y5B4SXy9b+0dPojcNlU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37225472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37258240">
       <assemblyIdentity name="ReportesTranspesa" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JrhtamAsLj5ksvUz//zuUNjlNT3WojnZhUKLr1hN4lk=</dsig:DigestValue>
+        <dsig:DigestValue>uacFCYkNSOjhQV37y80Z10G53HrEGxE/JuV0Wjy5lgs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

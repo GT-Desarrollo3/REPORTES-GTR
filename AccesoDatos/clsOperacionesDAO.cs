@@ -10214,6 +10214,70 @@ namespace AccesoDatos
             return respuesta;
         }
 
+        public bool ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje(string tarifa)
+        {
+            Boolean respuesta = false;
+            SqlCommand comando = null;
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                conexion.Open();
+                comando = new SqlCommand("ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@xmlTarifa", tarifa);
+                comando.Parameters.AddWithValue("@Usuario", Utilitario.Instancia.SesionUsuario.usuario);
+
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read()) { respuesta = Utilitario.CodigoRetorno(Convert.ToString(dr["Mensaje"]), ref Utilitario.Instancia.Advertencia); }
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { comando.Connection.Close(); }
+            return respuesta;
+        }
+
+        public bool ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje(string tarifa)
+        {
+            Boolean respuesta = false;
+            SqlCommand comando = null;
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                conexion.Open();
+                comando = new SqlCommand("ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@xmlTarifa", tarifa);
+                comando.Parameters.AddWithValue("@Usuario", Utilitario.Instancia.SesionUsuario.usuario);
+
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read()) { respuesta = Utilitario.CodigoRetorno(Convert.ToString(dr["Mensaje"]), ref Utilitario.Instancia.Advertencia); }
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { comando.Connection.Close(); }
+            return respuesta;
+        }
+
+        public DataTable ReportesApp_Operaciones_DatosOT_ListarOTDetalle(int Opcion, string Codigo)
+        {
+            try
+            {
+                DataTable dtTemp = new DataTable();
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                conexion.Open();
+                SqlCommand comando;
+                comando = new SqlCommand("ReportesApp_Operaciones_DatosOT_ListarOTDetalle", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add(new SqlParameter("@Opcion", Opcion));
+                comando.Parameters.Add(new SqlParameter("@Codigo", Codigo));
+                dtTemp.Load(comando.ExecuteReader());
+                return dtTemp;
+            }
+            catch { return new DataTable(); }
+        }
+
         public DataTable ReportesApp_Operaciones_DatosOT_ListarGuiasViaje(int Opcion, string CodViaje)
         {
             try

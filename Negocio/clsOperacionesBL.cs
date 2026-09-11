@@ -1793,6 +1793,15 @@ namespace Negocio
         public bool ReportesApp_Operaciones_ListarDatosViajesPorFecha_Viaje(string xmlTarifa)
         { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_ListarDatosViajesPorFecha_Viaje(xmlTarifa); }
 
+        public bool ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje(string xmlTarifa)
+        { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_DatosOT_EnlazarFacturasViaje(xmlTarifa); }
+
+        public bool ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje(string xmlTarifa)
+        { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_DatosOT_ConvertirFacturasViaje(xmlTarifa); }
+
+        public DataTable ReportesApp_Operaciones_DatosOT_ListarOTDetalle(int Opcion, string Codigo)
+        { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_DatosOT_ListarOTDetalle(Opcion, Codigo); }
+
         public DataTable ReportesApp_Operaciones_DatosOT_ListarGuiasViaje(int Opcion, string CodViaje)
         { return clsOperacionesDAO.Instancia.ReportesApp_Operaciones_DatosOT_ListarGuiasViaje(Opcion, CodViaje); }
 
