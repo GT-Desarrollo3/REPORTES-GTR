@@ -393,14 +393,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="721920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="730112">
       <assemblyIdentity name="AccesoDatos" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>M2ux4by8Lxv0SsUFDMxJzsQPcfag/265d5zikHpaG1U=</dsig:DigestValue>
+        <dsig:DigestValue>PzniN2VxAwEkNwI0aALdNvZN0GiP6xjyajXE0xozjd4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -412,7 +412,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XdJ13PAzNCNlnPK7ElnMjCRx/537H/Qi1xpTP9sBchI=</dsig:DigestValue>
+        <dsig:DigestValue>rb+PLf1ZEFS5+Gg9JkYtcY2dNE9xPy8F1hlRXAPIG+Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2757,26 +2757,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="222720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="226304">
       <assemblyIdentity name="Negocio" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IYVljBvpV4TJPXVeKRaFYkzlvKlPE0bIiRO79h/HA2s=</dsig:DigestValue>
+        <dsig:DigestValue>5rL8N9rF1szsu1b3AA6cDulNmINrQGRZnmUYTXHy2cI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37264896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37292032">
       <assemblyIdentity name="ReportesTranspesa" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xD+O8f0F+h27l55OuHjHP6URbyQsGtONmWQB1FKV8hA=</dsig:DigestValue>
+        <dsig:DigestValue>3O5S/bNP8qDX+PXUD7bsE2IfukUdujjYe7CQsvrbedA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

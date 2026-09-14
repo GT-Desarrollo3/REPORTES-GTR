@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1149,5 +1149,17 @@ namespace Negocio
 
         public DataTable ReportesApp_Mantenimiento_MttoPreventivo_VincularSolicitudes(int Opcion, int Nro, int idSolicitud)
         { return clsMantenimientoDAO.Instancia.ReportesApp_Mantenimiento_MttoPreventivo_VincularSolicitudes(Opcion, Nro, idSolicitud); }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposMtto(string Periodo, string Placa, string Operacion, string TipoVehiculo)
+        { return clsMantenimientoDAO.Instancia.ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposMtto(Periodo, Placa, Operacion, TipoVehiculo); }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_InsertarModificarTiempos(int Opcion, string Periodo, int idOperacion, int Horas, int Dias, string Usuario)
+        { return clsMantenimientoDAO.Instancia.ReportesApp_Mantenimiento_TiemposMtto_InsertarModificarTiempos(Opcion, Periodo, idOperacion, Horas, Dias, Usuario); }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposOP(string Periodo)
+        { return clsMantenimientoDAO.Instancia.ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposOP(Periodo); }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarResumen(int Opcion, string Periodo, string TipoVehiculo)
+        { return clsMantenimientoDAO.Instancia.ReportesApp_Mantenimiento_TiemposMtto_ListarResumen(Opcion, Periodo, TipoVehiculo); }
     }
 }

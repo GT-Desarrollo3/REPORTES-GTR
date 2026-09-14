@@ -29,6 +29,4 @@ C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\itextsharp.dll
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\bin\Debug\Entidades.pdb
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.dll
 C:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.pdb
-c:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.csproj.AssemblyReference.cache
-c:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.csproj.CoreCompileInputs.cache
-c:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.csproj.Up2Date
+c:\Users\KGarciaF\Desktop\1. ReportesTranspesa\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache

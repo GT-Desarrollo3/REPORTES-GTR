@@ -410,6 +410,7 @@ namespace ReportesTranspesa
         private frmRegistroCapacitaciones frmRegistroCapacitaciones;
         private frmAperturarPeriodos frmAperturarPeriodos;
         private frmListarGuiasFisicas frmListarGuiasFisicas;
+        private frmTiemposMantenimiento frmTiemposMantenimiento;
         #endregion
 
         public static string GetLocalIPAddress()
@@ -2150,6 +2151,11 @@ namespace ReportesTranspesa
                             case "frmDocumentosCapacitacion":
                                 frmDocumentosCapacitacion frmDocumentosCapacitacion = new frmDocumentosCapacitacion();
                                 frmDocumentosCapacitacion.Show();
+                            break;
+
+                            case "frmTiemposMantenimiento":
+                                frmTiemposMantenimiento frmTiemposMantenimiento = new frmTiemposMantenimiento();
+                                frmTiemposMantenimiento.Show();
                             break;
                             //#endregion
 

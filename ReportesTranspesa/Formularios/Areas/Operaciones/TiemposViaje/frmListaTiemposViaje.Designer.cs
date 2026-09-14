@@ -33,6 +33,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExcelImportar = new DevExpress.XtraEditors.SimpleButton();
             this.rbPernoctes = new System.Windows.Forms.RadioButton();
             this.rbUbicacion = new System.Windows.Forms.RadioButton();
             this.txtConductor = new System.Windows.Forms.TextBox();
@@ -80,6 +81,15 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.txtTiempoViaje = new System.Windows.Forms.TextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pCopiarTiempos = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnCerrarCopiar = new System.Windows.Forms.Button();
             this.lblTituloCopiar = new System.Windows.Forms.Label();
             this.lblPreviajeOrigen = new System.Windows.Forms.Label();
@@ -88,7 +98,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.lblPreviajeDestino = new System.Windows.Forms.Label();
             this.txtPreviajeDestino = new System.Windows.Forms.TextBox();
             this.btnCopiarTiempos = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExcelImportar = new DevExpress.XtraEditors.SimpleButton();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiempoViajes)).BeginInit();
@@ -104,6 +113,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.pImportarTiempos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiempos)).BeginInit();
             this.pCopiarTiempos.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -160,6 +170,26 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.groupBox1.TabIndex = 219;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FILTRO DE PREVIAJES: ";
+            // 
+            // btnExcelImportar
+            // 
+            this.btnExcelImportar.Appearance.BackColor = System.Drawing.Color.White;
+            this.btnExcelImportar.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.btnExcelImportar.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btnExcelImportar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcelImportar.Appearance.Options.UseBackColor = true;
+            this.btnExcelImportar.Appearance.Options.UseBorderColor = true;
+            this.btnExcelImportar.Appearance.Options.UseFont = true;
+            this.btnExcelImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcelImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelImportar.Image")));
+            this.btnExcelImportar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnExcelImportar.Location = new System.Drawing.Point(1086, 34);
+            this.btnExcelImportar.Name = "btnExcelImportar";
+            this.btnExcelImportar.Size = new System.Drawing.Size(47, 47);
+            this.btnExcelImportar.TabIndex = 234;
+            this.btnExcelImportar.Tag = "6";
+            this.btnExcelImportar.ToolTip = "Importar a Excel";
+            this.btnExcelImportar.Click += new System.EventHandler(this.btnExcelImportar_Click);
             // 
             // rbPernoctes
             // 
@@ -512,7 +542,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.tabPernoctes.Location = new System.Drawing.Point(4, 29);
             this.tabPernoctes.Name = "tabPernoctes";
             this.tabPernoctes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPernoctes.Size = new System.Drawing.Size(1339, 325);
+            this.tabPernoctes.Size = new System.Drawing.Size(1613, 325);
             this.tabPernoctes.TabIndex = 1;
             this.tabPernoctes.Text = "PERNOCTES";
             // 
@@ -527,7 +557,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.dtgListaPernoctes.LookAndFeel.UseDefaultLookAndFeel = false;
             this.dtgListaPernoctes.MainView = this.dgvListaPernoctesView;
             this.dtgListaPernoctes.Name = "dtgListaPernoctes";
-            this.dtgListaPernoctes.Size = new System.Drawing.Size(1333, 319);
+            this.dtgListaPernoctes.Size = new System.Drawing.Size(1607, 319);
             this.dtgListaPernoctes.TabIndex = 17;
             this.dtgListaPernoctes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvListaPernoctesView});
@@ -749,12 +779,124 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.pCopiarTiempos.Controls.Add(this.lblPreviajeDestino);
             this.pCopiarTiempos.Controls.Add(this.txtPreviajeDestino);
             this.pCopiarTiempos.Controls.Add(this.btnCopiarTiempos);
+            this.pCopiarTiempos.Controls.Add(this.panel1);
             this.pCopiarTiempos.Location = new System.Drawing.Point(458, 200);
             this.pCopiarTiempos.Name = "pCopiarTiempos";
             this.pCopiarTiempos.Size = new System.Drawing.Size(430, 240);
             this.pCopiarTiempos.TabIndex = 223;
             this.pCopiarTiempos.Visible = false;
             this.pCopiarTiempos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pCopiarTiempos_MouseMove);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.simpleButton1);
+            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(430, 240);
+            this.panel1.TabIndex = 224;
+            this.panel1.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(404, -1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 27);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label8.Size = new System.Drawing.Size(428, 26);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "COPIAR TIEMPOS DE VIAJE";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(20, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(110, 15);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Previaje Origen:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(145, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(140, 22);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label12.Location = new System.Drawing.Point(20, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(390, 40);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Info Origen";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(20, 120);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 15);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Previaje Destino:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(145, 117);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(140, 22);
+            this.textBox2.TabIndex = 6;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.simpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton1.Image = global::ReportesTranspesa.Properties.Resources.cargardatos;
+            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.simpleButton1.Location = new System.Drawing.Point(157, 175);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(115, 38);
+            this.simpleButton1.TabIndex = 7;
+            this.simpleButton1.Text = "Copiar\r\nTiempos";
             // 
             // btnCerrarCopiar
             // 
@@ -853,26 +995,6 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             this.btnCopiarTiempos.Text = "Copiar\r\nTiempos";
             this.btnCopiarTiempos.Click += new System.EventHandler(this.btnCopiarTiempos_Click);
             // 
-            // btnExcelImportar
-            // 
-            this.btnExcelImportar.Appearance.BackColor = System.Drawing.Color.White;
-            this.btnExcelImportar.Appearance.BackColor2 = System.Drawing.Color.White;
-            this.btnExcelImportar.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btnExcelImportar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcelImportar.Appearance.Options.UseBackColor = true;
-            this.btnExcelImportar.Appearance.Options.UseBorderColor = true;
-            this.btnExcelImportar.Appearance.Options.UseFont = true;
-            this.btnExcelImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcelImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelImportar.Image")));
-            this.btnExcelImportar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnExcelImportar.Location = new System.Drawing.Point(1086, 34);
-            this.btnExcelImportar.Name = "btnExcelImportar";
-            this.btnExcelImportar.Size = new System.Drawing.Size(47, 47);
-            this.btnExcelImportar.TabIndex = 234;
-            this.btnExcelImportar.Tag = "6";
-            this.btnExcelImportar.ToolTip = "Importar a Excel";
-            this.btnExcelImportar.Click += new System.EventHandler(this.btnExcelImportar_Click);
-            // 
             // frmListaTiemposViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,6 +1029,8 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiempos)).EndInit();
             this.pCopiarTiempos.ResumeLayout(false);
             this.pCopiarTiempos.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -972,5 +1096,14 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.TiemposViaje
         internal System.Windows.Forms.TextBox txtPreviajeDestino;
         private DevExpress.XtraEditors.SimpleButton btnCopiarTiempos;
         public DevExpress.XtraEditors.SimpleButton btnExcelImportar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        internal System.Windows.Forms.TextBox textBox2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

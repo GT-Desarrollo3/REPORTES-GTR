@@ -1144,6 +1144,12 @@
     <Compile Include="Formularios\Areas\Mantenimiento\frmReporteReqServicios.Designer.cs">
       <DependentUpon>frmReporteReqServicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\frmTiemposMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Areas\Mantenimiento\frmTiemposMantenimiento.Designer.cs">
+      <DependentUpon>frmTiemposMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Areas\Mantenimiento\frmVerSegundoUsoDesvinculados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2913,6 +2919,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Areas\Mantenimiento\AsignacionOT\frmRegistroCapacitacion.resx">
       <DependentUpon>frmRegistroCapacitacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Areas\Mantenimiento\frmTiemposMantenimiento.resx">
+      <DependentUpon>frmTiemposMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Areas\Mantenimiento\RegistroNeumaticos\frmListaCodNeumaticos.resx">
       <DependentUpon>frmListaCodNeumaticos.cs</DependentUpon>

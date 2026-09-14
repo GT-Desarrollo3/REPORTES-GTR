@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7037,6 +7037,92 @@ namespace AccesoDatos
             }
             catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
             finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposMtto(string Periodo, string Placa, string Operacion, string TipoVehiculo)
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                cmd = new SqlCommand("ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposMtto", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.Parameters.Add(new SqlParameter("@Periodo", Periodo));
+                cmd.Parameters.Add(new SqlParameter("@Placa", Placa));
+                cmd.Parameters.Add(new SqlParameter("@Operacion", Operacion));
+                cmd.Parameters.Add(new SqlParameter("@TipoVehiculo", TipoVehiculo));
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_InsertarModificarTiempos(int Opcion, string Periodo, int idOperacion, int Horas, int Dias, string Usuario)
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                cmd = new SqlCommand("ReportesApp_Mantenimiento_TiemposMtto_InsertarModificarTiempos", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.Parameters.Add(new SqlParameter("@Opcion", Opcion));
+                cmd.Parameters.Add(new SqlParameter("@Periodo", Periodo));
+                cmd.Parameters.Add(new SqlParameter("@idOperacion", idOperacion));
+                cmd.Parameters.Add(new SqlParameter("@Horas", Horas));
+                cmd.Parameters.Add(new SqlParameter("@Dias", Dias));
+                cmd.Parameters.Add(new SqlParameter("@Usuario", Usuario));
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { if (cmd != null && cmd.Connection != null) cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposOP(string Periodo)
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                cmd = new SqlCommand("ReportesApp_Mantenimiento_TiemposMtto_ListarTiemposOP", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.Parameters.Add(new SqlParameter("@Periodo", Periodo));
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { if (cmd != null && cmd.Connection != null) cmd.Connection.Close(); }
+            return dt;
+        }
+
+        public DataTable ReportesApp_Mantenimiento_TiemposMtto_ListarResumen(int Opcion, string Periodo, string TipoVehiculo)
+        {
+            SqlCommand cmd = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                cmd = new SqlCommand("ReportesApp_Mantenimiento_TiemposMtto_ListarResumen", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.Parameters.Add(new SqlParameter("@Opcion", Opcion));
+                cmd.Parameters.Add(new SqlParameter("@Periodo", Periodo));
+                cmd.Parameters.Add(new SqlParameter("@TipoVehiculo", TipoVehiculo));
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }
+            catch (Exception ex) { Utilitario.Instancia.Advertencia = ex.Message; }
+            finally { if (cmd != null && cmd.Connection != null) cmd.Connection.Close(); }
             return dt;
         }
     }

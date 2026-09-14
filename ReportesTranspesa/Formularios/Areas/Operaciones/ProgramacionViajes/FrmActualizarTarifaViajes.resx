@@ -203,6 +203,11 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="labelNotaConversion.Text" xml:space="preserve">
+    <value>NOTA: El excel a cargar debe tener como columnas VIAJE, MONEDA, GUIAT,
+Después, debajo de cada columna ingresar los datos. El tipo de moneda debe decir SOLES o DOLARES
+El nombre de la hoja debe ser "CONVERTIR"</value>
+  </data>
   <data name="btnEnlazarFacturas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -284,11 +289,6 @@
         t9r5dZ79jnlsOGLGPpPG0zhGEBQN2m7piSklhi2YCz/To2bMyXh6jJGTsekzWnAPmDEn/z+B9z9d8QyT
         7Ex6mgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="labelNotaConversion.Text" xml:space="preserve">
-    <value>NOTA: El excel a cargar debe tener como columnas VIAJE, MONEDA, GUIAT,
-Después, debajo de cada columna ingresar los datos. El tipo de moneda debe decir SOLES o DOLARES
-El nombre de la hoja debe ser "CONVERTIR"</value>
   </data>
   <data name="btnConvertir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

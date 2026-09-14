@@ -73,7 +73,10 @@ namespace AccesoDatos
                                 Type colType = reader.GetFieldType(i);
                                 dtSchema.Columns.Add(reader.GetName(i), Nullable.GetUnderlyingType(colType) ?? colType);
                             }
-                            onSchemaReady?.Invoke(dtSchema);
+                            if (onSchemaReady != null)
+                            {
+                                onSchemaReady(dtSchema);
+                            }
                         }
 
                         List<object[]> batch = new List<object[]>(50);
@@ -88,7 +91,8 @@ namespace AccesoDatos
 
                             if (batch.Count >= 20 || sw.ElapsedMilliseconds >= 40)
                             {
-                                onRowsBatch?.Invoke(batch);
+                                if (onRowsBatch != null) { onRowsBatch(batch); }
+
                                 batch = new List<object[]>(50);
                                 sw.Restart();
                             }
@@ -96,7 +100,7 @@ namespace AccesoDatos
 
                         if (batch.Count > 0)
                         {
-                            onRowsBatch?.Invoke(batch);
+                            if (onRowsBatch != null) { onRowsBatch(batch); }
                         }
                     }
                 }

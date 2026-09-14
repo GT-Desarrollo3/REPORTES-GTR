@@ -501,7 +501,6 @@
             this.dtgvDataViewDespues.GridControl = this.dtgvDataDespues;
             this.dtgvDataViewDespues.Name = "dtgvDataViewDespues";
             this.dtgvDataViewDespues.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.dtgvDataViewDespues.OptionsBehavior.Editable = false;
             this.dtgvDataViewDespues.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
             this.dtgvDataViewDespues.OptionsSelection.MultiSelect = true;
             this.dtgvDataViewDespues.OptionsView.ColumnAutoWidth = false;
@@ -700,7 +699,6 @@
             this.dtgvDataViewFacturasDespues.GridControl = this.dtgvDataFacturasDespues;
             this.dtgvDataViewFacturasDespues.Name = "dtgvDataViewFacturasDespues";
             this.dtgvDataViewFacturasDespues.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.dtgvDataViewFacturasDespues.OptionsBehavior.Editable = false;
             this.dtgvDataViewFacturasDespues.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
             this.dtgvDataViewFacturasDespues.OptionsSelection.MultiSelect = true;
             this.dtgvDataViewFacturasDespues.OptionsView.ColumnAutoWidth = false;
@@ -990,7 +988,6 @@
             this.dtgvDataViewConversionDespues.GridControl = this.dtgvDataConversionDespues;
             this.dtgvDataViewConversionDespues.Name = "dtgvDataViewConversionDespues";
             this.dtgvDataViewConversionDespues.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.dtgvDataViewConversionDespues.OptionsBehavior.Editable = false;
             this.dtgvDataViewConversionDespues.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
             this.dtgvDataViewConversionDespues.OptionsSelection.MultiSelect = true;
             this.dtgvDataViewConversionDespues.OptionsView.ColumnAutoWidth = false;
