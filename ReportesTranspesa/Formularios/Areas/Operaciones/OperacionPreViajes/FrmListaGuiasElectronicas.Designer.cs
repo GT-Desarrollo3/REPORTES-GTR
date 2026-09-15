@@ -392,12 +392,12 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.dgvRecibidos);
             this.groupBox2.Controls.Add(this.chkEstadoGuia);
             this.groupBox2.Controls.Add(this.dtgListaGuiasTransportista);
             this.groupBox2.Controls.Add(this.imgCargando);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.dtgListaPendientes);
+            this.groupBox2.Controls.Add(this.dgvRecibidos);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 54);
             this.groupBox2.Name = "groupBox2";

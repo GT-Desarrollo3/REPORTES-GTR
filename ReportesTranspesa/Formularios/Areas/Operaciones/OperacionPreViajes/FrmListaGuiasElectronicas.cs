@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Comun;
@@ -39,6 +40,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.OperacionPreViajes
         public DataTable dtListRespuestaError = new DataTable();
         public Boolean esRespuesta = false;
         public Boolean esReversion = false;
+        private CancellationTokenSource _ctsGuias;
 
         //TRANSPORTISTA
         public ServiceGRT_QA.ServicioGuiaRemisionTransportistaClient requestTransportista;
@@ -121,7 +123,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.OperacionPreViajes
                 CargarTipoGuia();
                 cbxSerieFiltro.SelectedValueChanged += cbxSerieFiltro_SelectedValueChanged;
                 CargarSeries();
-                ListarGuiasElectronicas();
+                //ListarGuiasElectronicas();
                 if (TipoOperacion == 1)
                 {
                     cbxTipoGuia.SelectedIndex = 0;
@@ -220,7 +222,7 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.OperacionPreViajes
 
         }
 
-        private void ListarGuiasElectronicas()
+        private async void ListarGuiasElectronicas()
         {
             if (cbxSerieFiltro.SelectedValue == null)
             {
@@ -228,136 +230,172 @@ namespace ReportesTranspesa.Formularios.Areas.Operaciones.OperacionPreViajes
                 return;
             }
 
-            this.Cursor = Cursors.WaitCursor;
-
-            DataTable dtLista = clsOperacionesBL.Instancia.ReportesApp_ListarGuiasElectronicas(cbxTipoGuia.SelectedValue.ToString().TrimEnd(), dtpFechaInicio.Text, dtpFechaFin.Text, cbxSerieFiltro.Text, txtNumeroFiltro.Text, chkEstadoGuia.Checked, rbtAprobado.Checked, rbtRevertido.Checked, rbtRechazado.Checked, txtviaje.Text, txtClienteFiltro.Text);
-            if (dtLista != null)
+            if (_ctsGuias != null)
             {
-                if (dtLista.Rows.Count > 0)
+                _ctsGuias.Cancel();
+                _ctsGuias.Dispose();
+            }
+            _ctsGuias = new CancellationTokenSource();
+
+            this.Cursor = Cursors.WaitCursor;
+            btnBuscar.Enabled = false;
+
+            dtLista = new DataTable();
+            dtgListaGuiasTransportista.DataSource = null;
+
+            string tipoGuiaSeleccionado = cbxTipoGuia.SelectedValue != null ? cbxTipoGuia.SelectedValue.ToString().TrimEnd() : "";
+            string fechaInicio = dtpFechaInicio.Text;
+            string fechaFin = dtpFechaFin.Text;
+            string serie = cbxSerieFiltro.Text;
+            string numero = txtNumeroFiltro.Text;
+            bool todos = chkEstadoGuia.Checked;
+            bool aprobado = rbtAprobado.Checked;
+            bool revertido = rbtRevertido.Checked;
+            bool rechazado = rbtRechazado.Checked;
+            string viaje = txtviaje.Text;
+            string cliente = txtClienteFiltro.Text;
+            CancellationToken token = _ctsGuias.Token;
+
+            try
+            {
+                await Task.Run(() =>
                 {
-                    dtgListaGuiasTransportista.DataSource = dtLista;
-                    dgvListaGuiaTraspExpressVista.Columns["TipoGuia"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idEmpresaGrupo"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idGuiaElectronica"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idGuiaSpring"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idGuiaSpring"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idViaje"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idOT"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idCliente"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idEmpresaGrupo"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idGuiaElectronica"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idDocumentosRelacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idIndicadoresServicio"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idProgramacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idTipoProgramacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idConductoresGuia"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idProductosTraslado"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["UbigeoPuntoPartida"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["UbigeoPuntoLlegada"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Ubigeo_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idRuta"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["GrupoInfoAdicional"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["EtiquetaInfoAdicional"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["ValorInfoAdicional"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NombreComercial_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroMTC_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Correo_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["SitioWeb_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Telefono_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["DireccionDetallada_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Provincia_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Departamento_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["Distrito_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodigoPais_Emisor"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Rem"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Dest"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Subcontra"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Contra"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Dest"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Contra"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Subcontra"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Contra"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["SERVICIOS"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodMotivo"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodModalidad"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["xml_DocumentosRelacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["xml_Conductores"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["xml_Productos"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodEstableOrigen"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodEstableDestino"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["IdVehiculo"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idCarreta"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idIndicadoresServicio"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idDocumentosRelacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["HoraEmision"].Visible = true;
-                    dgvListaGuiaTraspExpressVista.Columns["AnioProgramacion"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idRemitente"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idDestinatario"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idOTEvento"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["LineaOTEvento"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["idRutaEvento"].Visible = false;
-                    dgvListaGuiaTraspExpressVista.Columns["CodigoHash"].Visible = false;
-
-                    if (cbxTipoGuia.SelectedValue.ToString() == "T")
-                    {
-                        dgvListaGuiaTraspExpressVista.Columns["idOT"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["LineaOT"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["NombreEstableOrigen"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["NombreEstableDestino"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Proveedor"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Proveedor"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["Modalidad"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["RutaEvento"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"].Visible = true;
-                    }
-
-                    if (cbxTipoGuia.SelectedValue.ToString() == "R")
-                    {
-                        dgvListaGuiaTraspExpressVista.Columns["idOT"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["DescripcionAdicional_Peso"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["Viaje"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Trans"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Trans"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"].Visible = false;
-                        //dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Proveedor_Trans"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Subcontra"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Subcontra"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Subcontra"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Contra"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Contra"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Contra"].Visible = false;
-
-                        dgvListaGuiaTraspExpressVista.Columns["NroTicketProgramacion"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["AnioProgramacion"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["TipoViaje"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["Modalidad"].Visible = true;
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["RutaEvento"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"].Visible = false;
-                        dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"].Visible = false;
-                    }
-
-                    dgvListaGuiaTraspExpressVista.BestFitColumns();
-                    dgvListaGuiaTraspExpressVista.Columns["FechaInicio_Traslado"].Width = 80;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Emisor"].Width = 80;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Rem"].Width = 80;
-                    dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Dest"].Width = 80;
+                    clsOperacionesBL.Instancia.ReportesApp_ListarGuiasElectronicas_Streaming(
+                        tipoGuiaSeleccionado,
+                        fechaInicio,
+                        fechaFin,
+                        serie,
+                        numero,
+                        todos,
+                        aprobado,
+                        revertido,
+                        rechazado,
+                        viaje,
+                        cliente,
+                        (colNames, colTypes) =>
+                        {
+                            if (this.IsDisposed || !this.IsHandleCreated) return;
+                            this.Invoke(new Action(() =>
+                            {
+                                if (this.IsDisposed) return;
+                                dtLista = new DataTable();
+                                for (int i = 0; i < colNames.Length; i++)
+                                {
+                                    dtLista.Columns.Add(colNames[i], colTypes[i]);
+                                }
+                                dtgListaGuiasTransportista.DataSource = dtLista;
+                                dgvListaGuiaTraspExpressVista.PopulateColumns();
+                                ConfigurarVisibilidadColumnasGrid(tipoGuiaSeleccionado);
+                            }));
+                        },
+                        (rowValues) =>
+                        {
+                            if (this.IsDisposed || !this.IsHandleCreated) return;
+                            this.BeginInvoke(new Action(() =>
+                            {
+                                if (this.IsDisposed || dtLista == null) return;
+                                dtLista.Rows.Add(rowValues);
+                            }));
+                        },
+                        token
+                    );
+                }, token);
+            }
+            catch (OperationCanceledException) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                if (!this.IsDisposed)
+                {
+                    btnBuscar.Enabled = true;
+                    this.Cursor = Cursors.Default;
                     dgvListaGuiaTraspExpressVista.RefreshData();
                 }
-                else { dtgListaGuiasTransportista.DataSource = null; }
-                this.Cursor = Cursors.Default;
             }
+        }
+
+        private void ConfigurarVisibilidadColumnasGrid(string tipoGuia)
+        {
+            string[] columnasOcultas = {
+                "TipoGuia", "idEmpresaGrupo", "idGuiaElectronica", "idGuiaSpring", "idViaje", "idOT", 
+                "idCliente", "idDocumentosRelacion", "idIndicadoresServicio", "idProgramacion", 
+                "idTipoProgramacion", "idConductoresGuia", "idProductosTraslado", "UbigeoPuntoPartida", 
+                "UbigeoPuntoLlegada", "Ubigeo_Emisor", "idRuta", "GrupoInfoAdicional", "EtiquetaInfoAdicional", 
+                "ValorInfoAdicional", "RazonSocial_Emisor", "NombreComercial_Emisor", "NumeroMTC_Emisor", 
+                "Correo_Emisor", "SitioWeb_Emisor", "Telefono_Emisor", "DireccionDetallada_Emisor", 
+                "Provincia_Emisor", "Departamento_Emisor", "Distrito_Emisor", "CodigoPais_Emisor", 
+                "TipoDocIdentidad_Rem", "TipoDocIdentidad_Dest", "TipoDocIdentidad_Subcontra", 
+                "TipoDocIdentidad_Contra", "NumeroDocIdentidad_Dest", "NumeroDocIdentidad_Contra", 
+                "NumeroDocIdentidad_Subcontra", "SERVICIOS", "CodMotivo", "CodModalidad", 
+                "xml_DocumentosRelacion", "xml_Conductores", "xml_Productos", "CodEstableOrigen", 
+                "CodEstableDestino", "IdVehiculo", "idCarreta", "AnioProgramacion", "idRemitente", 
+                "idDestinatario", "idOTEvento", "LineaOTEvento", "idRutaEvento", "CodigoHash"
+            };
+
+            foreach (string col in columnasOcultas)
+            {
+                if (dgvListaGuiaTraspExpressVista.Columns[col] != null)
+                {
+                    dgvListaGuiaTraspExpressVista.Columns[col].Visible = false;
+                }
+            }
+
+            if (dgvListaGuiaTraspExpressVista.Columns["HoraEmision"] != null)
+            {
+                dgvListaGuiaTraspExpressVista.Columns["HoraEmision"].Visible = true;
+            }
+
+            if (tipoGuia == "T")
+            {
+                if (dgvListaGuiaTraspExpressVista.Columns["idOT"] != null) dgvListaGuiaTraspExpressVista.Columns["idOT"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["LineaOT"] != null) dgvListaGuiaTraspExpressVista.Columns["LineaOT"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NombreEstableOrigen"] != null) dgvListaGuiaTraspExpressVista.Columns["NombreEstableOrigen"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NombreEstableDestino"] != null) dgvListaGuiaTraspExpressVista.Columns["NombreEstableDestino"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Proveedor"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Proveedor"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Proveedor"] != null) dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Proveedor"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["Modalidad"] != null) dgvListaGuiaTraspExpressVista.Columns["Modalidad"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"] != null) dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["RutaEvento"] != null) dgvListaGuiaTraspExpressVista.Columns["RutaEvento"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"].Visible = true;
+            }
+
+            if (tipoGuia == "R")
+            {
+                if (dgvListaGuiaTraspExpressVista.Columns["idOT"] != null) dgvListaGuiaTraspExpressVista.Columns["idOT"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["DescripcionAdicional_Peso"] != null) dgvListaGuiaTraspExpressVista.Columns["DescripcionAdicional_Peso"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["Viaje"] != null) dgvListaGuiaTraspExpressVista.Columns["Viaje"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Trans"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Trans"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Trans"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Trans"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Proveedor"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Subcontra"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Subcontra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Subcontra"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Subcontra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Subcontra"] != null) dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Subcontra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Contra"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Contra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Contra"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoDocIdentidad_Contra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Contra"] != null) dgvListaGuiaTraspExpressVista.Columns["RazonSocial_Contra"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["NroTicketProgramacion"] != null) dgvListaGuiaTraspExpressVista.Columns["NroTicketProgramacion"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["AnioProgramacion"] != null) dgvListaGuiaTraspExpressVista.Columns["AnioProgramacion"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["TipoViaje"] != null) dgvListaGuiaTraspExpressVista.Columns["TipoViaje"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"] != null) dgvListaGuiaTraspExpressVista.Columns["MotivoTraslado"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["Modalidad"] != null) dgvListaGuiaTraspExpressVista.Columns["Modalidad"].Visible = true;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEvento"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["RutaEvento"] != null) dgvListaGuiaTraspExpressVista.Columns["RutaEvento"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEventoT"].Visible = false;
+                if (dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"] != null) dgvListaGuiaTraspExpressVista.Columns["GuiaEventoRem"].Visible = false;
+            }
+
+            dgvListaGuiaTraspExpressVista.BestFitColumns();
+            if (dgvListaGuiaTraspExpressVista.Columns["FechaInicio_Traslado"] != null) dgvListaGuiaTraspExpressVista.Columns["FechaInicio_Traslado"].Width = 80;
+            if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Emisor"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Emisor"].Width = 80;
+            if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Rem"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Rem"].Width = 80;
+            if (dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Dest"] != null) dgvListaGuiaTraspExpressVista.Columns["NumeroDocIdentidad_Dest"].Width = 80;
+            dgvListaGuiaTraspExpressVista.RefreshData();
         }
 
         private void CargarSeries()

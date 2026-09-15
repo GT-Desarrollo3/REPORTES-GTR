@@ -393,14 +393,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="730112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccesoDatos.dll" size="731648">
       <assemblyIdentity name="AccesoDatos" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PzniN2VxAwEkNwI0aALdNvZN0GiP6xjyajXE0xozjd4=</dsig:DigestValue>
+        <dsig:DigestValue>dBAi7eb2u2fTA3/3uHSMU4tooRV6i3a+1hd4NumjrvI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2764,19 +2764,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5rL8N9rF1szsu1b3AA6cDulNmINrQGRZnmUYTXHy2cI=</dsig:DigestValue>
+        <dsig:DigestValue>Jvxjh4VlgDn7LUmVeGTcW62PpBgYDy9Y7UiaZlukwIE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37292032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReportesTranspesa.exe" size="37295104">
       <assemblyIdentity name="ReportesTranspesa" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3O5S/bNP8qDX+PXUD7bsE2IfukUdujjYe7CQsvrbedA=</dsig:DigestValue>
+        <dsig:DigestValue>1YVZkfwJRONHn9YUsH5zWnxqwh/wNqh4ajT6xm/UOio=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

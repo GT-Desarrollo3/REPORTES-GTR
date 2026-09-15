@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Threading;
+using System.Threading.Tasks;
 using AccesoDatos;
 using Entidades;
 
@@ -949,6 +951,11 @@ namespace Negocio
          public DataTable ReportesApp_ListarGuiasElectronicas(string tipoGuia, string fechaInicio, string fechaFin, string Serie, string Numero, bool todos, bool estadoAprobado, bool estadoRevertido, bool estadoRechazado ,string viaje,string Cliente)
          {
              return clsOperacionesDAO.Instancia.ReportesApp_ListarGuiasElectronicas(tipoGuia, fechaInicio, fechaFin, Serie, Numero, todos, estadoAprobado, estadoRevertido, estadoRechazado, viaje, Cliente);
+         }
+
+         public void ReportesApp_ListarGuiasElectronicas_Streaming(string tipoGuia, string fechaInicio, string fechaFin, string Serie, string Numero, bool todos, bool estadoAprobado, bool estadoRevertido, bool estadoRechazado, string viaje, string Cliente, Action<string[], Type[]> onSchemaReady, Action<object[]> onRowRead, CancellationToken cancellationToken)
+         {
+             clsOperacionesDAO.Instancia.ReportesApp_ListarGuiasElectronicas_Streaming(tipoGuia, fechaInicio, fechaFin, Serie, Numero, todos, estadoAprobado, estadoRevertido, estadoRechazado, viaje, Cliente, onSchemaReady, onRowRead, cancellationToken);
          }
 
          public Boolean ReportesApp_GuardarReversion(clsGRT ent_Transportista)

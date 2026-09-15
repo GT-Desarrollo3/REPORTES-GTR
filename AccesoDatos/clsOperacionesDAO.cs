@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
@@ -5247,6 +5249,137 @@ namespace AccesoDatos
 
             finally { cmd.Connection.Close(); }
             return dt;
+        }
+
+        public void ReportesApp_ListarGuiasElectronicas_Streaming(string tipoGuia, string fechaInicio, string fechaFin, string Serie, string Numero, bool todos, bool estadoAprobado, bool estadoRevertido, bool estadoRechazado, string viaje, string Cliente, Action<string[], Type[]> onSchemaReady, Action<object[]> onRowRead, CancellationToken cancellationToken)
+        {
+            SqlCommand cmd = null;
+            SqlConnection conexion = null;
+
+            try
+            {
+                conexion = new SqlConnection(clsConexion.Instancia.cadenaConexionLocal());
+                cmd = new SqlCommand("ReportesApp_ListarGuiasElectronicas", conexion);
+                cmd.Parameters.AddWithValue("@tipoGuia", string.IsNullOrEmpty(tipoGuia) ? (object)DBNull.Value : tipoGuia);
+                cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                if (string.IsNullOrEmpty(Serie) || Serie == "Todos")
+                {
+                    cmd.Parameters.AddWithValue("@Serie", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Serie", Serie);
+                }
+                if (string.IsNullOrEmpty(Numero))
+                {
+                    cmd.Parameters.AddWithValue("@Numero", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Numero", Numero);
+                }
+
+                if (todos)
+                {
+                    if (estadoAprobado)
+                    {
+                        cmd.Parameters.AddWithValue("@Aceptado", "ACEPTADO");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Aceptado", DBNull.Value);
+                    }
+
+                    if (estadoRevertido)
+                    {
+                        cmd.Parameters.AddWithValue("@Reversion", "REVERSION");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Reversion", DBNull.Value);
+                    }
+
+                    if (estadoRechazado)
+                    {
+                        cmd.Parameters.AddWithValue("@Rechazado", "RECHAZADO");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Rechazado", DBNull.Value);
+                    }
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Aceptado", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Reversion", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Rechazado", DBNull.Value);
+                }
+                if (string.IsNullOrEmpty(viaje))
+                {
+                    cmd.Parameters.AddWithValue("@Viaje", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Viaje", viaje);
+                }
+                if (string.IsNullOrEmpty(Cliente))
+                {
+                    cmd.Parameters.AddWithValue("@Cliente", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Cliente", Cliente);
+                }
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+                conexion.Open();
+
+                using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                {
+                    int fieldCount = dr.FieldCount;
+                    string[] colNames = new string[fieldCount];
+                    Type[] colTypes = new Type[fieldCount];
+
+                    for (int i = 0; i < fieldCount; i++)
+                    {
+                        colNames[i] = dr.GetName(i);
+                        colTypes[i] = dr.GetFieldType(i);
+                    }
+
+                    if (onSchemaReady != null)
+                    {
+                        onSchemaReady(colNames, colTypes);
+                    }
+
+                    while (dr.Read())
+                    {
+                        if (cancellationToken.IsCancellationRequested) break;
+                        object[] values = new object[fieldCount];
+                        dr.GetValues(values);
+                        if (onRowRead != null)
+                        {
+                            onRowRead(values);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (!(ex is OperationCanceledException))
+                {
+                    Utilitario.Instancia.Advertencia = ex.Message;
+                    throw;
+                }
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
         public Boolean ReportesApp_GuardarReversion(clsGRT entGuiaTransportista)
